@@ -17,9 +17,13 @@ def print_log(message):
 
 def load_config(config_path='config.yaml'):
     """設定ファイルを読み込む"""
-    print_log("設定ファイル 'config.yaml' の読み込みを開始します...")
-    with open(config_path, 'r', encoding='utf-8') as f:
-        config = yaml.safe_load(f)
+    # スクリプトの場所を基準に設定ファイルのパスを解決
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    absolute_config_path = os.path.join(script_dir, config_path)
+
+    print_log(f"設定ファイル '{absolute_config_path}' の読み込みを開始します...")
+    with open(absolute_config_path, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)    
     print_log("設定ファイルの読み込みが完了しました。")
     return config
 
@@ -29,7 +33,7 @@ def load_data(file_path):
     if not os.path.exists(file_path):
         print_log(f"エラー: 入力ファイルが見つかりません: {file_path}")
         return None
-    df = pd.read_csv(file_path)
+    df = pd.read_csv(file_path, encoding='utf-8-sig')
     print_log(f"入力ファイルの読み込みが完了しました。({len(df)}行)")
     return df
 
@@ -46,6 +50,9 @@ def get_texts_to_embed(df, text_column):
 
 def process_in_batches(texts, model_name, model_type, huggingface_name=None, batch_size=32, output_dir='output'):
     """バッチ処理とレジューム機能付きでベクトル化を実行する"""
+    # 出力ディレクトリが存在しない場合は作成
+    os.makedirs(output_dir, exist_ok=True)
+
     model_filename = model_name.replace('/', '__')
     final_path = os.path.join(output_dir, f"vectors_{model_filename}.npy")
     tmp_path = f"{final_path}.tmp"
@@ -88,7 +95,7 @@ def process_in_batches(texts, model_name, model_type, huggingface_name=None, bat
             try:
                 if model_type == 'ollama':
                     for text in batch_texts:
-                        response = ollama.embed(model=model_name, prompt=text)
+                        response = ollama.embed(model=model_name, input=text)
                         batch_vectors.append(response['embedding'])
                 elif model_type == 'sentence-transformers' and model is not None:
                     batch_vectors = model.encode(batch_texts, convert_to_numpy=True).tolist()
@@ -124,6 +131,9 @@ def process_in_batches(texts, model_name, model_type, huggingface_name=None, bat
 
 def save_metadata(output_dir, df, metadata_columns):
     """メタデータを保存する"""
+    # 出力ディレクトリが存在しない場合は作成
+    os.makedirs(output_dir, exist_ok=True)
+
     metadata_path = os.path.join(output_dir, "metadata.json")
     if not os.path.exists(metadata_path):
         print_log("メタデータファイルを新規作成します...")
@@ -144,7 +154,13 @@ def main():
     print_log("ベクトル化処理を開始します。")
     config = load_config()
     
-    df = load_data(config['input_file'])
+    # config.yamlからの相対パスを、config.yamlの場所を基準にした絶対パスに変換
+    config_dir = os.path.dirname(os.path.abspath(os.path.join(os.path.dirname(__file__), 'config.yaml')))
+    input_file_path = os.path.join(config_dir, config['input_file'])
+    # パスを正規化して '..' などを解決
+    input_file_path = os.path.normpath(input_file_path)
+
+    df = load_data(input_file_path)
     if df is None: return
         
     texts = get_texts_to_embed(df, config['text_column'])
