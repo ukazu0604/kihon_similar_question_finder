@@ -25,4 +25,4 @@ models:
 
   - name: sentence-bert-ja
     type: sentence-transformers
-    huggingface_name: "sonoisa/sentence-bert-base-japanese-v2"
+    huggingface_name: "sonoisa/sentence-bert-base-ja-v2"

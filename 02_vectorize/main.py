@@ -119,7 +119,7 @@ def process_in_batches(texts, model_name, model_type, huggingface_name=None, bat
         print_log(f"最終的なベクトルファイルを保存しました: {final_path}")
         return True # 処理成功
     except FileNotFoundError:
-        if os.path.exists(final_path):
+        if os.path.exists(final_path) or not texts_to_process:
              print_log("既に最終ファイルが存在します。正常に完了しています。")
              return True
         else:
