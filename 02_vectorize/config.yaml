@@ -8,9 +8,9 @@ batch_size: 32
 # --- ベクトル化を実行するモデルのリスト ---
 models:
   # --- Sentence-Transformers (日本語で評価の高いモデル) ---
-  - name: sentence-bert-ja
+  - name: GLuCoSE-base-ja
     type: sentence-transformers
-    huggingface_name: "sonoisa/sentence-bert-base-ja-v2"
+    huggingface_name: "pkshatech/GLuCoSE-base-ja"
 
   - name: multilingual-e5-large
     type: sentence-transformers
