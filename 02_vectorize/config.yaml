@@ -3,6 +3,8 @@ input_file: "../01_scraping/fe_siken_all_items.csv"
 text_column: "問題名"
 metadata_columns: ["問題番号", "中項目", "問題名", "リンク", "出典"]
 output_dir: "output"
+batch_size: 32
+batch_size: 32
 
 # --- ベクトル化を実行するモデルのリスト ---
 models:
