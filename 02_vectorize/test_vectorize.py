@@ -80,14 +80,9 @@ class TestVectorization(unittest.TestCase):
         with patch('main.ollama.Client') as MockOllamaClient, \
              patch('main.np.save') as MockNpSave, \
              patch('main.os.rename') as MockOsRename:
-            mock_client_instance = MockOllamaClient.return_value
-            # バッチ処理用の戻り値を設定
-            mock_client_instance.embed.return_value = {
-                'embeddings': [
-                    {'embedding': [0.1, 0.2, 0.3]},
-                    {'embedding': [0.1, 0.2, 0.3]}
-                ]
-            }
+            mock_client_instance = MockOllamaClient.return_value # clientインスタンスのモック
+            # embedが呼ばれるたびに、正しい形式のレスポンスを返すように設定
+            mock_client_instance.embed.return_value = {'embedding': [0.1, 0.2, 0.3]}
 
             result = self.process_in_batches(
                 texts=texts,
@@ -154,12 +149,7 @@ class TestVectorization(unittest.TestCase):
              patch('main.os.rename') as MockOsRename:
             mock_client_instance = MockOllamaClient.return_value
             # 残りのテキスト (2件) 用のダミーベクトル
-            mock_client_instance.embed.return_value = {
-                'embeddings': [
-                    {'embedding': [0.7, 0.8, 0.9]},
-                    {'embedding': [0.7, 0.8, 0.9]}
-                ]
-            }
+            mock_client_instance.embed.return_value = {'embedding': [0.7, 0.8, 0.9]}
 
             result = self.process_in_batches(
                 texts=texts,
@@ -174,6 +164,34 @@ class TestVectorization(unittest.TestCase):
             self.assertTrue(MockNpSave.called)
             # os.rename が呼ばれたことを確認
             self.assertTrue(MockOsRename.called)
+
+    @patch('main.subprocess.run')
+    @patch('main.sys.stdout', new_callable=io.StringIO)
+    @patch('main.sys.stderr', new_callable=io.StringIO)
+    def test_clipboard_on_error(self, mock_stderr, mock_stdout, mock_subprocess_run):
+        print("\n--- Running Clipboard on Error Test ---")
+        # main.load_config がエラーを発生させるようにモック
+        with patch('main.load_config', side_effect=Exception("Test configuration loading error")):
+            # main 関数を呼び出す
+            # main 関数内で例外が捕捉され、subprocess.run が呼ばれることを期待
+            try:
+                from main import main as main_function
+                main_function()
+            except Exception as e:
+                # main 関数内で例外が再raiseされることを確認
+                self.assertIn("Test configuration loading error", str(e))
+            
+            # subprocess.run が呼ばれたことを確認
+            mock_subprocess_run.assert_called_once()
+            
+            # clip.exe が呼ばれたことを確認
+            self.assertEqual(mock_subprocess_run.call_args[0][0][0], 'clip.exe')
+            
+            # クリップボードにコピーされる内容を検証
+            copied_content = mock_subprocess_run.call_args[1]['input'].decode('utf-8')
+            self.assertIn("Test configuration loading error", copied_content)
+            self.assertIn("エラーが発生しました。コンソール出力をクリップボードにコピーします。", copied_content)
+            print("Clipboard on Error Test Passed.")
 
 if __name__ == '__main__':
     unittest.main()

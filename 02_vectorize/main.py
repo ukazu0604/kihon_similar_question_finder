@@ -10,6 +10,9 @@ import argparse
 import json
 import time
 import math
+import sys
+import io
+import subprocess
 
 def print_log(message):
     """タイムスタンプ付きでログを出力する"""
@@ -261,4 +264,25 @@ def main():
         print_log(f"- {model}: {duration}")
 
 if __name__ == '__main__':
-    main()
+    original_stdout = sys.stdout
+    original_stderr = sys.stderr
+    captured_output = io.StringIO()
+    sys.stdout = captured_output
+    sys.stderr = captured_output
+
+    try:
+        main()
+    except Exception as e:
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
+        output_content = captured_output.getvalue()
+        print(f"エラーが発生しました。コンソール出力をクリップボードにコピーします。\n詳細: {e}", file=sys.stderr)
+        try:
+            subprocess.run(['clip.exe'], input=output_content.encode('utf-8'), check=True)
+            print("コンソール出力がクリップボードにコピーされました。", file=sys.stderr)
+        except Exception as clip_e:
+            print(f"クリップボードへのコピーに失敗しました。詳細: {clip_e}", file=sys.stderr)
+        raise
+    finally:
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
