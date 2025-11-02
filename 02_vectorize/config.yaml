@@ -1,0 +1,26 @@
+# --- 基本設定 ---
+input_file: "../01_scraping/fe_siken_all_items.csv"
+text_column: "問題名"
+metadata_columns: ["問題番号", "中項目", "問題名", "リンク", "出典"]
+output_dir: "output"
+
+# --- ベクトル化を実行するモデルのリスト ---
+models:
+  # --- Ollama (インストール済み) ---
+  - name: mxbai-embed-large
+    type: ollama
+
+  - name: nomic-embed-text
+    type: ollama
+
+  - name: embeddinggemma
+    type: ollama
+
+  # --- Sentence-Transformers (日本語で評価の高いモデル) ---
+  - name: multilingual-e5-large
+    type: sentence-transformers
+    huggingface_name: "intfloat/multilingual-e5-large"
+
+  - name: sentence-bert-ja
+    type: sentence-transformers
+    huggingface_name: "sonoisa/sentence-bert-base-ja-cased-v2"
