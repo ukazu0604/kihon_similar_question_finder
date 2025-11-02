@@ -103,31 +103,37 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
         if debug:
             print_log(f"[DEBUG] モデル: {model_name}, バッチサイズ: {batch_size}, バッチ数: {num_batches}")
 
-        for i in tqdm(range(num_batches), desc=f"Vectorizing with {model_name}"):
-            batch_texts = texts_to_process[i * batch_size : (i + 1) * batch_size]
-            
-            batch_vectors = []
-            try:
-                if model_type == 'ollama':
-                    # 複数のテキストを一度に処理する
-                    response = client.embed(model=model_name, input=batch_texts)
-                    batch_vectors = [embedding['embedding'] for embedding in response['embeddings']]
+        with tqdm(total=len(texts_to_process), desc=f"Vectorizing with {model_name}") as pbar:
+            for i in range(num_batches):
+                batch_texts = texts_to_process[i * batch_size : (i + 1) * batch_size]
+                batch_vectors = []
+                try:
+                    if model_type == 'ollama':
+                        # 1件ずつ処理してプログレスバーを都度更新する
+                        for text in batch_texts:
+                            response = client.embed(model=model_name, input=text)
+                            batch_vectors.append(response['embedding'])
+                            pbar.update(1) # 1件ごとにプログレスバーを更新
 
-                elif model_type == 'sentence-transformers':
-                    batch_vectors = model.encode(batch_texts, convert_to_numpy=True).tolist()
-            except Exception as e:
-                print_log(f"\nエラー: バッチ処理中にエラーが発生しました。モデル: {model_name}")
-                print_log(f"詳細: {e}")
-                print_log("ここまでの進捗を保存して処理を中断します。")
-                return False # 処理失敗
+                    elif model_type == 'sentence-transformers':
+                        batch_vectors = model.encode(batch_texts, convert_to_numpy=True).tolist()
+                except Exception as e:
+                    print_log(f"\nエラー: バッチ処理中にエラーが発生しました。モデル: {model_name}")
+                    print_log(f"詳細: {e}")
+                    print_log("ここまでの進捗を保存して処理を中断します。")
+                    return False # 処理失敗
 
-            processed_vectors.extend(batch_vectors)
-            
-            # バッチ完了ごとに中間ファイルを保存
-            try:
-                np.save(tmp_path, np.array(processed_vectors, dtype=object), allow_pickle=True)
-            except Exception as e:
-                print_log(f"\n警告: 中間ファイルの保存に失敗しました。詳細: {e}")
+                processed_vectors.extend(batch_vectors)
+                
+                # バッチ完了ごとに中間ファイルを保存
+                try:
+                    np.save(tmp_path, np.array(processed_vectors, dtype=object), allow_pickle=True)
+                except Exception as e:
+                    print_log(f"\n警告: 中間ファイルの保存に失敗しました。詳細: {e}")
+                
+                # sentence-transformersの場合はバッチ完了後にまとめて更新
+                if model_type == 'sentence-transformers':
+                    pbar.update(len(batch_texts))
 
     # すべての処理が完了したら、一時ファイルをリネーム
     try:
