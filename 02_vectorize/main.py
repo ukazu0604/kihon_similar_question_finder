@@ -97,6 +97,13 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
             timeout = model_config.get('timeout', 30) # デフォルト30秒
             client = ollama.Client(timeout=timeout)
             print_log("モデルのロードが完了しました。")
+            try:
+                print_log(f"モデル '{model_name}' のウォームアップを開始します... (初回は数分以上かかることがあります)")
+                client.embed(model=model_name, input="warm-up")
+                print_log("ウォームアップが完了しました。")
+            except Exception as e:
+                print_log(f"エラー: モデルのウォームアップ中にエラーが発生しました。詳細: {e}")
+                return False
 
         # バッチ処理
         num_batches = math.ceil(len(texts_to_process) / batch_size)
@@ -111,6 +118,8 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
                     if model_type == 'ollama':
                         # 1件ずつ処理してプログレスバーを都度更新する
                         for text in batch_texts:
+                            # プログレスバーに現在処理中のテキストを表示（長すぎる場合は省略）
+                            pbar.set_postfix_str(f"Now: {text[:40]}...")
                             response = client.embed(model=model_name, input=text)
                             batch_vectors.append(response['embedding'])
                             pbar.update(1) # 1件ごとにプログレスバーを更新
