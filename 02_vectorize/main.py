@@ -48,12 +48,20 @@ def get_texts_to_embed(df, text_column):
     print_log(f"テキストの抽出が完了しました。({len(texts)}件)")
     return texts
 
-def process_in_batches(texts, model_name, model_type, huggingface_name=None, batch_size=32, output_dir='output'):
+def process_in_batches(texts, model_config, batch_size=32, output_dir='output', debug=False):
     """バッチ処理とレジューム機能付きでベクトル化を実行する"""
+    if debug:
+        print_log(f"DEBUG: process_in_batches called with model_config: {model_config}")
+
+    model_name = model_config['name']
+    model_type = model_config['type']
+    huggingface_name = model_config.get('huggingface_name')
+
     # 出力ディレクトリが存在しない場合は作成
     os.makedirs(output_dir, exist_ok=True)
 
-    model_filename = model_name.replace('/', '__')
+    # ファイル名に使えない文字を置換
+    model_filename = str(model_name).replace('/', '__').replace('.', '_')
     final_path = os.path.join(output_dir, f"vectors_{model_filename}.npy")
     tmp_path = f"{final_path}.tmp"
 
@@ -79,7 +87,6 @@ def process_in_batches(texts, model_name, model_type, huggingface_name=None, bat
         print_log(f"残り{len(texts_to_process)}件のテキストをベクトル化します...")
         
         # モデルのロード
-        model = None
         if model_type == 'sentence-transformers':
             print_log(f"Sentence-Transformersモデル '{huggingface_name}' をロードします...")
             print_log("--- 注意: 初回実行時はモデルのダウンロードが始まります。(数分〜数十分かかる場合があります) ---")
@@ -88,16 +95,24 @@ def process_in_batches(texts, model_name, model_type, huggingface_name=None, bat
 
         # バッチ処理
         num_batches = math.ceil(len(texts_to_process) / batch_size)
+        if debug:
+            print_log(f"[DEBUG] モデル: {model_name}, バッチサイズ: {batch_size}, バッチ数: {num_batches}")
+
         for i in tqdm(range(num_batches), desc=f"Vectorizing with {model_name}"):
             batch_texts = texts_to_process[i * batch_size : (i + 1) * batch_size]
             
             batch_vectors = []
             try:
                 if model_type == 'ollama':
-                    for text in batch_texts:
-                        response = ollama.embed(model=model_name, input=text)
-                        batch_vectors.append(response['embedding'])
-                elif model_type == 'sentence-transformers' and model is not None:
+                    # Ollamaクライアントにタイムアウトを設定
+                    timeout = model_config.get('timeout', 30) # デフォルト30秒
+                    client = ollama.Client(timeout=timeout)
+
+                    # 複数のテキストを一度に処理する
+                    response = client.embed(model=model_name, input=batch_texts)
+                    batch_vectors = [embedding['embedding'] for embedding in response['embeddings']]
+
+                elif model_type == 'sentence-transformers':
                     batch_vectors = model.encode(batch_texts, convert_to_numpy=True).tolist()
             except Exception as e:
                 print_log(f"\nエラー: バッチ処理中にエラーが発生しました。モデル: {model_name}")
@@ -123,7 +138,7 @@ def process_in_batches(texts, model_name, model_type, huggingface_name=None, bat
              print_log("既に最終ファイルが存在します。正常に完了しています。")
              return True
         else:
-             print_log("エラー: 処理対象のテキストがありませんでした。")
+             print_log(f"エラー: 一時ファイルが見つかりません: {tmp_path}")
              return False
     except Exception as e:
         print_log(f"エラー: 最終ファイルへのリネームに失敗しました。詳細: {e}")
@@ -136,19 +151,20 @@ def save_metadata(output_dir, df, metadata_columns):
 
     metadata_path = os.path.join(output_dir, "metadata.json")
     if not os.path.exists(metadata_path):
-        print_log("メタデータファイルを新規作成します...")
+        print_log("\nメタデータファイルを新規作成します...")
         metadata = df[metadata_columns].to_dict(orient='records')
         with open(metadata_path, 'w', encoding='utf-8') as f:
             json.dump(metadata, f, ensure_ascii=False, indent=2)
         print_log(f"メタデータを保存しました: {metadata_path}")
     else:
-        print_log("メタデータファイルは既に存在するため、作成をスキップしました。")
+        print_log("\nメタデータファイルは既に存在するため、作成をスキップしました。")
 
 def main():
     """メイン処理"""
     parser = argparse.ArgumentParser(description='設定ファイルに基づいてテキストをベクトル化します。')
     parser.add_argument('--model', type=str, help='実行するモデルのnameを個別に指定します。')
     parser.add_argument('--force', action='store_true', help='このフラグを立てると、既存のファイルがあっても強制的に再実行します。')
+    parser.add_argument('--debug', action='store_true', help='デバッグログを有効にします。')
     args = parser.parse_args()
 
     print_log("ベクトル化処理を開始します。")
@@ -179,7 +195,7 @@ def main():
     print_log(f"{len(models_to_run)}件のモデル処理を開始します。")
     for model_config in models_to_run:
         model_name = model_config['name']
-        model_filename = model_name.replace('/', '__')
+        model_filename = str(model_name).replace('/', '__').replace('.', '_')
         final_path = os.path.join(config['output_dir'], f"vectors_{model_filename}.npy")
 
         print_log(f"\n========== モデル '{model_name}' の処理を開始します ==========")
@@ -194,7 +210,7 @@ def main():
         if args.force:
             if os.path.exists(final_path):
                 print_log(f"--forceフラグが指定されたため、既存のファイルを削除します: {final_path}")
-                os.remove(final_path)
+                os.remove(final_path)            
             tmp_path = f"{final_path}.tmp"
             if os.path.exists(tmp_path):
                 print_log(f"--forceフラグが指定されたため、既存の中間ファイルを削除します: {tmp_path}")
@@ -202,11 +218,10 @@ def main():
 
         process_in_batches(
             texts=texts,
-            model_name=model_name,
-            model_type=model_config['type'],
-            huggingface_name=model_config.get('huggingface_name'),
+            model_config=model_config,
             batch_size=config['batch_size'],
-            output_dir=config['output_dir']
+            output_dir=config['output_dir'],
+            debug=args.debug
         )
 
     print_log("\n========== すべてのモデル処理が完了しました ==========")

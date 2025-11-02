@@ -11,12 +11,15 @@ models:
   # --- Ollama (インストール済み) ---
   - name: mxbai-embed-large
     type: ollama
+    timeout: 60 # タイムアウト（秒）
 
   - name: nomic-embed-text
     type: ollama
+    timeout: 60 # タイムアウト（秒）
 
   - name: embeddinggemma
     type: ollama
+    timeout: 60 # タイムアウト（秒）
 
   # --- Sentence-Transformers (日本語で評価の高いモデル) ---
   - name: multilingual-e5-large
