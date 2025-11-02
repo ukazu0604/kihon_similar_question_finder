@@ -92,6 +92,11 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
             print_log("--- 注意: 初回実行時はモデルのダウンロードが始まります。(数分〜数十分かかる場合があります) ---")
             model = SentenceTransformer(huggingface_name)
             print_log("モデルのロードが完了しました。")
+        elif model_type == 'ollama':
+            # Ollamaクライアントにタイムアウトを設定
+            timeout = model_config.get('timeout', 30) # デフォルト30秒
+            client = ollama.Client(timeout=timeout)
+            print_log("モデルのロードが完了しました。")
 
         # バッチ処理
         num_batches = math.ceil(len(texts_to_process) / batch_size)
@@ -104,10 +109,6 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
             batch_vectors = []
             try:
                 if model_type == 'ollama':
-                    # Ollamaクライアントにタイムアウトを設定
-                    timeout = model_config.get('timeout', 30) # デフォルト30秒
-                    client = ollama.Client(timeout=timeout)
-
                     # 複数のテキストを一度に処理する
                     response = client.embed(model=model_name, input=batch_texts)
                     batch_vectors = [embedding['embedding'] for embedding in response['embeddings']]
@@ -134,10 +135,14 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
         print_log(f"最終的なベクトルファイルを保存しました: {final_path}")
         return True # 処理成功
     except FileNotFoundError:
-        if os.path.exists(final_path) or not texts_to_process:
+        # 既に最終ファイルが存在する場合、または処理対象が元々なかった場合
+        if os.path.exists(final_path):
              print_log("既に最終ファイルが存在します。正常に完了しています。")
              return True
-        else:
+        elif not texts: # 入力テキストが0件だった場合
+             print_log("処理対象のテキストが0件のため、ファイルは作成されませんでした。")
+             return True
+        else: # 上記以外で一時ファイルがないのはエラー
              print_log(f"エラー: 一時ファイルが見つかりません: {tmp_path}")
              return False
     except Exception as e:
@@ -192,6 +197,8 @@ def main():
             print_log(f"エラー: 指定されたモデル名 '{args.model}' がconfig.yamlに見つかりません。")
             return
 
+    processing_times = {}
+
     print_log(f"{len(models_to_run)}件のモデル処理を開始します。")
     for model_config in models_to_run:
         model_name = model_config['name']
@@ -216,15 +223,27 @@ def main():
                 print_log(f"--forceフラグが指定されたため、既存の中間ファイルを削除します: {tmp_path}")
                 os.remove(tmp_path)
 
-        process_in_batches(
+        start_time = time.time()
+        success = process_in_batches(
             texts=texts,
             model_config=model_config,
             batch_size=config['batch_size'],
             output_dir=config['output_dir'],
             debug=args.debug
         )
+        end_time = time.time()
+
+        if success:
+            duration = end_time - start_time
+            processing_times[model_name] = f"{duration:.2f}秒"
+            print_log(f"モデル '{model_name}' の処理が完了しました。(処理時間: {duration:.2f}秒)")
+        else:
+            print_log(f"モデル '{model_name}' の処理中にエラーが発生したため、中断されました。")
 
     print_log("\n========== すべてのモデル処理が完了しました ==========")
+    print_log("各モデルの処理時間:")
+    for model, duration in processing_times.items():
+        print_log(f"- {model}: {duration}")
 
 if __name__ == '__main__':
     main()
