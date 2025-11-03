@@ -184,6 +184,7 @@ def save_metadata(output_dir, df, metadata_columns):
 
 def main():
     """メイン処理"""
+    raise Exception("Forced test error for clipboard functionality")
     parser = argparse.ArgumentParser(description='設定ファイルに基づいてテキストをベクトル化します。')
     parser.add_argument('--model', type=str, help='実行するモデルのnameを個別に指定します。')
     parser.add_argument('--force', action='store_true', help='このフラグを立てると、既存のファイルがあっても強制的に再実行します。')

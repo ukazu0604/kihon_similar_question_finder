@@ -1,0 +1,13 @@
+
+input_file: "dummy_data.csv"
+text_column: "問題名"
+metadata_columns: ["問題番号", "中項目", "問題名", "リンク", "出典"]
+output_dir: "test_output"
+batch_size: 2
+models:
+  - name: mxbai-embed-large
+    type: ollama
+    timeout: 5 # テスト用に短く設定
+  - name: intfloat/multilingual-e5-large
+    type: sentence-transformers
+    huggingface_name: intfloat/multilingual-e5-large

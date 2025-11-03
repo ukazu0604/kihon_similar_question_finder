@@ -4,6 +4,8 @@ import shutil
 import yaml
 import pandas as pd
 import numpy as np
+import io
+import runpy
 from unittest.mock import patch, MagicMock
 
 # テスト用のダミーデータと設定
@@ -44,18 +46,6 @@ class TestVectorization(unittest.TestCase):
         with open(cls.DUMMY_CSV_PATH, "w", encoding="utf-8-sig") as f: # utf-8-sigで保存
             f.write(DUMMY_CSV_CONTENT)
 
-        # main.py の関数をインポート
-        # 相対インポートはテストスクリプトの実行方法に依存するため、今回はパスを追加して絶対インポートを試みます。
-        import sys
-        # 02_vectorize ディレクトリの親ディレクトリをパスに追加
-        sys.path.insert(0, os.path.dirname(__file__)) # スクリプトのあるディレクトリを優先
-        from main import load_config, load_data, get_texts_to_embed, process_in_batches, save_metadata
-        cls.load_config = staticmethod(load_config)
-        cls.load_data = staticmethod(load_data)
-        cls.get_texts_to_embed = staticmethod(get_texts_to_embed)
-        cls.process_in_batches = staticmethod(process_in_batches)
-        cls.save_metadata = staticmethod(save_metadata)
-
 
     @classmethod
     def tearDownClass(cls):
@@ -70,9 +60,9 @@ class TestVectorization(unittest.TestCase):
 
     def test_ollama_vectorization(self):
         print("\n--- Running Ollama Vectorization Test ---")
-        config = self.load_config(self.CONFIG_PATH)
-        df = self.load_data(self.DUMMY_CSV_PATH)
-        texts = self.get_texts_to_embed(df, config['text_column'])
+        config = main.load_config(self.CONFIG_PATH)
+        df = main.load_data(self.DUMMY_CSV_PATH)
+        texts = main.get_texts_to_embed(df, config['text_column'])
 
         ollama_config = next(m for m in config['models'] if m['type'] == 'ollama')
 
@@ -84,7 +74,7 @@ class TestVectorization(unittest.TestCase):
             # embedが呼ばれるたびに、正しい形式のレスポンスを返すように設定
             mock_client_instance.embed.return_value = {'embedding': [0.1, 0.2, 0.3]}
 
-            result = self.process_in_batches(
+            result = main.process_in_batches(
                 texts=texts,
                 model_config=ollama_config,
                 batch_size=config['batch_size'],
@@ -101,9 +91,9 @@ class TestVectorization(unittest.TestCase):
 
     def test_sentence_transformers_vectorization(self):
         print("\n--- Running Sentence-Transformers Vectorization Test ---")
-        config = self.load_config(self.CONFIG_PATH)
-        df = self.load_data(self.DUMMY_CSV_PATH)
-        texts = self.get_texts_to_embed(df, config['text_column'])
+        config = main.load_config(self.CONFIG_PATH)
+        df = main.load_data(self.DUMMY_CSV_PATH)
+        texts = main.get_texts_to_embed(df, config['text_column'])
 
         st_config = next(m for m in config['models'] if m['type'] == 'sentence-transformers')
 
@@ -114,7 +104,7 @@ class TestVectorization(unittest.TestCase):
             mock_st_instance = MockST.return_value
             mock_st_instance.encode.return_value = np.array([[0.4, 0.5, 0.6], [0.7, 0.8, 0.9]]) # バッチサイズ2に対応
 
-            result = self.process_in_batches(
+            result = main.process_in_batches(
                 texts=texts,
                 model_config=st_config,
                 batch_size=config['batch_size'],
@@ -129,9 +119,9 @@ class TestVectorization(unittest.TestCase):
 
     def test_resume_functionality(self):
         print("\n--- Running Resume Functionality Test ---")
-        config = self.load_config(self.CONFIG_PATH)
-        df = self.load_data(self.DUMMY_CSV_PATH)
-        texts = self.get_texts_to_embed(df, config['text_column'])
+        config = main.load_config(self.CONFIG_PATH)
+        df = main.load_data(self.DUMMY_CSV_PATH)
+        texts = main.get_texts_to_embed(df, config['text_column'])
 
         ollama_config = next(m for m in config['models'] if m['type'] == 'ollama')
 
@@ -151,7 +141,7 @@ class TestVectorization(unittest.TestCase):
             # 残りのテキスト (2件) 用のダミーベクトル
             mock_client_instance.embed.return_value = {'embedding': [0.7, 0.8, 0.9]}
 
-            result = self.process_in_batches(
+            result = main.process_in_batches(
                 texts=texts,
                 model_config=ollama_config,
                 batch_size=config['batch_size'],
@@ -171,27 +161,23 @@ class TestVectorization(unittest.TestCase):
     def test_clipboard_on_error(self, mock_stderr, mock_stdout, mock_subprocess_run):
         print("\n--- Running Clipboard on Error Test ---")
         # main.load_config がエラーを発生させるようにモック
-        with patch('main.load_config', side_effect=Exception("Test configuration loading error")):
-            # main 関数を呼び出す
-            # main 関数内で例外が捕捉され、subprocess.run が呼ばれることを期待
-            try:
-                from main import main as main_function
-                main_function()
-            except Exception as e:
-                # main 関数内で例外が再raiseされることを確認
-                self.assertIn("Test configuration loading error", str(e))
+        with patch('main.load_config', side_effect=Exception("Test configuration loading error")), \
+             self.assertRaises(Exception) as cm:
+            # main.py をスクリプトとして実行し、if __name__ == '__main__' ブロックを動作させる
+            runpy.run_path('main.py', run_name='__main__')
+        self.assertIn("Test configuration loading error", str(cm.exception))
             
-            # subprocess.run が呼ばれたことを確認
-            mock_subprocess_run.assert_called_once()
-            
-            # clip.exe が呼ばれたことを確認
-            self.assertEqual(mock_subprocess_run.call_args[0][0][0], 'clip.exe')
-            
-            # クリップボードにコピーされる内容を検証
-            copied_content = mock_subprocess_run.call_args[1]['input'].decode('utf-8')
-            self.assertIn("Test configuration loading error", copied_content)
-            self.assertIn("エラーが発生しました。コンソール出力をクリップボードにコピーします。", copied_content)
-            print("Clipboard on Error Test Passed.")
+        # subprocess.run が呼ばれたことを確認
+        mock_subprocess_run.assert_called_once()
+        
+        # clip.exe が呼ばれたことを確認
+        self.assertEqual(mock_subprocess_run.call_args[0][0][0], 'clip.exe')
+        
+        # クリップボードにコピーされる内容を検証
+        copied_content = mock_subprocess_run.call_args[1]['input'].decode('utf-8')
+        self.assertIn("Test configuration loading error", mock_stderr.getvalue())
+        self.assertIn("エラーが発生しました。コンソール出力をクリップボードにコピーします。", mock_stderr.getvalue())
+        print("Clipboard on Error Test Passed.")
 
 if __name__ == '__main__':
     unittest.main()

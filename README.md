@@ -65,3 +65,19 @@
 ### 設定の変更
 
 ベクトル化するモデルを追加・変更したい場合は、`02_vectorize/config.yaml` ファイルを編集してください。
+
+### Step 2-1: テストの実行 (任意)
+
+ベクトル化処理の動作を確認するために、テストを実行することができます。
+
+1.  `02_vectorize/tests` ディレクトリに移動します。
+    ```bash
+    cd 02_vectorize/tests
+    ```
+2.  テスト実行用のスクリプトを実行します。
+    ```bash
+    py run_tests_with_clipboard.py
+    ```
+    - **単体テスト (`test_vectorize.py`)**: Ollamaの起動は不要です。
+    - **結合テスト (`test_integration.py`)**: Ollamaアプリケーションを起動し、`config.yaml` に記載のモデルをインストールしておく必要があります。
+    - テストが失敗した場合、エラー内容が自動でクリップボードにコピーされます。
