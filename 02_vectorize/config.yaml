@@ -8,22 +8,22 @@ batch_size: 32
 # --- ベクトル化を実行するモデルのリスト ---
 models:
   # --- Sentence-Transformers (日本語で評価の高いモデル) ---
-  - name: GLuCoSE-base-ja
-    type: sentence-transformers
-    huggingface_name: "pkshatech/GLuCoSE-base-ja"
-
-  - name: multilingual-e5-large
-    type: sentence-transformers
-    huggingface_name: "intfloat/multilingual-e5-large"
+  # - name: GLuCoSE-base-ja
+  #   type: sentence-transformers
+  #   huggingface_name: "pkshatech/GLuCoSE-base-ja"
+  #
+  # - name: multilingual-e5-large
+  #   type: sentence-transformers
+  #   huggingface_name: "intfloat/multilingual-e5-large"
 
   # --- Ollama (インストール済み) ---
-  - name: nomic-embed-text
-    type: ollama
-    timeout: 36000 # タイムアウト（秒）
-
-  # - name: embeddinggemma
+  # - name: nomic-embed-text
   #   type: ollama
   #   timeout: 36000 # タイムアウト（秒）
+
+  - name: embeddinggemma
+    type: ollama
+    timeout: 36000 # タイムアウト（秒）
 
   # - name: mxbai-embed-large
   #   type: ollama

@@ -34,7 +34,7 @@ class TestOllamaEmbeddingGemmaSimple(unittest.TestCase):
             print(f"\n--- モデル '{model_name}' のベクトル化テストを開始します ---")
             print(f"PCのスペックにより数分以上かかる場合があります...")
 
-            response = client.embed(model=model_name, prompt=test_text)
+            response = client.embed(model=model_name, input=test_text)
 
             # レスポンスの基本的な検証
             self.assertIn('embedding', response)
