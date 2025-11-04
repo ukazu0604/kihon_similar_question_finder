@@ -1,11 +1,13 @@
 import unittest
 import os
+import main
 import shutil
 import yaml
 import pandas as pd
 import numpy as np
 import io
 import runpy
+import sys
 from unittest.mock import patch, MagicMock
 
 # テスト用のダミーデータと設定
@@ -160,12 +162,16 @@ class TestVectorization(unittest.TestCase):
     @patch('main.sys.stderr', new_callable=io.StringIO)
     def test_clipboard_on_error(self, mock_stderr, mock_stdout, mock_subprocess_run):
         print("\n--- Running Clipboard on Error Test ---")
-        # main.load_config がエラーを発生させるようにモック
-        with patch('main.load_config', side_effect=Exception("Test configuration loading error")), \
-             self.assertRaises(Exception) as cm:
+        # 存在しない設定ファイルを指定して、main.pyがエラーを発生するように仕向ける
+        # main.load_config がエラーを発生させるようにモックする
+        with patch('builtins.open', side_effect=FileNotFoundError("Test: Config file not found")), \
+             self.assertRaises(FileNotFoundError) as cm:
+            # main.py の絶対パスを取得
+            # このテストファイルからの相対パスで main.py を見つける
+            main_py_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'main.py')
             # main.py をスクリプトとして実行し、if __name__ == '__main__' ブロックを動作させる
-            runpy.run_path('main.py', run_name='__main__')
-        self.assertIn("Test configuration loading error", str(cm.exception))
+            runpy.run_path(main_py_path, run_name='__main__')
+        self.assertIn("Test: Config file not found", str(cm.exception))
             
         # subprocess.run が呼ばれたことを確認
         mock_subprocess_run.assert_called_once()
@@ -174,8 +180,8 @@ class TestVectorization(unittest.TestCase):
         self.assertEqual(mock_subprocess_run.call_args[0][0][0], 'clip.exe')
         
         # クリップボードにコピーされる内容を検証
-        copied_content = mock_subprocess_run.call_args[1]['input'].decode('utf-8')
-        self.assertIn("Test configuration loading error", mock_stderr.getvalue())
+        copied_content = mock_subprocess_run.call_args[1]['input'].decode('cp932', errors='replace')
+        self.assertIn("Test: Config file not found", mock_stderr.getvalue())
         self.assertIn("エラーが発生しました。コンソール出力をクリップボードにコピーします。", mock_stderr.getvalue())
         print("Clipboard on Error Test Passed.")
 

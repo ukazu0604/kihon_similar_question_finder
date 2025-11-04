@@ -21,10 +21,10 @@ models:
     type: ollama
     timeout: 36000 # タイムアウト（秒）
 
-  - name: embeddinggemma
-    type: ollama
-    timeout: 36000 # タイムアウト（秒）
+  # - name: embeddinggemma
+  #   type: ollama
+  #   timeout: 36000 # タイムアウト（秒）
 
-  - name: mxbai-embed-large
-    type: ollama
-    timeout: 36000 # タイムアウト（秒）
+  # - name: mxbai-embed-large
+  #   type: ollama
+  #   timeout: 36000 # タイムアウト（秒）
