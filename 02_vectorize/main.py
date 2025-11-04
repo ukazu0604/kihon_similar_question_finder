@@ -102,7 +102,7 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
             print_log("モデルのロードが完了しました。")
             try:
                 print_log(f"モデル '{model_name}' のウォームアップを開始します... (初回は数分以上かかることがあります)")
-                client.embed(model=model_name, input="warm-up")
+                client.embeddings(model=model_name, prompt="warm-up")
                 print_log("ウォームアップが完了しました。")
             except Exception as e:
                 print_log(f"エラー: モデルのウォームアップ中にエラーが発生しました。詳細: {e}")
@@ -123,7 +123,12 @@ def process_in_batches(texts, model_config, batch_size=32, output_dir='output', 
                         for text in batch_texts:
                             # プログレスバーに現在処理中のテキストを表示（長すぎる場合は省略）
                             pbar.set_postfix_str(f"Now: {text[:40]}...")
-                            response = client.embed(model=model_name, input=text)
+                            # 空白文字のみのテキストはベクトル化をスキップ
+                            if not text.strip():
+                                batch_vectors.append([]) # 空のリストを追加
+                                pbar.update(1)
+                                continue
+                            response = client.embeddings(model=model_name, prompt=text)
                             batch_vectors.append(response['embedding'])
                             pbar.update(1) # 1件ごとにプログレスバーを更新
 

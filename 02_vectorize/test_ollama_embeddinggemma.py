@@ -33,13 +33,13 @@ class TestOllamaEmbeddingGemmaSimple(unittest.TestCase):
 
             print(f"\n--- モデル '{model_name}' のベクトル化テストを開始します ---")
             print(f"PCのスペックにより数分以上かかる場合があります...")
-
-            response = client.embed(model=model_name, input=test_text)
+            
+            response = client.embeddings(model=model_name, prompt=test_text)
 
             # レスポンスの基本的な検証
-            self.assertIn('embedding', response)
-            self.assertIsInstance(response['embedding'], list)
-            self.assertGreater(len(response['embedding']), 0)
+            self.assertTrue(hasattr(response, 'embedding'), "レスポンスオブジェクトに 'embedding' プロパティがありません。")
+            self.assertIsInstance(response['embedding'], list, "'embedding' の値がリストではありません。")
+            self.assertGreater(len(response['embedding']), 0, "ベクトルが空です。")
 
             print(f"--- モデル '{model_name}' のベクトル化テストに成功しました ---")
         except ResponseError as e:
