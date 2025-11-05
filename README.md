@@ -64,21 +64,31 @@
 
 ベクトル化するモデルを追加・変更したい場合は、`02_vectorize/config.yaml` ファイルを編集してください。
 
-### Step 3: 類似検索結果のHTML出力
+### Step 3: 類似度計算とJSON出力
 
-ベクトル化したデータを使って、中項目ごとに類似問題をまとめたHTMLファイルを出力します。
+ベクトル化したデータを使って、中項目ごとに類似問題を計算し、結果をJSONファイルとして出力します。このJSONは、HTMLレポートで類似問題を表示するためのデータソースとなります。
 
-1.  **プロジェクトのルートディレクトリにいることを確認します。** (`cd ..` などで `02_vectorize` から移動します)
-2.  `03_html_output` のスクリプトを実行します。`--csv_path` にステップ2で生成されたCSVファイルを指定します。
-    (スクリプト修正により、`--csv_path` は省略可能です)
+1.  `03_html_output` ディレクトリに移動します。
     ```bash
-    # config.yamlの最初のモデルでHTMLを生成
-    python 03_html_output/main.py
-
-    # モデルを指定して生成する場合
-    python 03_html_output/main.py --model mxbai-embed-large
+    cd 03_html_output
     ```
-3.  成功すると、`similar_finder` ディレクトリが作成され、その中に `index.html` と各カテゴリの詳細ページが生成されます。`index.html` をブラウザで開いて結果を確認してください。
+2.  スクリプトを実行します。
+    ```bash
+    # config.yamlの最初のモデルで類似度を計算
+    py main.py
+
+    # モデルを指定して計算する場合
+    py main.py --model mxbai-embed-large
+    ```
+3.  成功すると、`03_html_output` ディレクトリに `similar_results.json` が生成されます。
+
+### Step 4: HTMLレポートの確認
+
+生成された `similar_results.json` を `index.html` が読み込むことで、ブラウザ上で類似問題を確認できます。
+**このレポートは、GitHub Pagesなどの静的サイトホスティングサービスでの閲覧を想定しています。**
+
+1.  `03_html_output/index.html` をブラウザで開きます。
+2.  各問題に対応する類似問題が表示されます。
 
 ### Step 2-1: テストの実行 (任意)
 

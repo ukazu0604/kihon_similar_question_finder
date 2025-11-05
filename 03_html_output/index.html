@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>基本情報技術者試験 類似問題ファインダー</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    .header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .header p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+    .model-info {
+      background: #f8f9fa;
+      padding: 15px 20px;
+      border-bottom: 1px solid #e0e0e0;
+      font-size: 14px;
+      color: #666;
+    }
+    .major-category {
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .major-title {
+      background: #f8f9fa;
+      padding: 15px 20px;
+      font-weight: bold;
+      color: #333;
+      font-size: 16px;
+    }
+    .middle-category-item {
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .middle-category-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #333;
+      transition: background 0.2s;
+    }
+    .middle-category-link:hover { background: #f8f9fa; }
+    .middle-category-link:active { background: #e9ecef; }
+    .category-name { font-size: 15px; }
+    .problem-count {
+      background: #667eea;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+    }
+    .arrow { color: #999; font-size: 18px; }
+
+    /* 詳細ページ */
+    #detail-view {
+      display: none;
+      background: #f5f5f5;
+      min-height: 100vh;
+    }
+    .detail-header {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    .detail-header h1 { font-size: 20px; }
+    .detail-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .problem-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .main-problem {
+      border-left: 4px solid #667eea;
+      padding-left: 16px;
+      margin-bottom: 20px;
+    }
+    .problem-number { font-size: 12px; color: #999; margin-bottom: 5px; }
+    .problem-title { font-size: 16px; font-weight: bold; color: #333; margin-bottom: 8px; }
+    .problem-link {
+      display: inline-block;
+      color: #667eea;
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .problem-source { font-size: 12px; color: #999; }
+    .similar-section { margin-top: 20px; padding-top: 20px; border-top: 1px solid #e0e0e0; }
+    .similar-title { font-size: 14px; color: #666; margin-bottom: 15px; font-weight: bold; }
+    .similar-item {
+      background: #f8f9fa;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 10px;
+    }
+    .similarity-badge {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 10px;
+      font-size: 11px;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="index-view">
+    <div class="header">
+      <h1>📚 類似問題ファインダー</h1>
+      <p>基本情報技術者試験</p>
+    </div>
+    <div class="model-info" id="model-info">読み込み中...</div>
+    <div id="category-list"></div>
+  </div>
+
+  <div id="detail-view">
+    <div class="detail-header">
+      <a href="#" class="back-button" id="back-button">‹ 戻る</a>
+      <h1 id="detail-title"></h1>
+    </div>
+    <div class="detail-container" id="detail-container"></div>
+  </div>
+
+  <script>
+    let data = {};
+    let categoryList = document.getElementById('category-list');
+    let indexView = document.getElementById('index-view');
+    let detailView = document.getElementById('detail-view');
+    let modelInfo = document.getElementById('model-info');
+
+    async function loadData() {
+      try {
+        const res = await fetch('similar_results.json');
+        data = await res.json();
+        modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
+        renderIndex(data.categories);
+      } catch (e) {
+        modelInfo.textContent = 'データ読み込みエラー';
+        console.error(e);
+      }
+    }
+
+    function renderIndex(categories) {
+      categoryList.innerHTML = '';
+      for (const [middleCat, problems] of Object.entries(categories)) {
+        const item = document.createElement('div');
+        item.className = 'middle-category-item';
+        item.innerHTML = `
+          <a href="#" class="middle-category-link" data-cat="${middleCat}">
+            <span class="category-name">${middleCat}</span>
+            <div>
+              <span class="problem-count">${problems.length}問</span>
+              <span class="arrow">›</span>
+            </div>
+          </a>
+        `;
+        categoryList.appendChild(item);
+      }
+
+      // イベント設定
+      document.querySelectorAll('.middle-category-link').forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          const cat = e.currentTarget.dataset.cat;
+          showDetail(cat);
+        });
+      });
+    }
+
+    function showDetail(middleCat) {
+      indexView.style.display = 'none';
+      detailView.style.display = 'block';
+      document.getElementById('detail-title').textContent = middleCat;
+      const container = document.getElementById('detail-container');
+      container.innerHTML = '';
+
+      const problems = data.categories[middleCat];
+      problems.forEach(item => {
+        const main = item.main_problem;
+        const card = document.createElement('div');
+        card.className = 'problem-card';
+        let html = `
+          <div class="main-problem">
+            <div class="problem-number">問題番号: ${main.問題番号}</div>
+            <div class="problem-title">${main.問題名}</div>
+            <a href="${main.リンク}" target="_blank" class="problem-link">問題を見る ›</a>
+            <div class="problem-source">出典: ${main.出典}</div>
+          </div>
+        `;
+        if (item.similar_problems && item.similar_problems.length > 0) {
+          html += `<div class="similar-section">
+                    <div class="similar-title">📊 類似問題（類似度順）</div>`;
+          item.similar_problems.slice(0, 5).forEach(sim => {
+            const s = sim.data;
+            html += `
+              <div class="similar-item">
+                <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
+                <div class="problem-number">問題番号: ${s.問題番号}</div>
+                <div class="problem-title">${s.問題名}</div>
+                <a href="${s.リンク}" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: ${s.出典}</div>
+              </div>
+            `;
+          });
+          html += `</div>`;
+        }
+        card.innerHTML = html;
+        container.appendChild(card);
+      });
+    }
+
+    document.getElementById('back-button').addEventListener('click', e => {
+      e.preventDefault();
+      detailView.style.display = 'none';
+      indexView.style.display = 'block';
+      window.scrollTo(0, 0);
+    });
+
+    loadData();
+  </script>
+</body>
+</html>
