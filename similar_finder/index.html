@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>基本情報技術者試験 類似問題ファインダー</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .model-info {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e0e0e0;
+            font-size: 14px;
+            color: #666;
+        }
+        .major-category {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .major-title {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+        .middle-category-list {
+            list-style: none;
+        }
+        .middle-category-item {
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .middle-category-item:last-child {
+            border-bottom: none;
+        }
+        .middle-category-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #333;
+            transition: background 0.2s;
+        }
+        .middle-category-link:hover {
+            background: #f8f9fa;
+        }
+        .middle-category-link:active {
+            background: #e9ecef;
+        }
+        .category-name {
+            font-size: 15px;
+        }
+        .problem-count {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 13px;
+        }
+        .arrow {
+            color: #999;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📚 類似問題ファインダー</h1>
+            <p>基本情報技術者試験</p>
+        </div>
+        <div class="model-info">
+            使用モデル: embeddinggemma
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">1.基礎理論</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/応用数学.html" class="middle-category-link">
+                        <span class="category-name">応用数学</span>
+                        <div>
+                            <span class="problem-count">51問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/情報に関する理論.html" class="middle-category-link">
+                        <span class="category-name">情報に関する理論</span>
+                        <div>
+                            <span class="problem-count">42問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/計測・制御に関する理論.html" class="middle-category-link">
+                        <span class="category-name">計測・制御に関する理論</span>
+                        <div>
+                            <span class="problem-count">11問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/通信に関する理論.html" class="middle-category-link">
+                        <span class="category-name">通信に関する理論</span>
+                        <div>
+                            <span class="problem-count">13問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/離散数学.html" class="middle-category-link">
+                        <span class="category-name">離散数学</span>
+                        <div>
+                            <span class="problem-count">109問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">10.ネットワーク</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/データ通信と制御.html" class="middle-category-link">
+                        <span class="category-name">データ通信と制御</span>
+                        <div>
+                            <span class="problem-count">59問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ネットワーク応用.html" class="middle-category-link">
+                        <span class="category-name">ネットワーク応用</span>
+                        <div>
+                            <span class="problem-count">25問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ネットワーク方式.html" class="middle-category-link">
+                        <span class="category-name">ネットワーク方式</span>
+                        <div>
+                            <span class="problem-count">44問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ネットワーク管理.html" class="middle-category-link">
+                        <span class="category-name">ネットワーク管理</span>
+                        <div>
+                            <span class="problem-count">9問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/通信プロトコル.html" class="middle-category-link">
+                        <span class="category-name">通信プロトコル</span>
+                        <div>
+                            <span class="problem-count">70問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">11.セキュリティ</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/セキュリティ実装技術.html" class="middle-category-link">
+                        <span class="category-name">セキュリティ実装技術</span>
+                        <div>
+                            <span class="problem-count">39問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/セキュリティ技術評価.html" class="middle-category-link">
+                        <span class="category-name">セキュリティ技術評価</span>
+                        <div>
+                            <span class="problem-count">6問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/情報セキュリティ.html" class="middle-category-link">
+                        <span class="category-name">情報セキュリティ</span>
+                        <div>
+                            <span class="problem-count">130問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/情報セキュリティ対策.html" class="middle-category-link">
+                        <span class="category-name">情報セキュリティ対策</span>
+                        <div>
+                            <span class="problem-count">59問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/情報セキュリティ管理.html" class="middle-category-link">
+                        <span class="category-name">情報セキュリティ管理</span>
+                        <div>
+                            <span class="problem-count">32問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">12.システム開発技術</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/システム結合・適格性テスト.html" class="middle-category-link">
+                        <span class="category-name">システム結合・適格性テスト</span>
+                        <div>
+                            <span class="problem-count">3問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ソフトウェア方式設計・詳細設計.html" class="middle-category-link">
+                        <span class="category-name">ソフトウェア方式設計・詳細設計</span>
+                        <div>
+                            <span class="problem-count">60問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ソフトウェア構築.html" class="middle-category-link">
+                        <span class="category-name">ソフトウェア構築</span>
+                        <div>
+                            <span class="problem-count">40問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ソフトウェア結合・適格性テスト.html" class="middle-category-link">
+                        <span class="category-name">ソフトウェア結合・適格性テスト</span>
+                        <div>
+                            <span class="problem-count">13問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ソフトウェア要件定義.html" class="middle-category-link">
+                        <span class="category-name">ソフトウェア要件定義</span>
+                        <div>
+                            <span class="problem-count">34問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/保守・廃棄.html" class="middle-category-link">
+                        <span class="category-name">保守・廃棄</span>
+                        <div>
+                            <span class="problem-count">10問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">13.ソフトウェア開発管理技術</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/構成管理・変更管理.html" class="middle-category-link">
+                        <span class="category-name">構成管理・変更管理</span>
+                        <div>
+                            <span class="problem-count">5問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/知的財産適用管理.html" class="middle-category-link">
+                        <span class="category-name">知的財産適用管理</span>
+                        <div>
+                            <span class="problem-count">3問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/開発プロセス・手法.html" class="middle-category-link">
+                        <span class="category-name">開発プロセス・手法</span>
+                        <div>
+                            <span class="problem-count">41問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">14.プロジェクトマネジメント</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトのコスト.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトのコスト</span>
+                        <div>
+                            <span class="problem-count">25問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトのコミュニケーション.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトのコミュニケーション</span>
+                        <div>
+                            <span class="problem-count">4問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトのスコープ.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトのスコープ</span>
+                        <div>
+                            <span class="problem-count">12問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトのリスク.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトのリスク</span>
+                        <div>
+                            <span class="problem-count">7問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトの品質.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトの品質</span>
+                        <div>
+                            <span class="problem-count">9問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトの時間.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトの時間</span>
+                        <div>
+                            <span class="problem-count">48問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトの資源.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトの資源</span>
+                        <div>
+                            <span class="problem-count">10問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プロジェクトマネジメント.html" class="middle-category-link">
+                        <span class="category-name">プロジェクトマネジメント</span>
+                        <div>
+                            <span class="problem-count">3問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">15.サービスマネジメント</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/サービスの設計・移行.html" class="middle-category-link">
+                        <span class="category-name">サービスの設計・移行</span>
+                        <div>
+                            <span class="problem-count">22問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/サービスの運用.html" class="middle-category-link">
+                        <span class="category-name">サービスの運用</span>
+                        <div>
+                            <span class="problem-count">41問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/サービスマネジメント.html" class="middle-category-link">
+                        <span class="category-name">サービスマネジメント</span>
+                        <div>
+                            <span class="problem-count">13問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/サービスマネジメントプロセス.html" class="middle-category-link">
+                        <span class="category-name">サービスマネジメントプロセス</span>
+                        <div>
+                            <span class="problem-count">20問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ファシリティマネジメント.html" class="middle-category-link">
+                        <span class="category-name">ファシリティマネジメント</span>
+                        <div>
+                            <span class="problem-count">6問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">16.システム監査</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/システム監査.html" class="middle-category-link">
+                        <span class="category-name">システム監査</span>
+                        <div>
+                            <span class="problem-count">69問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/内部統制.html" class="middle-category-link">
+                        <span class="category-name">内部統制</span>
+                        <div>
+                            <span class="problem-count">8問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">17.システム戦略</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/システム活用促進・評価.html" class="middle-category-link">
+                        <span class="category-name">システム活用促進・評価</span>
+                        <div>
+                            <span class="problem-count">21問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ソリューションビジネス.html" class="middle-category-link">
+                        <span class="category-name">ソリューションビジネス</span>
+                        <div>
+                            <span class="problem-count">21問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/情報システム戦略.html" class="middle-category-link">
+                        <span class="category-name">情報システム戦略</span>
+                        <div>
+                            <span class="problem-count">41問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/業務プロセス.html" class="middle-category-link">
+                        <span class="category-name">業務プロセス</span>
+                        <div>
+                            <span class="problem-count">15問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">18.システム企画</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/システム化計画.html" class="middle-category-link">
+                        <span class="category-name">システム化計画</span>
+                        <div>
+                            <span class="problem-count">12問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/要件定義.html" class="middle-category-link">
+                        <span class="category-name">要件定義</span>
+                        <div>
+                            <span class="problem-count">18問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/調達計画・実施.html" class="middle-category-link">
+                        <span class="category-name">調達計画・実施</span>
+                        <div>
+                            <span class="problem-count">20問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">19.経営戦略マネジメント</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/ビジネス戦略と目標・評価.html" class="middle-category-link">
+                        <span class="category-name">ビジネス戦略と目標・評価</span>
+                        <div>
+                            <span class="problem-count">14問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/マーケティング.html" class="middle-category-link">
+                        <span class="category-name">マーケティング</span>
+                        <div>
+                            <span class="problem-count">30問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/経営戦略手法.html" class="middle-category-link">
+                        <span class="category-name">経営戦略手法</span>
+                        <div>
+                            <span class="problem-count">40問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/経営管理システム.html" class="middle-category-link">
+                        <span class="category-name">経営管理システム</span>
+                        <div>
+                            <span class="problem-count">20問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">2.アルゴリズムとプログラミング</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/その他の言語.html" class="middle-category-link">
+                        <span class="category-name">その他の言語</span>
+                        <div>
+                            <span class="problem-count">14問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/アルゴリズム.html" class="middle-category-link">
+                        <span class="category-name">アルゴリズム</span>
+                        <div>
+                            <span class="problem-count">82問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/データ構造.html" class="middle-category-link">
+                        <span class="category-name">データ構造</span>
+                        <div>
+                            <span class="problem-count">54問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プログラミング.html" class="middle-category-link">
+                        <span class="category-name">プログラミング</span>
+                        <div>
+                            <span class="problem-count">21問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/プログラム言語.html" class="middle-category-link">
+                        <span class="category-name">プログラム言語</span>
+                        <div>
+                            <span class="problem-count">18問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">20.技術戦略マネジメント</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/技術開発戦略の立案.html" class="middle-category-link">
+                        <span class="category-name">技術開発戦略の立案</span>
+                        <div>
+                            <span class="problem-count">10問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">21.ビジネスインダストリ</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/e-ビジネス.html" class="middle-category-link">
+                        <span class="category-name">e-ビジネス</span>
+                        <div>
+                            <span class="problem-count">34問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/エンジニアリングシステム.html" class="middle-category-link">
+                        <span class="category-name">エンジニアリングシステム</span>
+                        <div>
+                            <span class="problem-count">24問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ビジネスシステム.html" class="middle-category-link">
+                        <span class="category-name">ビジネスシステム</span>
+                        <div>
+                            <span class="problem-count">9問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/民生機器.html" class="middle-category-link">
+                        <span class="category-name">民生機器</span>
+                        <div>
+                            <span class="problem-count">17問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/産業機器.html" class="middle-category-link">
+                        <span class="category-name">産業機器</span>
+                        <div>
+                            <span class="problem-count">4問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">22.企業活動</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/会計・財務.html" class="middle-category-link">
+                        <span class="category-name">会計・財務</span>
+                        <div>
+                            <span class="problem-count">49問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/業務分析・データ利活用.html" class="middle-category-link">
+                        <span class="category-name">業務分析・データ利活用</span>
+                        <div>
+                            <span class="problem-count">122問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/経営・組織論.html" class="middle-category-link">
+                        <span class="category-name">経営・組織論</span>
+                        <div>
+                            <span class="problem-count">28問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">23.法務</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/その他の法律・ガイドライン.html" class="middle-category-link">
+                        <span class="category-name">その他の法律・ガイドライン</span>
+                        <div>
+                            <span class="problem-count">5問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/セキュリティ関連法規.html" class="middle-category-link">
+                        <span class="category-name">セキュリティ関連法規</span>
+                        <div>
+                            <span class="problem-count">10問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/労働関連・取引関連法規.html" class="middle-category-link">
+                        <span class="category-name">労働関連・取引関連法規</span>
+                        <div>
+                            <span class="problem-count">27問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/標準化関連.html" class="middle-category-link">
+                        <span class="category-name">標準化関連</span>
+                        <div>
+                            <span class="problem-count">14問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/知的財産権.html" class="middle-category-link">
+                        <span class="category-name">知的財産権</span>
+                        <div>
+                            <span class="problem-count">31問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">3.コンピュータ構成要素</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/プロセッサ.html" class="middle-category-link">
+                        <span class="category-name">プロセッサ</span>
+                        <div>
+                            <span class="problem-count">76問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/メモリ.html" class="middle-category-link">
+                        <span class="category-name">メモリ</span>
+                        <div>
+                            <span class="problem-count">78問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/入出力デバイス.html" class="middle-category-link">
+                        <span class="category-name">入出力デバイス</span>
+                        <div>
+                            <span class="problem-count">21問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/入出力装置.html" class="middle-category-link">
+                        <span class="category-name">入出力装置</span>
+                        <div>
+                            <span class="problem-count">40問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">4.システム構成要素</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/システムの構成.html" class="middle-category-link">
+                        <span class="category-name">システムの構成</span>
+                        <div>
+                            <span class="problem-count">76問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/システムの評価指標.html" class="middle-category-link">
+                        <span class="category-name">システムの評価指標</span>
+                        <div>
+                            <span class="problem-count">77問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">5.ソフトウェア</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/オペレーティングシステム.html" class="middle-category-link">
+                        <span class="category-name">オペレーティングシステム</span>
+                        <div>
+                            <span class="problem-count">108問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/オープンソースソフトウェア.html" class="middle-category-link">
+                        <span class="category-name">オープンソースソフトウェア</span>
+                        <div>
+                            <span class="problem-count">14問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ファイルシステム.html" class="middle-category-link">
+                        <span class="category-name">ファイルシステム</span>
+                        <div>
+                            <span class="problem-count">18問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ミドルウェア.html" class="middle-category-link">
+                        <span class="category-name">ミドルウェア</span>
+                        <div>
+                            <span class="problem-count">6問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/開発ツール.html" class="middle-category-link">
+                        <span class="category-name">開発ツール</span>
+                        <div>
+                            <span class="problem-count">32問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">6.ハードウェア</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/ハードウェア.html" class="middle-category-link">
+                        <span class="category-name">ハードウェア</span>
+                        <div>
+                            <span class="problem-count">70問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">7.ユーザーインタフェース</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/UX_UIデザイン.html" class="middle-category-link">
+                        <span class="category-name">UX/UIデザイン</span>
+                        <div>
+                            <span class="problem-count">19問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/ユーザーインタフェース技術.html" class="middle-category-link">
+                        <span class="category-name">ユーザーインタフェース技術</span>
+                        <div>
+                            <span class="problem-count">8問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">8.情報メディア</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/マルチメディア応用.html" class="middle-category-link">
+                        <span class="category-name">マルチメディア応用</span>
+                        <div>
+                            <span class="problem-count">17問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/マルチメディア技術.html" class="middle-category-link">
+                        <span class="category-name">マルチメディア技術</span>
+                        <div>
+                            <span class="problem-count">23問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="major-category">
+            <div class="major-title">9.データベース</div>
+            <ul class="middle-category-list">
+
+                <li class="middle-category-item">
+                    <a href="pages/データベース応用.html" class="middle-category-link">
+                        <span class="category-name">データベース応用</span>
+                        <div>
+                            <span class="problem-count">9問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/データベース方式.html" class="middle-category-link">
+                        <span class="category-name">データベース方式</span>
+                        <div>
+                            <span class="problem-count">20問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/データベース設計.html" class="middle-category-link">
+                        <span class="category-name">データベース設計</span>
+                        <div>
+                            <span class="problem-count">50問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/データ操作.html" class="middle-category-link">
+                        <span class="category-name">データ操作</span>
+                        <div>
+                            <span class="problem-count">62問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+                <li class="middle-category-item">
+                    <a href="pages/トランザクション処理.html" class="middle-category-link">
+                        <span class="category-name">トランザクション処理</span>
+                        <div>
+                            <span class="problem-count">59問</span>
+                            <span class="arrow">›</span>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

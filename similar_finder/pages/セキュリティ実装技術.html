@@ -1,0 +1,2254 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>セキュリティ実装技術 - 類似問題</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background: #f5f5f5;
+            padding-bottom: 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .header h1 {
+            font-size: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .main-problem {
+            border-left: 4px solid #667eea;
+            padding-left: 16px;
+            margin-bottom: 20px;
+        }
+        .problem-number {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .problem-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .problem-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .problem-source {
+            font-size: 12px;
+            color: #999;
+        }
+        .similar-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .similar-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .similar-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        .similarity-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../index.html" class="back-button">‹ 戻る</a>
+        <h1>セキュリティ実装技術</h1>
+    </div>
+    <div class="container">
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 1</div>
+                <div class="problem-title">SQLインジェクション対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R6免除 問33</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">SQLインジェクション攻撃</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.9%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">セッションハイジャック対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 2</div>
+                <div class="problem-title">SPFの特徴はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R5免除 問33</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.3%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">SSLの特徴はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.5%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">WAFの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.7%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">パケットフィルタリング機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問72</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.2%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.2%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 3</div>
+                <div class="problem-title">セッションハイジャック対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R4免除 問42</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.6%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.8%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 4</div>
+                <div class="problem-title">データベースのアカウントと権限</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問36</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.5%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">DBのアクセス権設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.3%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">データベース利用者への権限付与</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.8%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">適切なアクセス権限</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.5%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">SQLインジェクション攻撃</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.8%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">送信側のメールサーバで認証するもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問44</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 5</div>
+                <div class="problem-title">TLS通信で期待できるセキュリティ効果</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R2免除 問41</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.4%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">SSL/TLSで実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問65</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 6</div>
+                <div class="problem-title">IPsec，L2TP，TLSの位置関係</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R2免除 問43</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.7%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.8%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">SSL/TLSで実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.4%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.9%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">TLS通信で期待できるセキュリティ効果</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.5%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">AHとESPを含むプロトコル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 7</div>
+                <div class="problem-title">WAFの説明はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R2免除 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.3%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.3%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.2%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">WAFを利用する目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.2%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">WAFを利用する目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.1%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">SSLの特徴はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問67</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 8</div>
+                <div class="problem-title">WPA3はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問37</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.5%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.5%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.0%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 9</div>
+                <div class="problem-title">メールの送信者認証</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.6%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">送信側のメールサーバで認証するもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問63</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 10</div>
+                <div class="problem-title">AHとESPを含むプロトコル</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H31春期 問43</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.1%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.2%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">WPA3はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問37</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.6%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.6%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.6%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問44</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 11</div>
+                <div class="problem-title">ハニーポット</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H31春期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.2%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.2%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">39.5%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">インターネットVPN</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.5%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 12</div>
+                <div class="problem-title">SQLインジェクション攻撃</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30春期 問41</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.4%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.6%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 13</div>
+                <div class="problem-title">データベース利用者への権限付与</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30春期 問43</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.5%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">DBのアクセス権設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.3%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">データベースのアカウントと権限</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.9%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">適切なアクセス権限</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.2%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">メールの送信者認証</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 14</div>
+                <div class="problem-title">通信経路上での盗聴対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H29秋期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問65</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.4%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 15</div>
+                <div class="problem-title">パケットフィルタリング</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H29春期 問42</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.7%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">パケットフィルタリング設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.5%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">パケットフィルタリング機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問72</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 16</div>
+                <div class="problem-title">送信側のメールサーバで認証するもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H29春期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.6%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">メールの送信者認証</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問63</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.3%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.5%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 17</div>
+                <div class="problem-title">Web Application Firewall</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28春期 問43</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.7%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.5%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 18</div>
+                <div class="problem-title">SQLインジェクション対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H27秋期 問42</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">SQLインジェクション攻撃</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.9%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">セッションハイジャック対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 19</div>
+                <div class="problem-title">WAFを利用する目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26秋期 問41</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">WAFを利用する目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.2%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">WAFの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 20</div>
+                <div class="problem-title">Web Application Firewall</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25秋期 問41</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.7%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.5%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 21</div>
+                <div class="problem-title">適切なアクセス権限</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25秋期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.3%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">DBのアクセス権設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.9%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">データベース利用者への権限付与</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.8%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">データベースのアカウントと権限</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.1%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.1%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 22</div>
+                <div class="problem-title">パケットフィルタリング</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25秋期 問45</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.7%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">パケットフィルタリング設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.5%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">パケットフィルタリング機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問72</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 23</div>
+                <div class="problem-title">SQLインジェクション対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25春期 問40</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">SQLインジェクション攻撃</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.9%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">セッションハイジャック対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 24</div>
+                <div class="problem-title">HTTPSを用いて実現できるもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25春期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.9%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">SSL/TLSで実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.8%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.8%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.5%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">SSLの特徴はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.0%</span>
+                    <div class="problem-number">問題番号: 34</div>
+                    <div class="problem-title">S/MIME の機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問67</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 25</div>
+                <div class="problem-title">MAC(Message Authentication Code)</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24春期 問40</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問63</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">送信側のメールサーバで認証するもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.3%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">メールの送信者認証</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.7%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 26</div>
+                <div class="problem-title">ARPを利用した通信可否</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24春期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.8%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.8%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問65</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.5%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">WPA3はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問37</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.2%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問40</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 27</div>
+                <div class="problem-title">パケットフィルタリング</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23特別 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.7%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">パケットフィルタリング設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.5%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">パケットフィルタリング機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問72</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.2%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 28</div>
+                <div class="problem-title">WAFを利用する目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22春期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">WAFを利用する目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.2%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">WAFの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 29</div>
+                <div class="problem-title">DBのアクセス権設定</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21秋期 問43</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.3%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">適切なアクセス権限</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.5%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">データベース利用者への権限付与</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.5%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">データベースのアカウントと権限</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.4%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.4%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 30</div>
+                <div class="problem-title">パケットフィルタリング設定</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21秋期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.7%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.7%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.7%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">パケットフィルタリング機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問72</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.5%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 31</div>
+                <div class="problem-title">ネットワークセキュリティ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問66</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.4%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.7%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.2%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">インターネットVPN</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.4%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 32</div>
+                <div class="problem-title">MAC(Message Authentication Code)</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問63</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">MAC(Message Authentication Code)</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">送信側のメールサーバで認証するもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.3%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">メールの送信者認証</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.7%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 33</div>
+                <div class="problem-title">通信経路上での盗聴対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問65</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.4%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 34</div>
+                <div class="problem-title">S/MIME の機能</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問67</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">パケットフィルタリング機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問72</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.0%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">HTTPSを用いて実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.3%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">メールの送信者認証</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.7%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">SSL/TLSで実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.4%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 35</div>
+                <div class="problem-title">SSL/TLSで実現できるもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問67</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.9%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">HTTPSを用いて実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.5%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">SSLの特徴はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">TLS通信で期待できるセキュリティ効果</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.7%</span>
+                    <div class="problem-number">問題番号: 34</div>
+                    <div class="problem-title">S/MIME の機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.8%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">IPsec，L2TP，TLSの位置関係</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問43</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 36</div>
+                <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19春期 問68</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">89.4%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">通信経路上での盗聴対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問65</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.9%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.9%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">SQLインジェクション対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 37</div>
+                <div class="problem-title">SSLの特徴はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18秋期 問67</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.3%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">SPFの特徴はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.5%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">SSL/TLSで実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問67</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.1%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">WAFの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.5%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">HTTPSを用いて実現できるもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.0%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">TLS通信で期待できるセキュリティ効果</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問41</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 38</div>
+                <div class="problem-title">インターネットVPN</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17春期 問68</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.2%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ネットワークセキュリティ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問66</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.0%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.0%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">Web Application Firewall</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問41</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.7%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">ネットワークシステムのセキュリティ対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問68</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.1%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 39</div>
+                <div class="problem-title">パケットフィルタリング機能</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問72</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.5%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問42</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.5%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.5%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">パケットフィルタリング</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">パケットフィルタリング設定</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 34</div>
+                    <div class="problem-title">S/MIME の機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=11&s=5&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問67</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

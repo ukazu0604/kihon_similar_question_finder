@@ -1,0 +1,1869 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>開発ツール - 類似問題</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background: #f5f5f5;
+            padding-bottom: 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .header h1 {
+            font-size: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .main-problem {
+            border-left: 4px solid #667eea;
+            padding-left: 16px;
+            margin-bottom: 20px;
+        }
+        .problem-number {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .problem-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .problem-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .problem-source {
+            font-size: 12px;
+            color: #999;
+        }
+        .similar-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .similar-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .similar-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        .similarity-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../index.html" class="back-button">‹ 戻る</a>
+        <h1>開発ツール</h1>
+    </div>
+    <div class="container">
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 1</div>
+                <div class="problem-title">3アドレス命令での計算</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R5免除 問14</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">3アドレス命令での計算</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 2</div>
+                <div class="problem-title">テストカバレージ分析</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R5免除 問15</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.8%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 3</div>
+                <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R2免除 問18</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 4</div>
+                <div class="problem-title">インタプリタの説明はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H31春期 問19</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.3%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">コンパイル方式とインタプリタ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.3%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.3%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問37</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 5</div>
+                <div class="problem-title">コンパイラが最初に行う処理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30秋期 問19</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.9%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.9%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.9%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.9%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.0%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">クロスコンパイラ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問36</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 6</div>
+                <div class="problem-title">リンカの機能として適切なもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30秋期 問20</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">リンカの機能として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.5%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.5%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.5%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.2%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問45</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 7</div>
+                <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30春期 問18</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 8</div>
+                <div class="problem-title">コンパイラにおける最適化</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28春期 問19</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 9</div>
+                <div class="problem-title">リンカの機能として適切なもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28春期 問20</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">リンカの機能として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.5%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.5%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.5%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.2%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問45</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 10</div>
+                <div class="problem-title">静的テストツールの機能</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28春期 問21</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問15</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 11</div>
+                <div class="problem-title">コンパイラにおける最適化</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26春期 問18</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 12</div>
+                <div class="problem-title">静的テストツールの機能</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26春期 問19</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問15</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 13</div>
+                <div class="problem-title">テストカバレージ分析</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25春期 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問15</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.8%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 14</div>
+                <div class="problem-title">コンパイラにおける最適化</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23秋期 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 15</div>
+                <div class="problem-title">静的テストツールの機能</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23秋期 問23</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問15</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 16</div>
+                <div class="problem-title">インタプリタとコンパイラの比較</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23特別 問23</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">インタプリタとコンパイラの比較</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">71.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">コンパイル方式とインタプリタ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.5%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.5%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.5%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 17</div>
+                <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22秋期 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 18</div>
+                <div class="problem-title">プログラムの静的解析ツール</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22秋期 問23</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.1%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.0%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 19</div>
+                <div class="problem-title">3アドレス命令での計算</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22春期 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">3アドレス命令での計算</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問14</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.5%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 20</div>
+                <div class="problem-title">CASEツールが提供する機能</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21秋期 問20</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.0%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">CASEツールの分類</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問39</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 21</div>
+                <div class="problem-title">実行ファイルの作成手順</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21春期 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.8%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">クロスコンパイラ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.7%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.7%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.7%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 22</div>
+                <div class="problem-title">動的リンクライブラリ(DLL)の特徴</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問38</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">39.3%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.4%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.2%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問21</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.2%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.2%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">静的テストツールの機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問23</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 23</div>
+                <div class="problem-title">言語プロセッサの説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問40</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.3%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問37</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.3%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 24</div>
+                <div class="problem-title">CASEツールの分類</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19春期 問39</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.0%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.9%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問15</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.9%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">テストカバレージ分析</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.5%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.0%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">クロスコンパイラ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問36</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 25</div>
+                <div class="problem-title">コンパイラにおける最適化</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18秋期 問36</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">80.4%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">コンパイラによる最適化の主な目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 26</div>
+                <div class="problem-title">トレーサーの説明として適切なもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18春期 問45</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問37</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.2%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">リンカの機能として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問20</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 27</div>
+                <div class="problem-title">クロスコンパイラ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17秋期 問36</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.6%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.4%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.4%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.4%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問36</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 28</div>
+                <div class="problem-title">トレーサーの説明として適切なもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17秋期 問37</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.7%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問43</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.2%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">リンカの機能として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問20</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 29</div>
+                <div class="problem-title">言語プロセッサの説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問43</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">言語プロセッサの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問40</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.3%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問45</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">トレーサーの説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問37</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.3%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">プログラミングツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問47</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 30</div>
+                <div class="problem-title">インタプリタとコンパイラの比較</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">インタプリタとコンパイラの比較</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">71.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">コンパイル方式とインタプリタ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.5%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.5%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.5%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 31</div>
+                <div class="problem-title">プログラミングツール</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問47</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.1%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">プログラムの静的解析ツール</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.6%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">クロスコンパイラ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問36</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.0%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">CASEツールが提供する機能</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問20</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.7%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.7%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 32</div>
+                <div class="problem-title">コンパイル方式とインタプリタ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16春期 問44</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">71.6%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">インタプリタとコンパイラの比較</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問23</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">71.6%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">インタプリタとコンパイラの比較</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問44</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.3%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">インタプリタの説明はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H31春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.4%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問19</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">コンパイラにおける最適化</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=5&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問18</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

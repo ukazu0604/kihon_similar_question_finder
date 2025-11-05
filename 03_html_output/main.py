@@ -14,11 +14,16 @@ def print_log(message):
 
 def load_config(config_path='../02_vectorize/config.yaml'):
     """設定ファイルを読み込む"""
-    print_log(f"設定ファイル '{config_path}' の読み込みを開始します...")
-    if not os.path.exists(config_path):
-        print_log(f"エラー: 設定ファイルが見つかりません: {config_path}")
+    # スクリプトの場所を基準に設定ファイルのパスを解決
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    absolute_config_path = os.path.join(script_dir, config_path)
+    absolute_config_path = os.path.normpath(absolute_config_path)
+
+    print_log(f"設定ファイル '{absolute_config_path}' の読み込みを開始します...")
+    if not os.path.exists(absolute_config_path):
+        print_log(f"エラー: 設定ファイルが見つかりません: {absolute_config_path}")
         return None
-    with open(config_path, 'r', encoding='utf-8') as f:
+    with open(absolute_config_path, 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
     print_log("設定ファイルの読み込みが完了しました。")
     return config
@@ -439,7 +444,7 @@ def generate_category_page(middle_cat, problems, output_dir):
 
 def main():
     parser = argparse.ArgumentParser(description='中項目ごとに類似問題を表示するHTMLを生成します。')
-    parser.add_argument('--csv_path', type=str, required=True, help='ベクトル化済みCSVファイルのパス')
+    parser.add_argument('--csv_path', type=str, default='output/fe_siken_all_items_vectors.csv', help='ベクトル化済みCSVファイルのパス')
     parser.add_argument('--config_path', type=str, default='../02_vectorize/config.yaml', help='config.yamlのパス')
     parser.add_argument('--output_dir', type=str, default='similar_finder', help='HTMLの出力先ディレクトリ')
     parser.add_argument('--model', type=str, help='使用するモデル名（指定しない場合は最初のモデル）')

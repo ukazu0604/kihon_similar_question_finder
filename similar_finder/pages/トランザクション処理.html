@@ -1,0 +1,3354 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トランザクション処理 - 類似問題</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background: #f5f5f5;
+            padding-bottom: 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .header h1 {
+            font-size: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .main-problem {
+            border-left: 4px solid #667eea;
+            padding-left: 16px;
+            margin-bottom: 20px;
+        }
+        .problem-number {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .problem-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .problem-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .problem-source {
+            font-size: 12px;
+            color: #999;
+        }
+        .similar-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .similar-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .similar-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        .similarity-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../index.html" class="back-button">‹ 戻る</a>
+        <h1>トランザクション処理</h1>
+    </div>
+    <div class="container">
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 1</div>
+                <div class="problem-title">DBMSに実装すべき原子性</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R6免除 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.9%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.5%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.5%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">RDBMSの機能で実現される性質</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.9%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.9%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 2</div>
+                <div class="problem-title">ACID特性</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R5免除 問22</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問28</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.1%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">トランザクションのACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.8%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">RDBMSの機能で実現される性質</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.5%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">ハッシュインデックス</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問27</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 3</div>
+                <div class="problem-title">並行実行の可否の組合せ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R4免除 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.2%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.8%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.8%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.6%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.6%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 4</div>
+                <div class="problem-title">トランザクションに関する記述</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問27</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">トランザクションの状態遷移</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問28</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.8%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">トランザクションのACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.4%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.6%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ログファイルの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.9%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 5</div>
+                <div class="problem-title">原子性を説明したものはどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問28</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.8%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">原子性(atomicity)の単位</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.3%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">DBMSに実装すべき原子性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">37.8%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">35.2%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">33.3%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 6</div>
+                <div class="problem-title">リストア後にログを用いて行う操作</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.4%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ログファイルの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.8%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.8%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 7</div>
+                <div class="problem-title">異常終了後の表の状態</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R2免除 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">異常終了後の表の状態</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問31</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.2%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.8%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 8</div>
+                <div class="problem-title">トランザクションの状態遷移</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問28</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">トランザクションに関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.8%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">トランザクションのACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.1%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">異常終了後の表の状態</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.1%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">異常終了後の表の状態</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問31</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.7%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 9</div>
+                <div class="problem-title">デッドロックが発生しない処理順序</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.3%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.5%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.5%</span>
+                    <div class="problem-number">問題番号: 59</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=59" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.8%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 10</div>
+                <div class="problem-title">ロックの粒度に関する説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30秋期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.8%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.4%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.1%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.1%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.0%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問34</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 11</div>
+                <div class="problem-title">ロールフォワード処理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30秋期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21春期 問35</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.6%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">ロールバック処理で使用する情報</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 12</div>
+                <div class="problem-title">DBの更新記録として保存するファイル</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30春期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.9%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.9%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.7%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.3%</span>
+                    <div class="problem-number">問題番号: 56</div>
+                    <div class="problem-title">バックアップファイルの管理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=56" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問57</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.7%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ログファイルの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問32</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 13</div>
+                <div class="problem-title">RDBMSのロックの粒度</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30春期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.4%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.6%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.6%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.5%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">DBMSに実装すべき原子性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.3%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 14</div>
+                <div class="problem-title">RDBMSの機能で実現される性質</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H29秋期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.5%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">DBMSに実装すべき原子性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.9%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.7%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.0%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.0%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 15</div>
+                <div class="problem-title">ロールバック処理で使用する情報</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H29秋期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.6%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.6%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.4%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.4%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 16</div>
+                <div class="problem-title">2相コミット</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H29春期 問28</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 53</div>
+                    <div class="problem-title">2相コミット</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=53" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問63</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.4%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.4%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.4%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 17</div>
+                <div class="problem-title">ロールフォワード</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28秋期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21春期 問35</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.5%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 18</div>
+                <div class="problem-title">ACID特性</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28春期 問28</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.1%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">トランザクションのACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.8%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">RDBMSの機能で実現される性質</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.5%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">ハッシュインデックス</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問27</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 19</div>
+                <div class="problem-title">排他制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H28春期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.9%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 20</div>
+                <div class="problem-title">キー値が同一の算出結果となる方式</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H27秋期 問26</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.1%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">ハッシュインデックス</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.5%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.1%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.1%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.0%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">DBMSに実装すべき原子性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問22</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 21</div>
+                <div class="problem-title">ロックの両立性に関する記述</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H27秋期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.9%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.0%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.1%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.9%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.6%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問34</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 22</div>
+                <div class="problem-title">ハッシュインデックス</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26秋期 問27</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.5%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">インデックスを設定する目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24秋期 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.1%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.7%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21春期 問35</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.6%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 23</div>
+                <div class="problem-title">データベースの再編成</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26秋期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 45</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=45" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 57</div>
+                    <div class="problem-title">再編成処理の目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=57" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問58</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.0%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 24</div>
+                <div class="problem-title">ロックの動作に関する記述</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26秋期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">81.0%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.9%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.1%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.2%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.2%</span>
+                    <div class="problem-number">問題番号: 59</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=59" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問69</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 25</div>
+                <div class="problem-title">ACID特性</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26春期 問29</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問28</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.1%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">トランザクションのACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.8%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">RDBMSの機能で実現される性質</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.5%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">ハッシュインデックス</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問27</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 26</div>
+                <div class="problem-title">異常終了後の表の状態</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25秋期 問31</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">異常終了後の表の状態</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.2%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.8%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 27</div>
+                <div class="problem-title">共有ロックと専有ロック</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25秋期 問32</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">94.5%</span>
+                    <div class="problem-number">問題番号: 43</div>
+                    <div class="problem-title">共有ロックと占有ロック</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.4%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.1%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.8%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 28</div>
+                <div class="problem-title">データベースの排他制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H25春期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">93.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 29</div>
+                <div class="problem-title">インデックスを設定する目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24秋期 問27</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.5%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">ハッシュインデックス</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.3%</span>
+                    <div class="problem-number">問題番号: 57</div>
+                    <div class="problem-title">再編成処理の目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=57" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問58</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.3%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">並行実行の可否の組合せ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.7%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">38.7%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問32</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 30</div>
+                <div class="problem-title">原子性(atomicity)の単位</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24秋期 問30</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.8%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">原子性を説明したものはどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問28</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">49.4%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">DBMSに実装すべき原子性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.7%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.5%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">41.5%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問28</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 31</div>
+                <div class="problem-title">ログファイルの説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24春期 問32</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.2%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.2%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.8%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.7%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">DBの更新記録として保存するファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.4%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">リストア後にログを用いて行う操作</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 32</div>
+                <div class="problem-title">DBMSの排他制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24春期 問33</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">93.6%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">93.6%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.9%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.9%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.9%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 33</div>
+                <div class="problem-title">デッドロックの説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23秋期 問34</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 59</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=59" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.8%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.2%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.0%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.6%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 34</div>
+                <div class="problem-title">別媒体に保存しておく必要のあるもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23秋期 問36</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.1%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">DBの更新記録として保存するファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.7%</span>
+                    <div class="problem-number">問題番号: 56</div>
+                    <div class="problem-title">バックアップファイルの管理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=56" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問57</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.3%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.0%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.0%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 35</div>
+                <div class="problem-title">ログファイル</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23特別 問33</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.2%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ログファイルの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.6%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.9%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">DBの更新記録として保存するファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">リストア後にログを用いて行う操作</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 36</div>
+                <div class="problem-title">データベースの再編成</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22秋期 問32</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 45</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=45" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 57</div>
+                    <div class="problem-title">再編成処理の目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=57" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問58</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.0%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 37</div>
+                <div class="problem-title">排他制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22春期 問32</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.9%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 38</div>
+                <div class="problem-title">ログファイル</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21秋期 問34</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">88.2%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ログファイルの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.6%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.9%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">DBの更新記録として保存するファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">リストア後にログを用いて行う操作</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 39</div>
+                <div class="problem-title">クライアントサーバシステム</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21春期 問31</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.5%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">オンラインシステムの障害対策</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.4%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">ハッシュインデックス</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.3%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.3%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.1%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 40</div>
+                <div class="problem-title">ロールフォワード</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21春期 問35</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.5%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 41</div>
+                <div class="problem-title">データベースの排他制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問60</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">93.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 42</div>
+                <div class="problem-title">データベースの障害復旧</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問61</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">98.2%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.6%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.6%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.6%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.6%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 43</div>
+                <div class="problem-title">共有ロックと占有ロック</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問59</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">94.5%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">共有ロックと専有ロック</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25秋期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.4%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.5%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.2%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">RDBMSのロックの粒度</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.0%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 44</div>
+                <div class="problem-title">データベースの回復処理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問60</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">85.6%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.6%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.6%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.8%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 45</div>
+                <div class="problem-title">データベースの再編成</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=45" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問62</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 57</div>
+                    <div class="problem-title">再編成処理の目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=57" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問58</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.0%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 46</div>
+                <div class="problem-title">ロールバック処理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問50</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">ロールバック処理で使用する情報</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.6%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.6%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 47</div>
+                <div class="problem-title">ロールフォワード処理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問62</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 11</div>
+                    <div class="problem-title">ロールフォワード処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.4%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21春期 問35</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.1%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.6%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">ロールバック処理で使用する情報</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29秋期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 48</div>
+                <div class="problem-title">ジャーナルファイル</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19春期 問62</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.6%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.6%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.7%</span>
+                    <div class="problem-number">問題番号: 56</div>
+                    <div class="problem-title">バックアップファイルの管理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=56" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問57</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.8%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">ログファイルの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.7%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">DBの更新記録として保存するファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 49</div>
+                <div class="problem-title">オンラインシステムの障害対策</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18秋期 問47</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.4%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.3%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.5%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">クライアントサーバシステム</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21春期 問31</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">53.7%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.2%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 50</div>
+                <div class="problem-title">ロックに関する説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18春期 問59</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">81.0%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.8%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.8%</span>
+                    <div class="problem-number">問題番号: 59</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=59" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.8%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.0%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 51</div>
+                <div class="problem-title">トランザクションのACID特性</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18春期 問60</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.1%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問22</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.1%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問28</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.1%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">ACID特性</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.8%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">トランザクションに関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.8%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">トランザクションの状態遷移</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問28</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 52</div>
+                <div class="problem-title">アクセスカウンタの制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=52" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18春期 問61</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.6%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.6%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.6%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.9%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.0%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 53</div>
+                <div class="problem-title">2相コミット</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=53" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17秋期 問63</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">2相コミット</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H29春期 問28</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.4%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.4%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.4%</span>
+                    <div class="problem-number">問題番号: 58</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問69</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">ロールフォワード</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28秋期 問30</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 54</div>
+                <div class="problem-title">データベースの障害回復</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17春期 問47</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">98.2%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">85.6%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">85.6%</span>
+                    <div class="problem-number">問題番号: 55</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.2%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.2%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 55</div>
+                <div class="problem-title">データベースの回復処理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=55" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17春期 問62</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">85.6%</span>
+                    <div class="problem-number">問題番号: 54</div>
+                    <div class="problem-title">データベースの障害回復</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=54" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問47</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.6%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">データベースの障害復旧</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問61</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.6%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.8%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 56</div>
+                <div class="problem-title">バックアップファイルの管理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=56" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問57</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.7%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">ジャーナルファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">63.6%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">ログファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.3%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">DBの更新記録として保存するファイル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">ロールバック処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問50</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 57</div>
+                <div class="problem-title">再編成処理の目的</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=57" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問58</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.8%</span>
+                    <div class="problem-number">問題番号: 45</div>
+                    <div class="problem-title">データベースの再編成</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=45" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問62</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.3%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">インデックスを設定する目的</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24秋期 問27</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.9%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">データベースの回復処理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 58</div>
+                <div class="problem-title">排他制御</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=58" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問69</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H28春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22春期 問32</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.9%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">DBMSの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問33</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H25春期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">84.4%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">データベースの排他制御</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問60</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 59</div>
+                <div class="problem-title">デッドロックの説明</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=59" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16春期 問69</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">デッドロックの説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問34</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.8%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">ロックに関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問59</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.2%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">ロックの動作に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26秋期 問30</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.0%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">ロックの粒度に関する説明</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30秋期 問29</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.6%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">ロックの両立性に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=9&s=4&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問29</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,2914 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>応用数学 - 類似問題</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Hiragino Sans', sans-serif;
+            background: #f5f5f5;
+            padding-bottom: 60px;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .back-button {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        .header h1 {
+            font-size: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .problem-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .main-problem {
+            border-left: 4px solid #667eea;
+            padding-left: 16px;
+            margin-bottom: 20px;
+        }
+        .problem-number {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 5px;
+        }
+        .problem-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .problem-link {
+            display: inline-block;
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .problem-source {
+            font-size: 12px;
+            color: #999;
+        }
+        .similar-section {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        .similar-title {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .similar-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+        .similarity-badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 11px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="../index.html" class="back-button">‹ 戻る</a>
+        <h1>応用数学</h1>
+    </div>
+    <div class="container">
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 1</div>
+                <div class="problem-title">相関係数に関する記述</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R6免除 問 2</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">69.7%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">標本相関係数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">ニュートン法に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.9%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">乗除算の関係</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.9%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">連立方程式の解法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 4</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 2</div>
+                <div class="problem-title">文字列の組合せ数</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R5免除 問 2</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.2%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">文字の組み合わせ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.3%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.5%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">部分文字列の数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.4%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">文字の組み合わせ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 7</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 3</div>
+                <div class="problem-title">標準偏差</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R5免除 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">81.8%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">正規分布と標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.8%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">標準正規分布表</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.2%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.2%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.2%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 4</div>
+                <div class="problem-title">隣接行列で表されるグラフ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R4免除 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.6%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">隣接行列をグラフで表現したもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.7%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">三角グラフの読みとり</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問11</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.4%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 5</div>
+                <div class="problem-title">当たりの確率</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R4免除 問 4</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">78.5%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 6</div>
+                <div class="problem-title">M/M/1の待ち行列モデル</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.0%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">待ち行列モデルの条件</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.0%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.6%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.6%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.7%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 7</div>
+                <div class="problem-title">連立方程式の解法</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問 4</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.9%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.9%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 7</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 8</div>
+                <div class="problem-title">待ち行列モデルの条件</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R3免除 問 5</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">72.0%</span>
+                    <div class="problem-number">問題番号: 6</div>
+                    <div class="problem-title">M/M/1の待ち行列モデル</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=6" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.4%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">必要十分条件はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 9</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">必要十分条件はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.3%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 9</div>
+                <div class="problem-title">近似計算式</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R2免除 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.8%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">丸め誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.8%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">丸め誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.9%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.9%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.6%</span>
+                    <div class="problem-number">問題番号: 43</div>
+                    <div class="problem-title">ニュートン法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 5</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 10</div>
+                <div class="problem-title">隣接行列をグラフで表現したもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.6%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.6%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.7%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.7%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">三角グラフの読みとり</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問11</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.6%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 11</div>
+                <div class="problem-title">関数の極限値はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=11" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問 4</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.7%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.6%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.3%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.3%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.7%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 12</div>
+                <div class="problem-title">正規分布のグラフ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問 5</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.8%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">正規分布と標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.3%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">標準正規分布表</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">71.7%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">正規分布の説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.7%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.7%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問 3</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 13</div>
+                <div class="problem-title">乱数と確率</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: R1秋期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.0%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.2%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">76.2%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.3%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 14</div>
+                <div class="problem-title">最短経路数の問題</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H30春期 問 2</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.3%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 15</div>
+                <div class="problem-title">最短経路数の問題</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H27秋期 問 2</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 24</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.3%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 16</div>
+                <div class="problem-title">期待値(平均値)は幾らか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H27春期 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.6%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.1%</span>
+                    <div class="problem-number">問題番号: 34</div>
+                    <div class="problem-title">平均値の算出式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.3%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">観測値の平均値を算出する式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問 1</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.0%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.0%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 17</div>
+                <div class="problem-title">正規分布の説明として適切なもの</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H26春期 問 4</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.8%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">正規分布と標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">71.7%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.2%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">標準正規分布表</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.9%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.7%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 18</div>
+                <div class="problem-title">隣接行列で表されるグラフ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H24春期 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.6%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">隣接行列をグラフで表現したもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.7%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 39</div>
+                    <div class="problem-title">三角グラフの読みとり</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18春期 問11</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.4%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 19</div>
+                <div class="problem-title">連立一次方程式の計算時間</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23秋期 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">連立方程式の解法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.1%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 20</div>
+                <div class="problem-title">相対誤差</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H23特別 問 2</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.5%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">丸め誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.5%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">丸め誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.7%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.5%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">標本相関係数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.7%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 21</div>
+                <div class="problem-title">マルコフ過程</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H22秋期 問 3</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 45</div>
+                    <div class="problem-title">マルコフ過程</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=45" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.2%</span>
+                    <div class="problem-number">問題番号: 43</div>
+                    <div class="problem-title">ニュートン法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.1%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 22</div>
+                <div class="problem-title">観測値の平均値を算出する式</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H21秋期 問 1</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">87.1%</span>
+                    <div class="problem-number">問題番号: 34</div>
+                    <div class="problem-title">平均値の算出式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.3%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">期待値(平均値)は幾らか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27春期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.9%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.1%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.1%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 23</div>
+                <div class="problem-title">文字列の組合せ数</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.2%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">文字の組み合わせ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.3%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.5%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">部分文字列の数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.4%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">文字の組み合わせ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 7</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 24</div>
+                <div class="problem-title">最短経路数の問題</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=24" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 15</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=15" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27秋期 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.6%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.3%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 25</div>
+                <div class="problem-title">当たりの確率</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問 8</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">78.5%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.6%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 26</div>
+                <div class="problem-title">必要十分条件はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20秋期 問 9</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">必要十分条件はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">待ち行列モデルの条件</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.2%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.9%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">選び方は何通りあるか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.9%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 27</div>
+                <div class="problem-title">ニュートン法に関する記述</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">78.5%</span>
+                    <div class="problem-number">問題番号: 43</div>
+                    <div class="problem-title">ニュートン法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.9%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">正規分布の説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">48.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 28</div>
+                <div class="problem-title">文字の組み合わせ数</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.2%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">86.2%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.0%</span>
+                    <div class="problem-number">問題番号: 35</div>
+                    <div class="problem-title">文字の組み合わせ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.2%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.2%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">部分文字列の数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問10</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 29</div>
+                <div class="problem-title">標本相関係数</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H20春期 問 8</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">69.7%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">69.7%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.5%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">相対誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.4%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">乗除算の関係</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.7%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 30</div>
+                <div class="problem-title">丸め誤差</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問 4</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 41</div>
+                    <div class="problem-title">丸め誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.5%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">相対誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.1%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.8%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.2%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 31</div>
+                <div class="problem-title">連立一次方程式の計算時間</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問 5</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 42</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">連立方程式の解法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.1%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 32</div>
+                <div class="problem-title">条件付き確率</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.0%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.6%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">77.6%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 33</div>
+                <div class="problem-title">相関係数に関する記述</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19秋期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">69.7%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">標本相関係数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.2%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">ニュートン法に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.9%</span>
+                    <div class="problem-number">問題番号: 40</div>
+                    <div class="problem-title">乗除算の関係</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17秋期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.9%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">連立方程式の解法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 4</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 34</div>
+                <div class="problem-title">平均値の算出式</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=34" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19春期 問 5</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">87.1%</span>
+                    <div class="problem-number">問題番号: 22</div>
+                    <div class="problem-title">観測値の平均値を算出する式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=22" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H21秋期 問 1</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.1%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">期待値(平均値)は幾らか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27春期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.2%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.2%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.8%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 35</div>
+                <div class="problem-title">文字の組み合わせ</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=35" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19春期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.0%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">文字の組み合わせ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.4%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.4%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.0%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.2%</span>
+                    <div class="problem-number">問題番号: 38</div>
+                    <div class="problem-title">部分文字列の数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問10</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 36</div>
+                <div class="problem-title">正規分布と標準偏差</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H19春期 問 8</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">81.8%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.8%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">正規分布の説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.8%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.9%</span>
+                    <div class="problem-number">問題番号: 48</div>
+                    <div class="problem-title">標準正規分布表</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.8%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 37</div>
+                <div class="problem-title">選び方は何通りあるか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18秋期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">45.8%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.9%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">必要十分条件はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 9</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.9%</span>
+                    <div class="problem-number">問題番号: 50</div>
+                    <div class="problem-title">必要十分条件はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.7%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">42.6%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 38</div>
+                <div class="problem-title">部分文字列の数</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=38" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18秋期 問10</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.5%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.5%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">68.2%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">文字の組み合わせ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">57.5%</span>
+                    <div class="problem-number">問題番号: 51</div>
+                    <div class="problem-title">組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問10</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">46.2%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">標本相関係数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 8</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 39</div>
+                <div class="problem-title">三角グラフの読みとり</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=39" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H18春期 問11</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 4</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=4" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.5%</span>
+                    <div class="problem-number">問題番号: 18</div>
+                    <div class="problem-title">隣接行列で表されるグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=18" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H24春期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.7%</span>
+                    <div class="problem-number">問題番号: 10</div>
+                    <div class="problem-title">隣接行列をグラフで表現したもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=10" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.8%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.6%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 40</div>
+                <div class="problem-title">乗除算の関係</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=40" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17秋期 問 4</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.9%</span>
+                    <div class="problem-number">問題番号: 1</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=1" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R6免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.9%</span>
+                    <div class="problem-number">問題番号: 33</div>
+                    <div class="problem-title">相関係数に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=33" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">59.4%</span>
+                    <div class="problem-number">問題番号: 29</div>
+                    <div class="problem-title">標本相関係数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=29" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.7%</span>
+                    <div class="problem-number">問題番号: 43</div>
+                    <div class="problem-title">ニュートン法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">54.7%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 41</div>
+                <div class="problem-title">丸め誤差</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=41" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17秋期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 30</div>
+                    <div class="problem-title">丸め誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=30" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.5%</span>
+                    <div class="problem-number">問題番号: 20</div>
+                    <div class="problem-title">相対誤差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=20" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23特別 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">62.1%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.8%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">56.2%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 42</div>
+                <div class="problem-title">連立一次方程式の計算時間</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=42" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17秋期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 19</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=19" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H23秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 31</div>
+                    <div class="problem-title">連立一次方程式の計算時間</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=31" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 7</div>
+                    <div class="problem-title">連立方程式の解法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=7" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">47.1%</span>
+                    <div class="problem-number">問題番号: 9</div>
+                    <div class="problem-title">近似計算式</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=9" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R2免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">44.0%</span>
+                    <div class="problem-number">問題番号: 14</div>
+                    <div class="problem-title">最短経路数の問題</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=14" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H30春期 問 2</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 43</div>
+                <div class="problem-title">ニュートン法</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17春期 問 5</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">78.5%</span>
+                    <div class="problem-number">問題番号: 27</div>
+                    <div class="problem-title">ニュートン法に関する記述</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=27" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.9%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.3%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">61.3%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">60.8%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 44</div>
+                <div class="problem-title">確率</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17春期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">83.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.0%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 45</div>
+                <div class="problem-title">マルコフ過程</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=45" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H17春期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 21</div>
+                    <div class="problem-title">マルコフ過程</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=21" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H22秋期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">52.2%</span>
+                    <div class="problem-number">問題番号: 43</div>
+                    <div class="problem-title">ニュートン法</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=43" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.1%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">51.0%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 46</div>
+                <div class="problem-title">確率の定理</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問 5</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">83.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">83.0%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">78.5%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">78.5%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.3%</span>
+                    <div class="problem-number">問題番号: 13</div>
+                    <div class="problem-title">乱数と確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=13" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 47</div>
+                <div class="problem-title">期待値</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">75.6%</span>
+                    <div class="problem-number">問題番号: 16</div>
+                    <div class="problem-title">期待値(平均値)は幾らか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=16" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H27春期 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.6%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">67.6%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.9%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">65.9%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 48</div>
+                <div class="problem-title">標準正規分布表</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=48" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16秋期 問 7</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">73.3%</span>
+                    <div class="problem-number">問題番号: 12</div>
+                    <div class="problem-title">正規分布のグラフ</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=12" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R1秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">70.9%</span>
+                    <div class="problem-number">問題番号: 36</div>
+                    <div class="problem-title">正規分布と標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=36" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19春期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">66.8%</span>
+                    <div class="problem-number">問題番号: 3</div>
+                    <div class="problem-title">標準偏差</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=3" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 3</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.2%</span>
+                    <div class="problem-number">問題番号: 17</div>
+                    <div class="problem-title">正規分布の説明として適切なもの</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=17" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H26春期 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">55.1%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 49</div>
+                <div class="problem-title">確率</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16春期 問 6</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 5</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=5" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R4免除 問 4</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">92.9%</span>
+                    <div class="problem-number">問題番号: 25</div>
+                    <div class="problem-title">当たりの確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=25" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 8</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">83.0%</span>
+                    <div class="problem-number">問題番号: 46</div>
+                    <div class="problem-title">確率の定理</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=46" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">82.0%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 50</div>
+                <div class="problem-title">必要十分条件はどれか</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=50" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16春期 問 8</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">100.0%</span>
+                    <div class="problem-number">問題番号: 26</div>
+                    <div class="problem-title">必要十分条件はどれか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=26" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 9</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">58.7%</span>
+                    <div class="problem-number">問題番号: 8</div>
+                    <div class="problem-title">待ち行列モデルの条件</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=8" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R3免除 問 5</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">50.2%</span>
+                    <div class="problem-number">問題番号: 32</div>
+                    <div class="problem-title">条件付き確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=32" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H19秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">43.9%</span>
+                    <div class="problem-number">問題番号: 37</div>
+                    <div class="problem-title">選び方は何通りあるか</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=37" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H18秋期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">40.9%</span>
+                    <div class="problem-number">問題番号: 47</div>
+                    <div class="problem-title">期待値</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=47" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16秋期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="problem-card">
+            <div class="main-problem">
+                <div class="problem-number">問題番号: 51</div>
+                <div class="problem-title">組合せ数</div>
+                <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=51" target="_blank" class="problem-link">問題を見る ›</a>
+                <div class="problem-source">出典: H16春期 問10</div>
+            </div>
+
+            <div class="similar-section">
+                <div class="similar-title">📊 類似問題（類似度順）</div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.3%</span>
+                    <div class="problem-number">問題番号: 2</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=2" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: R5免除 問 2</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">79.3%</span>
+                    <div class="problem-number">問題番号: 23</div>
+                    <div class="problem-title">文字列の組合せ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=23" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20秋期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">74.2%</span>
+                    <div class="problem-number">問題番号: 28</div>
+                    <div class="problem-title">文字の組み合わせ数</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=28" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H20春期 問 7</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.5%</span>
+                    <div class="problem-number">問題番号: 44</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=44" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H17春期 問 6</div>
+                </div>
+
+                <div class="similar-item">
+                    <span class="similarity-badge">64.5%</span>
+                    <div class="problem-number">問題番号: 49</div>
+                    <div class="problem-title">確率</div>
+                    <a href="https://www.fe-siken.com/bunya.php?m=1&s=2&no=49" target="_blank" class="problem-link">問題を見る ›</a>
+                    <div class="problem-source">出典: H16春期 問 6</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+</html>
