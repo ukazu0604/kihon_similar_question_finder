@@ -32,6 +32,11 @@
     .problem-panel {
       position: relative; /* check-containerの配置基準にする */
     }
+    .sort-options {
+      padding: 10px 15px;
+      background-color: #f8f9fa;
+      border-bottom: 1px solid #dee2e6;
+    }
   </style>
 </head>
 <body>
@@ -49,6 +54,13 @@
       <a href="#" class="back-button" id="back-button">‹ 戻る</a>
       <h1 id="detail-title"></h1>
     </div>
+    <div class="sort-options">
+      <label for="sort-order">並び順:</label>
+      <select id="sort-order">
+        <option value="default">問題順</option>
+        <option value="ref-desc">被参照カウント順</option>
+      </select>
+    </div>
     <div class="detail-container" id="detail-container"></div>
   </div>
 
@@ -60,6 +72,7 @@
     let detailView = document.getElementById('detail-view');
     let modelInfo = document.getElementById('model-info');
     let problemChecks = {}; // チェック状態を保持するオブジェクト
+    let currentSortOrder = 'default'; // 現在の並び順
 
     async function loadData() {
       try {
@@ -194,6 +207,20 @@
       const countsForThisCat = referenceCounts[middleCat] || {};
 
       const problems = data.categories[middleCat];
+
+      // 選択された並び順に応じてソート
+      if (currentSortOrder === 'ref-desc') {
+        problems.sort((a, b) => {
+          const countA = countsForThisCat[a.main_problem.問題番号] || 0;
+          const countB = countsForThisCat[b.main_problem.問題番号] || 0;
+          return countB - countA; // 降順
+        });
+      } else { // default
+        problems.sort((a, b) => {
+          return a.main_problem.問題番号.localeCompare(b.main_problem.問題番号); // 昇順
+        });
+      }
+
       problems.forEach(item => {
         const main = item.main_problem;
         const card = document.createElement('div');
@@ -328,6 +355,13 @@
     document.getElementById('back-button').addEventListener('click', e => {
       e.preventDefault();
       history.back(); // ブラウザの「戻る」と同じ動作
+    });
+
+    // 並び順の変更イベント
+    document.getElementById('sort-order').addEventListener('change', e => {
+      currentSortOrder = e.target.value;
+      const currentMiddleCat = document.getElementById('detail-title').textContent;
+      showDetail(currentMiddleCat); // 現在のカテゴリで表示を更新
     });
 
     loadData();
