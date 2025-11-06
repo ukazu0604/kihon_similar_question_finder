@@ -10,6 +10,28 @@
       font-size: 12px; /* problem-sourceと同じサイズに */
       color: #999;    /* problem-sourceと同じ色に */
     }
+    .check-container {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      display: flex;
+      gap: 4px;
+    }
+    .check-box {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+      background-color: #f0f0f0;
+    }
+    .check-box.checked.c0 { background-color: #ffadad; } /* Red */
+    .check-box.checked.c1 { background-color: #ffd6a5; } /* Orange */
+    .check-box.checked.c2 { background-color: #fdffb6; } /* Yellow */
+    .check-box.checked.c3 { background-color: #caffbf; } /* Green */
+    .problem-panel {
+      position: relative; /* check-containerの配置基準にする */
+    }
   </style>
 </head>
 <body>
@@ -37,6 +59,7 @@
     let indexView = document.getElementById('index-view');
     let detailView = document.getElementById('detail-view');
     let modelInfo = document.getElementById('model-info');
+    let problemChecks = {}; // チェック状態を保持するオブジェクト
 
     async function loadData() {
       try {
@@ -53,6 +76,7 @@
         }
 
         modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
+        loadChecks(); // チェック状態を読み込む
         calculateReferenceCounts(data.categories);
         renderIndex(data.categories);
       } catch (e) {
@@ -60,6 +84,21 @@
         console.error(e);
       }
     }
+
+    // ローカルストレージからチェック状態を読み込む
+    function loadChecks() {
+      const storedChecks = localStorage.getItem('problemChecks');
+      if (storedChecks) {
+        problemChecks = JSON.parse(storedChecks);
+      }
+    }
+
+    // ローカルストレージにチェック状態を保存する
+    function saveChecks() {
+      localStorage.setItem('problemChecks', JSON.stringify(problemChecks));
+    }
+
+
 
     function calculateReferenceCounts(categories) {
       referenceCounts = {}; // カウント結果を格納するオブジェクトを初期化
@@ -159,6 +198,15 @@
         const main = item.main_problem;
         const card = document.createElement('div');
         const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
+        
+        // チェックボックスのHTMLを生成
+        let checksHtml = '<div class="check-container">';
+        for (let i = 0; i < 4; i++) {
+          const isChecked = problemChecks[main.問題番号] && problemChecks[main.問題番号][i];
+          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${main.問題番号}" data-check-index="${i}"></div>`;
+        }
+        checksHtml += '</div>';
+
         card.className = 'problem-card';
         let html = `
           <a href="${main.リンク}" target="_blank" class="problem-panel main-problem">
@@ -166,6 +214,7 @@
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典}</div>
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
+            ${checksHtml}
           </a>
         `;
         // 類似度が50%以上のものだけをフィルタリング
@@ -190,6 +239,14 @@
           `;
           filteredSimilars.slice(0, 5).forEach(sim => {
             const s = sim.data;
+            // 類似問題用のチェックボックスHTMLを生成
+            let simChecksHtml = '<div class="check-container">';
+            for (let i = 0; i < 4; i++) {
+              const isChecked = problemChecks[s.問題番号] && problemChecks[s.問題番号][i];
+              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${s.問題番号}" data-check-index="${i}"></div>`;
+            }
+            simChecksHtml += '</div>';
+
             html += `
               <a href="${s.リンク}" target="_blank" class="problem-panel similar-item">
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
@@ -197,6 +254,7 @@
                 <div class="problem-title">${s.問題名}</div>
                 <div class="problem-source">出典: ${s.出典}</div>
                 <div class="problem-meta">被参照: ${countsForThisCat[s.問題番号] || 0}回</div>
+                ${simChecksHtml}
               </a>
             `;
           });
@@ -221,6 +279,28 @@
             content.style.display = 'none';
             arrow.textContent = '▼';
           }
+        });
+      });
+
+      // 新しく生成したチェックボックスにイベントリスナーを設定
+      document.querySelectorAll('.check-box').forEach(box => {
+        box.addEventListener('click', e => {
+          e.preventDefault(); // aタグのリンク遷移を防止
+          e.stopPropagation(); // 親要素へのイベント伝播を停止
+
+          const problemId = e.target.dataset.problemId;
+          const checkIndex = parseInt(e.target.dataset.checkIndex, 10);
+
+          // チェック状態の初期化
+          if (!problemChecks[problemId]) {
+            problemChecks[problemId] = [false, false, false, false];
+          }
+
+          // 状態をトグル
+          problemChecks[problemId][checkIndex] = !problemChecks[problemId][checkIndex];
+          e.target.classList.toggle('checked');
+          e.target.classList.toggle('c' + checkIndex);
+          saveChecks(); // 変更を保存
         });
       });
     }
