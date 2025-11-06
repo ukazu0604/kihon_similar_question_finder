@@ -141,6 +141,8 @@ body {
   border-radius: 8px;
   padding: 12px;
   margin-bottom: 10px;
+  padding: 10px; /* 類似問題パネルの余白を少し詰める */
+  margin-bottom: 8px; /* 類似問題パネル下の余白を少し詰める */
   border: 1px solid #e0e0e0;
 }
 .similar-item:hover {
@@ -154,4 +156,31 @@ body {
   border-radius: 10px;
   font-size: 11px;
   margin-bottom: 5px;
+}
+
+/* レスポンシブ対応 (スマートフォン向け) */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    border-radius: 0;
+    min-height: 100vh;
+  }
+  .header {
+    padding: 20px 15px;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .detail-container {
+    padding: 15px;
+  }
+  .problem-card {
+    padding: 15px;
+    margin-bottom: 15px;
+  }
+  .main-problem {
+    padding-left: 12px;
+  }
 }

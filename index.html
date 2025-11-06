@@ -97,6 +97,8 @@
         const largeCategorySection = document.createElement('div');
         largeCategorySection.className = 'large-category-section';
         largeCategorySection.innerHTML = `<h2 class="large-category-title">${largeCat}</h2>`;
+        largeCategorySection.className = 'major-category';
+        largeCategorySection.innerHTML = `<div class="major-title">${largeCat}</div>`;
 
         const middleCategoryList = document.createElement('div');
         groupedByLargeCategory[largeCat].forEach(({ middleCat, problems }) => {
