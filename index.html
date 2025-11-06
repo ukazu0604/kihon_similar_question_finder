@@ -200,7 +200,7 @@
       });
     }
 
-    function showDetail(middleCat) {
+    function showDetail(middleCat, isPopState = false) {
       indexView.style.display = 'none';
       detailView.style.display = 'block';
       document.getElementById('detail-title').textContent = middleCat; // isPopState引数を追加
