@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <style>
     .problem-meta {
-      font-size: 0.85em;
-      color: #666;
+      font-size: 12px; /* problem-sourceと同じサイズに */
+      color: #999;    /* problem-sourceと同じ色に */
     }
   </style>
 </head>
@@ -143,8 +143,8 @@
           <a href="${main.リンク}" class="problem-panel main-problem">
             <div class="problem-number">問題番号: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
-            <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
             <div class="problem-source">出典: ${main.出典}</div>
+            <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
           </a>
         `;
         if (item.similar_problems && item.similar_problems.length > 0) {
@@ -164,8 +164,8 @@
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
                 <div class="problem-number">問題番号: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
-                <div class="problem-meta">被参照回数: ${referenceCounts[s.問題番号] || 0}回</div>
                 <div class="problem-source">出典: ${s.出典}</div>
+                <div class="problem-meta">被参照回数: ${referenceCounts[s.問題番号] || 0}回</div>
               </a>
             `;
           });
