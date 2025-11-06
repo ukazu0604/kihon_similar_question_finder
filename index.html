@@ -135,7 +135,7 @@
           const cat = e.currentTarget.dataset.cat;
           // URLにハッシュを追加して履歴に記録
           history.pushState({ category: cat }, `詳細: ${cat}`, `#${encodeURIComponent(cat)}`);
-          showDetail(cat, false); // pushStateしたのでpopstateでの表示は不要
+          showDetail(cat); // pushStateしたのでpopstateでの表示は不要
         });
       });
     }
@@ -146,10 +146,8 @@
       document.getElementById('detail-title').textContent = middleCat;
 
       // ページ上部にスクロール
-      if (!isPopState) {
-        window.scrollTo(0, 0);
-      }
-
+      window.scrollTo(0, 0);
+      
       const container = document.getElementById('detail-container');
       container.innerHTML = '';
 
@@ -164,7 +162,8 @@
         card.className = 'problem-card';
         let html = `
           <a href="${main.リンク}" target="_blank" class="problem-panel main-problem">
-           <div class="problem-number">問題: ${main.問題番号}</div>
+            <div class="problem-number">${item.main_problem.中分類}: ${main.問題番号}</div>
+            <div class="problem-number">問題番号: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典}</div>
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
@@ -230,16 +229,20 @@
     function showIndex() {
       detailView.style.display = 'none';
       indexView.style.display = 'block';
+      window.scrollTo(0, 0);
     }
 
     // ブラウザの戻る/進むボタンが押されたときの処理
     window.addEventListener('popstate', e => {
       const hash = location.hash.substring(1);
+      // popstateイベントで状態が復元された場合、ブラウザがスクロール位置を復元する。
+      // stateがない場合（URL直打ちなど）は手動で表示を切り替える。
       if (hash) {
-        const category = decodeURIComponent(hash);
-        showDetail(category, true); // isPopState = true
-      } else {
-        showIndex();
+        if (!e.state || !e.state.category) {
+          showDetail(decodeURIComponent(hash));
+        }
+      } else if (!e.state) {
+          showIndex();
       }
     });
 
@@ -253,7 +256,7 @@
     // 初期読み込み時にハッシュがあれば詳細ページを表示
     const initialHash = location.hash.substring(1);
     if (initialHash) {
-      loadData().then(() => showDetail(decodeURIComponent(initialHash), true));
+      loadData().then(() => showDetail(decodeURIComponent(initialHash)));
     } else {
       loadData();
     }
@@ -288,6 +291,7 @@
     const initialHash = location.hash.substring(1);
     if (initialHash) {
       loadData().then(() => showDetail(decodeURIComponent(initialHash), true));
+      loadData().then(() => showDetail(decodeURIComponent(initialHash)));
     } else {
       loadData();
     }
