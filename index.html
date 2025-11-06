@@ -72,8 +72,11 @@
         // この中分類内の各問題が持つ「類似問題リスト」をチェック
         problemsInCat.forEach(item => {
           item.similar_problems.forEach(sim => {
-            const problemId = sim.data.問題番号;
-            countsInCat[problemId] = (countsInCat[problemId] || 0) + 1;
+            // 類似度が50%以上のものだけをカウント対象にする
+            if (sim.similarity >= 0.5) {
+              const problemId = sim.data.問題番号;
+              countsInCat[problemId] = (countsInCat[problemId] || 0) + 1;
+            }
           });
         });
 
@@ -159,17 +162,22 @@
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
           </a>
         `;
-        if (item.similar_problems && item.similar_problems.length > 0) {
-          const similarCount = item.similar_problems.length;
+        // 類似度が50%以上のものだけをフィルタリング
+        const filteredSimilars = item.similar_problems
+          ? item.similar_problems.filter(sim => sim.similarity >= 0.5)
+          : [];
+
+        if (filteredSimilars.length > 0) {
+          const similarCount = filteredSimilars.length;
           html += `
             <div class="similar-section">
               <div class="similar-toggle">
-                <span class="similar-title">📊 類似問題 (${similarCount > 5 ? '5' : similarCount}件表示)</span>
+                <span class="similar-title">📊 類似問題 (類似度50%以上, ${similarCount > 5 ? '上位5' : similarCount}件表示)</span>
                 <span class="toggle-arrow">▼</span>
               </div>
               <div class="similar-content" style="display: none;">
           `;
-          item.similar_problems.slice(0, 5).forEach(sim => {
+          filteredSimilars.slice(0, 5).forEach(sim => {
             const s = sim.data;
             html += `
               <a href="${s.リンク}" target="_blank" class="problem-panel similar-item">
