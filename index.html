@@ -342,38 +342,3 @@
   </script>
 </body>
 </html>
-    function showIndex() {
-      detailView.style.display = 'none';
-      indexView.style.display = 'block';
-      window.scrollTo(0, 0);
-    }
-
-    // ブラウザの戻る/進むボタンが押されたときの処理
-    window.addEventListener('popstate', e => {
-      const hash = location.hash.substring(1);
-      if (hash) {
-        const category = decodeURIComponent(hash);
-        showDetail(category, true); // isPopState = true
-      } else {
-        showIndex();
-      }
-    });
-
-    document.getElementById('back-button').addEventListener('click', e => {
-      e.preventDefault();
-      history.back(); // ブラウザの「戻る」と同じ動作
-    });
-
-    loadData();
-
-    // 初期読み込み時にハッシュがあれば詳細ページを表示
-    const initialHash = location.hash.substring(1);
-    if (initialHash) {
-      loadData().then(() => showDetail(decodeURIComponent(initialHash), true));
-      loadData().then(() => showDetail(decodeURIComponent(initialHash)));
-    } else {
-      loadData();
-    }
-  </script>
-</body>
-</html>
