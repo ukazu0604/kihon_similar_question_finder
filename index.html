@@ -26,6 +26,7 @@
 
   <script>
     let data = {};
+    let referenceCounts = {}; // 各問題の被参照回数を格納する
     let categoryList = document.getElementById('category-list');
     let indexView = document.getElementById('index-view');
     let detailView = document.getElementById('detail-view');
@@ -36,10 +37,23 @@
         const res = await fetch('03_html_output/similar_results.json');
         data = await res.json();
         modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
+        calculateReferenceCounts(data.categories);
         renderIndex(data.categories);
       } catch (e) {
         modelInfo.textContent = 'データ読み込みエラー';
         console.error(e);
+      }
+    }
+
+    function calculateReferenceCounts(categories) {
+      referenceCounts = {};
+      for (const middleCat in categories) {
+        categories[middleCat].forEach(item => {
+          item.similar_problems.forEach(sim => {
+            const problemId = sim.data.問題番号;
+            referenceCounts[problemId] = (referenceCounts[problemId] || 0) + 1;
+          });
+        });
       }
     }
 
@@ -102,11 +116,13 @@
       problems.forEach(item => {
         const main = item.main_problem;
         const card = document.createElement('div');
+        const mainProblemRefCount = referenceCounts[main.問題番号] || 0;
         card.className = 'problem-card';
         let html = `
           <div class="main-problem">
             <div class="problem-number">問題番号: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
+            <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
             <a href="${main.リンク}" target="_blank" class="problem-link">問題を見る ›</a>
             <div class="problem-source">出典: ${main.出典}</div>
           </div>
@@ -121,6 +137,7 @@
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
                 <div class="problem-number">問題番号: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
+                <div class="problem-meta">被参照回数: ${referenceCounts[s.問題番号] || 0}回</div>
                 <a href="${s.リンク}" target="_blank" class="problem-link">問題を見る ›</a>
                 <div class="problem-source">出典: ${s.出典}</div>
               </div>
