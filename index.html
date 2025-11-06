@@ -47,14 +47,30 @@
 
     function calculateReferenceCounts(categories) {
       referenceCounts = {};
+      // 1. 全ての問題を重複なく一意なリストにまとめる
+      const allProblems = [];
+      const seenProblemIds = new Set();
       for (const middleCat in categories) {
         categories[middleCat].forEach(item => {
           item.similar_problems.forEach(sim => {
             const problemId = sim.data.問題番号;
             referenceCounts[problemId] = (referenceCounts[problemId] || 0) + 1;
           });
+          if (!seenProblemIds.has(item.main_problem.問題番号)) {
+            allProblems.push(item);
+            seenProblemIds.add(item.main_problem.問題番号);
+          }
         });
       }
+
+      // 2. 一意な問題リストを基準に被参照回数をカウントする
+      referenceCounts = {};
+      allProblems.forEach(item => {
+        item.similar_problems.forEach(sim => {
+          const problemId = sim.data.問題番号;
+          referenceCounts[problemId] = (referenceCounts[problemId] || 0) + 1;
+        });
+      });
     }
 
     function renderIndex(categories) {
