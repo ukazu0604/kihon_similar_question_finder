@@ -152,7 +152,7 @@
         const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
         card.className = 'problem-card';
         let html = `
-          <a href="${main.リンク}" class="problem-panel main-problem">
+          <a href="${main.リンク}" target="_blank" class="problem-panel main-problem">
             <div class="problem-number">${item.main_problem.中分類}: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典}</div>
@@ -172,7 +172,7 @@
           item.similar_problems.slice(0, 5).forEach(sim => {
             const s = sim.data;
             html += `
-              <a href="${s.リンク}" class="problem-panel similar-item">
+              <a href="${s.リンク}" target="_blank" class="problem-panel similar-item">
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
                 <div class="problem-number">${sim.data.中分類}: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
