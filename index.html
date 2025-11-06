@@ -157,6 +157,7 @@
         let html = `
           <a href="${main.リンク}" target="_blank" class="problem-panel main-problem">
             <div class="problem-number">${item.main_problem.中分類}: ${main.問題番号}</div>
+            <div class="problem-number">問題番号: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典}</div>
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
@@ -169,11 +170,16 @@
 
         if (filteredSimilars.length > 0) {
           const similarCount = filteredSimilars.length;
+          // 平均類似度を計算
+          const totalSimilarity = filteredSimilars.reduce((sum, sim) => sum + sim.similarity, 0);
+          const averageSimilarity = (totalSimilarity / similarCount) * 100;
+
           html += `
             <div class="similar-section">
               <div class="similar-toggle">
-                <span class="similar-title">📊 類似問題 (類似度50%以上, ${similarCount > 5 ? '上位5' : similarCount}件表示)</span>
-                <span class="toggle-arrow">▼</span>
+                <span class="similar-title">📊 類似問題 (${similarCount > 5 ? '上位5' : similarCount}件)</span>
+                <span class="average-similarity">平均: ${averageSimilarity.toFixed(1)}%</span>
+                <span class="toggle-arrow">▼</span> <!-- 矢印を右端に -->
               </div>
               <div class="similar-content" style="display: none;">
           `;
@@ -183,6 +189,7 @@
               <a href="${s.リンク}" target="_blank" class="problem-panel similar-item">
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
                 <div class="problem-number">${sim.data.中分類}: ${s.問題番号}</div>
+                <div class="problem-number">問題番号: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
                 <div class="problem-source">出典: ${s.出典}</div>
                 <div class="problem-meta">被参照回数: ${countsForThisCat[s.問題番号] || 0}回</div>
