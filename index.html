@@ -153,7 +153,7 @@
         card.className = 'problem-card';
         let html = `
           <a href="${main.リンク}" class="problem-panel main-problem">
-            <div class="problem-number">問題番号: ${main.問題番号}</div>
+            <div class="problem-number">${main.中分類}: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典}</div>
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
@@ -174,7 +174,7 @@
             html += `
               <a href="${s.リンク}" class="problem-panel similar-item">
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
-                <div class="problem-number">問題番号: ${s.問題番号}</div>
+                <div class="problem-number">${s.中分類}: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
                 <div class="problem-source">出典: ${s.出典}</div>
                 <div class="problem-meta">被参照回数: ${countsForThisCat[s.問題番号] || 0}回</div>
