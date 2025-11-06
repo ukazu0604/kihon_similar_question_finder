@@ -39,9 +39,6 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
   </style>
 </head>
@@ -102,6 +99,11 @@
         modelInfo.textContent = 'データ読み込みエラー';
         console.error(e);
       }
+    }
+
+    // スマートフォンデバイスかどうかを判定する
+    function isMobileDevice() {
+      return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
     // ローカルストレージからチェック状態を読み込む
@@ -193,7 +195,7 @@
           const cat = e.currentTarget.dataset.cat;
           // URLにハッシュを追加して履歴に記録
           history.pushState({ category: cat }, `詳細: ${cat}`, `#${encodeURIComponent(cat)}`);
-          showDetail(cat); // pushStateしたのでpopstateでの表示は不要
+          showDetail(cat, false); // ユーザー操作なのでisPopStateはfalse
         });
       });
     }
@@ -201,11 +203,12 @@
     function showDetail(middleCat) {
       indexView.style.display = 'none';
       detailView.style.display = 'block';
-      document.getElementById('detail-title').textContent = middleCat;
+      document.getElementById('detail-title').textContent = middleCat; // isPopState引数を追加
 
       // ページ上部にスクロール
-      window.scrollTo(0, 0);
-      
+      if (!isPopState) { // popstateからの呼び出しでない場合のみスクロール
+        window.scrollTo(0, 0);
+      }
       const container = document.getElementById('detail-container');
       container.innerHTML = '';
 
@@ -230,6 +233,12 @@
 
       problems.forEach(item => {
         const main = item.main_problem;
+        let mainProblemLink = main.リンク;
+        if (isMobileDevice()) {
+          // スマートフォン版のURLに変換
+          mainProblemLink = mainProblemLink.replace('https://www.fe-siken.com/', 'https://www.fe-siken.com/s/');
+        }
+
         const card = document.createElement('div');
         const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
         
@@ -243,7 +252,7 @@
 
         card.className = 'problem-card';
         let html = `
-          <a href="${main.リンク}" target="_blank" class="problem-panel main-problem">
+          <a href="${mainProblemLink}" target="_blank" class="problem-panel main-problem">
             <div class="problem-number">問題: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典}</div>
@@ -273,6 +282,12 @@
           `;
           filteredSimilars.slice(0, 5).forEach(sim => {
             const s = sim.data;
+            let similarProblemLink = s.リンク;
+            if (isMobileDevice()) {
+              // スマートフォン版のURLに変換
+              similarProblemLink = similarProblemLink.replace('https://www.fe-siken.com/', 'https://www.fe-siken.com/s/');
+            }
+
             // 類似問題用のチェックボックスHTMLを生成
             let simChecksHtml = '<div class="check-container">';
             for (let i = 0; i < 4; i++) {
@@ -280,9 +295,9 @@
               simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${s.問題番号}" data-check-index="${i}"></div>`;
             }
             simChecksHtml += '</div>';
-
+            
             html += `
-              <a href="${s.リンク}" target="_blank" class="problem-panel similar-item">
+              <a href="${similarProblemLink}" target="_blank" class="problem-panel similar-item">
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
                 <div class="problem-number">問題: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
@@ -339,23 +354,21 @@
       });
     }
 
-    function showIndex() {
+    function showIndex(isPopState = false) { // isPopState引数を追加
       detailView.style.display = 'none';
       indexView.style.display = 'block';
-      window.scrollTo(0, 0);
+      if (!isPopState) { // popstateからの呼び出しでない場合のみスクロール
+        window.scrollTo(0, 0);
+      }
     }
 
     // ブラウザの戻る/進むボタンが押されたときの処理
     window.addEventListener('popstate', e => {
       const hash = location.hash.substring(1);
-      // popstateイベントで状態が復元された場合、ブラウザがスクロール位置を復元する。
-      // stateがない場合（URL直打ちなど）は手動で表示を切り替える。
       if (hash) {
-        if (!e.state || !e.state.category) {
-          showDetail(decodeURIComponent(hash));
-        }
-      } else if (!e.state) {
-          showIndex();
+        showDetail(decodeURIComponent(hash), true); // popstateからの呼び出しなのでtrue
+      } else {
+        showIndex(true); // popstateからの呼び出しなのでtrue
       }
     });
 
@@ -368,17 +381,15 @@
     document.getElementById('sort-order').addEventListener('change', e => {
       currentSortOrder = e.target.value;
       const currentMiddleCat = document.getElementById('detail-title').textContent;
-      showDetail(currentMiddleCat); // 現在のカテゴリで表示を更新
+      showDetail(currentMiddleCat, false); // ユーザー操作なのでisPopStateはfalse
     });
 
     loadData();
 
     // 初期読み込み時にハッシュがあれば詳細ページを表示
     const initialHash = location.hash.substring(1);
-    if (initialHash) {
-      loadData().then(() => showDetail(decodeURIComponent(initialHash)));
-    } else {
-      loadData();
+    if (initialHash) { // 初期読み込み時のハッシュはユーザー操作と見なす
+      showDetail(decodeURIComponent(initialHash), false);
     }
   </script>
 </body>
