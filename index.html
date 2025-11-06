@@ -44,21 +44,42 @@
     }
 
     function renderIndex(categories) {
-      categoryList.innerHTML = '';
+      // 大項目でグループ化
+      const groupedByLargeCategory = {};
       for (const [middleCat, problems] of Object.entries(categories)) {
-        const item = document.createElement('div');
-        item.className = 'middle-category-item';
-        item.innerHTML = `
-          <a href="#" class="middle-category-link" data-cat="${middleCat}">
-            <span class="category-name">${middleCat}</span>
-            <div>
-              <span class="problem-count">${problems.length}問</span>
-              <span class="arrow">›</span>
-            </div>
-          </a>
-        `;
-        categoryList.appendChild(item);
+        if (problems.length > 0) {
+          const largeCat = problems[0].main_problem.大項目;
+          if (!groupedByLargeCategory[largeCat]) {
+            groupedByLargeCategory[largeCat] = [];
+          }
+          groupedByLargeCategory[largeCat].push({ middleCat, problems });
+        }
       }
+
+      categoryList.innerHTML = '';
+      // 大項目のキーでソートして表示
+      Object.keys(groupedByLargeCategory).sort().forEach(largeCat => {
+        const largeCategorySection = document.createElement('div');
+        largeCategorySection.className = 'large-category-section';
+        largeCategorySection.innerHTML = `<h2 class="large-category-title">${largeCat}</h2>`;
+
+        const middleCategoryList = document.createElement('div');
+        groupedByLargeCategory[largeCat].forEach(({ middleCat, problems }) => {
+          const item = document.createElement('div');
+          item.className = 'middle-category-item';
+          item.innerHTML = `
+            <a href="#" class="middle-category-link" data-cat="${middleCat}">
+              <span class="category-name">${middleCat}</span>
+              <div>
+                <span class="problem-count">${problems.length}問</span>
+                <span class="arrow">›</span>
+              </div>
+            </a>`;
+          middleCategoryList.appendChild(item);
+        });
+        largeCategorySection.appendChild(middleCategoryList);
+        categoryList.appendChild(largeCategorySection);
+      });
 
       // イベント設定
       document.querySelectorAll('.middle-category-link').forEach(link => {
