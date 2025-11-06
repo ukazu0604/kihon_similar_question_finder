@@ -139,7 +139,7 @@
             <div class="problem-number">問題番号: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
-            <a href="${main.リンク}" target="_blank" class="problem-link">問題を見る ›</a>
+            <a href="${main.リンク}" class="problem-link">問題を見る ›</a>
             <div class="problem-source">出典: ${main.出典}</div>
           </div>
         `;
@@ -154,7 +154,7 @@
                 <div class="problem-number">問題番号: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
                 <div class="problem-meta">被参照回数: ${referenceCounts[s.問題番号] || 0}回</div>
-                <a href="${s.リンク}" target="_blank" class="problem-link">問題を見る ›</a>
+                <a href="${s.リンク}" class="problem-link">問題を見る ›</a>
                 <div class="problem-source">出典: ${s.出典}</div>
               </div>
             `;
