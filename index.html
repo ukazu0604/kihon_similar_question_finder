@@ -52,23 +52,17 @@
     }
 
     function calculateReferenceCounts(categories) {
-      referenceCounts = {};
       // 1. 全ての問題を重複なく一意なリストにまとめる
       const allProblems = [];
       const seenProblemIds = new Set();
       for (const middleCat in categories) {
         categories[middleCat].forEach(item => {
-          item.similar_problems.forEach(sim => {
-            const problemId = sim.data.問題番号;
-            referenceCounts[problemId] = (referenceCounts[problemId] || 0) + 1;
-          });
           if (!seenProblemIds.has(item.main_problem.問題番号)) {
             allProblems.push(item);
             seenProblemIds.add(item.main_problem.問題番号);
           }
         });
       }
-
       // 2. 一意な問題リストを基準に被参照回数をカウントする
       referenceCounts = {};
       allProblems.forEach(item => {
@@ -155,8 +149,15 @@
           </div>
         `;
         if (item.similar_problems && item.similar_problems.length > 0) {
-          html += `<div class="similar-section">
-                    <div class="similar-title">📊 類似問題（類似度順）</div>`;
+          const similarCount = item.similar_problems.length;
+          html += `
+            <div class="similar-section">
+              <div class="similar-toggle">
+                <span class="similar-title">📊 類似問題 (${similarCount > 5 ? '5' : similarCount}件表示)</span>
+                <span class="toggle-arrow">▼</span>
+              </div>
+              <div class="similar-content" style="display: none;">
+          `;
           item.similar_problems.slice(0, 5).forEach(sim => {
             const s = sim.data;
             html += `
@@ -170,10 +171,28 @@
               </div>
             `;
           });
-          html += `</div>`;
+          html += `
+              </div>
+            </div>
+          `;
         }
         card.innerHTML = html;
         container.appendChild(card);
+      });
+
+      // 新しく生成したアコーディオン要素にイベントリスナーを設定
+      document.querySelectorAll('.similar-toggle').forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const arrow = toggle.querySelector('.toggle-arrow');
+          if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+            arrow.textContent = '▲';
+          } else {
+            content.style.display = 'none';
+            arrow.textContent = '▼';
+          }
+        });
       });
     }
 
