@@ -217,7 +217,8 @@
         });
       } else { // default
         problems.sort((a, b) => {
-          return a.main_problem.問題番号.localeCompare(b.main_problem.問題番号); // 昇順
+          // 問題番号が数値なので、数値として比較する
+          return a.main_problem.問題番号 - b.main_problem.問題番号; // 昇順
         });
       }
 
