@@ -136,9 +136,10 @@ body {
 .similar-title { font-size: 14px; color: #666; margin-bottom: 15px; font-weight: bold; }
 .average-similarity {
   font-size: 12px;
-  color: #888;
+  color: #666; /* 矢印など他の要素と色を統一 */
+  font-weight: 500; /* 少しだけ太くして視認性を上げる */
   margin-left: auto; /* これでタイトルと矢印の間に配置 */
-  margin-right: 10px;
+  margin-right: 12px;
 }
 .similar-title { margin-bottom: 0; transition: color 0.2s; }
 .toggle-arrow { font-size: 12px; color: #666; }
