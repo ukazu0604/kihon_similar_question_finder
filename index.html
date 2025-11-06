@@ -42,6 +42,16 @@
       try {
         const res = await fetch('03_html_output/similar_results.json');
         data = await res.json();
+
+        // **類似問題を同じ中分類のものだけにフィルタリングする**
+        for (const middleCat in data.categories) {
+          data.categories[middleCat].forEach(item => {
+            item.similar_problems = item.similar_problems.filter(sim => {
+              return sim.data.中分類 === item.main_problem.中分類;
+            });
+          });
+        }
+
         modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
         calculateReferenceCounts(data.categories);
         renderIndex(data.categories);
@@ -52,25 +62,24 @@
     }
 
     function calculateReferenceCounts(categories) {
-      // 1. 全ての問題を重複なく一意なリストにまとめる
-      const allProblems = [];
-      const seenProblemIds = new Set();
+      referenceCounts = {}; // カウント結果を格納するオブジェクトを初期化
+
+      // 中分類ごとにループ
       for (const middleCat in categories) {
-        categories[middleCat].forEach(item => {
-          if (!seenProblemIds.has(item.main_problem.問題番号)) {
-            allProblems.push(item);
-            seenProblemIds.add(item.main_problem.問題番号);
-          }
+        const problemsInCat = categories[middleCat];
+        const countsInCat = {}; // この中分類内でのカウント用
+
+        // この中分類内の各問題が持つ「類似問題リスト」をチェック
+        problemsInCat.forEach(item => {
+          item.similar_problems.forEach(sim => {
+            const problemId = sim.data.問題番号;
+            countsInCat[problemId] = (countsInCat[problemId] || 0) + 1;
+          });
         });
+
+        // この中分類のカウント結果を保存
+        referenceCounts[middleCat] = countsInCat;
       }
-      // 2. 一意な問題リストを基準に被参照回数をカウントする
-      referenceCounts = {};
-      allProblems.forEach(item => {
-        item.similar_problems.forEach(sim => {
-          const problemId = sim.data.問題番号;
-          referenceCounts[problemId] = (referenceCounts[problemId] || 0) + 1;
-        });
-      });
     }
 
     function renderIndex(categories) {
@@ -133,11 +142,14 @@
       const container = document.getElementById('detail-container');
       container.innerHTML = '';
 
+      // 表示中の中分類に対応するカウント結果を取得
+      const countsForThisCat = referenceCounts[middleCat] || {};
+
       const problems = data.categories[middleCat];
       problems.forEach(item => {
         const main = item.main_problem;
         const card = document.createElement('div');
-        const mainProblemRefCount = referenceCounts[main.問題番号] || 0;
+        const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
         card.className = 'problem-card';
         let html = `
           <a href="${main.リンク}" class="problem-panel main-problem">
@@ -165,7 +177,7 @@
                 <div class="problem-number">問題番号: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
                 <div class="problem-source">出典: ${s.出典}</div>
-                <div class="problem-meta">被参照回数: ${referenceCounts[s.問題番号] || 0}回</div>
+                <div class="problem-meta">被参照回数: ${countsForThisCat[s.問題番号] || 0}回</div>
               </a>
             `;
           });
