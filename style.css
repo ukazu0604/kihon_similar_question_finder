@@ -212,7 +212,17 @@ body {
   border-radius: 3px;
   cursor: pointer;
   background-color: #f0f0f0;
+  position: relative; /* チェックマークの位置基準にする */
+  line-height: 16px; /* チェックマークを上下中央に配置しやすくする */
+  text-align: center; /* チェックマークを左右中央に配置しやすくする */
 }
+.check-box.checked::after {
+  content: '✔'; /* 表示するチェックマーク */
+  color: rgba(0, 0, 0, 0.6); /* チェックマークの色を少し濃く */
+  font-weight: bold;
+  font-size: 12px;
+}
+
 .check-box.checked.c0 { background-color: #ffadad; } /* Red */
 .check-box.checked.c1 { background-color: #ffd6a5; } /* Orange */
 .check-box.checked.c2 { background-color: #fdffb6; } /* Yellow */
