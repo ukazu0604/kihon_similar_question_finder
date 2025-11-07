@@ -5,55 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>基本情報技術者試験 類似問題ファインダー</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .problem-meta {
-      font-size: 12px; /* problem-sourceと同じサイズに */
-      color: #999;    /* problem-sourceと同じ色に */
-    }
-    .check-container {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      display: flex;
-      gap: 4px;
-    }
-    .check-box {
-      width: 16px;
-      height: 16px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      cursor: pointer;
-      background-color: #f0f0f0;
-    }
-    .check-box.checked.c0 { background-color: #ffadad; } /* Red */
-    .check-box.checked.c1 { background-color: #ffd6a5; } /* Orange */
-    .check-box.checked.c2 { background-color: #fdffb6; } /* Yellow */
-    .check-box.checked.c3 { background-color: #caffbf; } /* Green */
-    .problem-panel {
-      position: relative; /* check-containerの配置基準にする */
-    }
-    .sort-options {
-      padding: 10px 15px;
-      background-color: #f8f9fa;
-      border-bottom: 1px solid #dee2e6;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .oshi-container {
-      display: flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 12px;
-    }
-    .oshi-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      font-size: 16px;
-    }
-  </style>
 </head>
 <body>
   <div class="container" id="index-view">
