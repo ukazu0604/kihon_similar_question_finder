@@ -386,14 +386,12 @@
           problemChecks[problemId][checkIndex] = newCheckedState;
           saveChecks(); // 変更を保存
 
-          // 画面に表示されている同じ問題IDを持つすべてのチェックボックスの状態を更新する
-          document.querySelectorAll(`.check-box[data-problem-id="${problemId}"][data-check-index="${checkIndex}"]`).forEach(boxToUpdate => {
-            if (newCheckedState) {
-              boxToUpdate.classList.add('checked', 'c' + checkIndex);
-            } else {
-              boxToUpdate.classList.remove('checked', 'c' + checkIndex);
-            }
-          });
+          // クリックされた要素のクラスを更新
+          if (newCheckedState) {
+            e.target.classList.add('checked', 'c' + checkIndex);
+          } else {
+            e.target.classList.remove('checked', 'c' + checkIndex);
+          }
         });
       });
 
