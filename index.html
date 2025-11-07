@@ -29,6 +29,7 @@
       <select id="sort-order">
         <option value="default">問題順</option>
         <option value="ref-desc">被参照カウント順</option>
+        <option value="fear-desc">恐怖カウント順</option>
         <option value="oshi-desc">推しカウント順</option>
         <option value="like-desc">いいねカウント順</option>
       </select>
@@ -45,6 +46,7 @@
     let modelInfo = document.getElementById('model-info');
     let oshiCounts = {}; // 推しカウントを保持するオブジェクト
     let likeCounts = {}; // いいねカウントを保持するオブジェクト
+    let fearCounts = {}; // 恐怖カウントを保持するオブジェクト
     let problemChecks = {}; // チェック状態を保持するオブジェクト
     let currentSortOrder = 'default'; // 現在の並び順
 
@@ -65,6 +67,7 @@
         modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
         loadOshiCounts(); // 推しカウントを読み込む
         loadLikeCounts(); // いいねカウントを読み込む
+        loadFearCounts(); // 恐怖カウントを読み込む
         loadChecks(); // チェック状態を読み込む
         calculateReferenceCounts(data.categories);
         renderIndex(data.categories);
@@ -105,6 +108,18 @@
       localStorage.setItem('likeCounts', JSON.stringify(likeCounts));
     }
 
+    // ローカルストレージから恐怖カウントを読み込む
+    function loadFearCounts() {
+      const storedFearCounts = localStorage.getItem('fearCounts');
+      if (storedFearCounts) {
+        fearCounts = JSON.parse(storedFearCounts);
+      }
+    }
+
+    // ローカルストレージに恐怖カウントを保存する
+    function saveFearCounts() {
+      localStorage.setItem('fearCounts', JSON.stringify(fearCounts));
+    }
 
     // ローカルストレージからチェック状態を読み込む
     function loadChecks() {
@@ -236,6 +251,12 @@
           const countB = likeCounts[`${b.main_problem.出典}-${b.main_problem.問題番号}`] || 0;
           return countB - countA; // 降順
         });
+      } else if (currentSortOrder === 'fear-desc') {
+        problems.sort((a, b) => {
+          const countA = fearCounts[`${a.main_problem.出典}-${a.main_problem.問題番号}`] || 0;
+          const countB = fearCounts[`${b.main_problem.出典}-${b.main_problem.問題番号}`] || 0;
+          return countB - countA; // 降順
+        });
       } else { // default
         problems.sort((a, b) => {
           // 問題番号が数値なので、数値として比較する
@@ -266,12 +287,15 @@
         // リアクションボタンのHTMLを生成
         const mainOshiCount = oshiCounts[mainProblemUniqueId] || 0;
         const mainLikeCount = likeCounts[mainProblemUniqueId] || 0;
+        const mainFearCount = fearCounts[mainProblemUniqueId] || 0;
         const reactionHtml = `
           <div class="reaction-container">
             <button class="reaction-button" data-problem-id="${mainProblemUniqueId}" data-reaction-type="oshi">❤️</button>
             <span class="reaction-count">${mainOshiCount}</span>
             <button class="reaction-button" data-problem-id="${mainProblemUniqueId}" data-reaction-type="like">👍</button>
             <span class="reaction-count">${mainLikeCount}</span>
+            <button class="reaction-button" data-problem-id="${mainProblemUniqueId}" data-reaction-type="fear">😱</button>
+            <span class="reaction-count">${mainFearCount}</span>
           </div>`;
 
         card.className = 'problem-card';
@@ -324,12 +348,15 @@
             // 類似問題用のリアクションボタンHTMLを生成
             const simOshiCount = oshiCounts[simProblemUniqueId] || 0;
             const simLikeCount = likeCounts[simProblemUniqueId] || 0;
+            const simFearCount = fearCounts[simProblemUniqueId] || 0;
             const simReactionHtml = `
               <div class="reaction-container">
                 <button class="reaction-button" data-problem-id="${simProblemUniqueId}" data-reaction-type="oshi">❤️</button>
                 <span class="reaction-count">${simOshiCount}</span>
                 <button class="reaction-button" data-problem-id="${simProblemUniqueId}" data-reaction-type="like">👍</button>
                 <span class="reaction-count">${simLikeCount}</span>
+                <button class="reaction-button" data-problem-id="${simProblemUniqueId}" data-reaction-type="fear">😱</button>
+                <span class="reaction-count">${simFearCount}</span>
               </div>`;
 
             html += `
@@ -413,6 +440,10 @@
             likeCounts[problemId] = (likeCounts[problemId] || 0) + 1;
             saveLikeCounts();
             targetCounts = likeCounts;
+          } else if (reactionType === 'fear') {
+            fearCounts[problemId] = (fearCounts[problemId] || 0) + 1;
+            saveFearCounts();
+            targetCounts = fearCounts;
           }
 
           // 画面に表示されている同じ問題IDを持つすべてのカウント表示を更新
@@ -463,6 +494,7 @@
         localStorage.removeItem('problemChecks');
         localStorage.removeItem('oshiCounts');
         localStorage.removeItem('likeCounts');
+        localStorage.removeItem('fearCounts');
         alert('チェック状態がリセットされました。ページを更新します。');
         location.reload(); // ページをリロードして変更を反映
       }
