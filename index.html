@@ -246,10 +246,11 @@
         const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
         
         // チェックボックスのHTMLを生成
+        const mainProblemUniqueId = `${main.出典}-${main.問題番号}`;
         let checksHtml = '<div class="check-container">';
         for (let i = 0; i < 4; i++) {
-          const isChecked = problemChecks[main.問題番号] && problemChecks[main.問題番号][i];
-          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${main.問題番号}" data-check-index="${i}"></div>`;
+          const isChecked = problemChecks[mainProblemUniqueId] && problemChecks[mainProblemUniqueId][i];
+          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${mainProblemUniqueId}" data-check-index="${i}"></div>`;
         }
         checksHtml += '</div>';
 
@@ -292,10 +293,11 @@
             }
 
             // 類似問題用のチェックボックスHTMLを生成
+            const simProblemUniqueId = `${s.出典}-${s.問題番号}`;
             let simChecksHtml = '<div class="check-container">';
             for (let i = 0; i < 4; i++) {
-              const isChecked = problemChecks[s.問題番号] && problemChecks[s.問題番号][i];
-              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${s.問題番号}" data-check-index="${i}"></div>`;
+              const isChecked = problemChecks[simProblemUniqueId] && problemChecks[simProblemUniqueId][i];
+              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${simProblemUniqueId}" data-check-index="${i}"></div>`;
             }
             simChecksHtml += '</div>';
             
