@@ -30,6 +30,7 @@
         <option value="default">問題順</option>
         <option value="ref-desc">被参照カウント順</option>
         <option value="oshi-desc">推しカウント順</option>
+        <option value="like-desc">いいねカウント順</option>
       </select>
     </div>
     <div class="detail-container" id="detail-container"></div>
@@ -43,6 +44,7 @@
     let detailView = document.getElementById('detail-view');
     let modelInfo = document.getElementById('model-info');
     let oshiCounts = {}; // 推しカウントを保持するオブジェクト
+    let likeCounts = {}; // いいねカウントを保持するオブジェクト
     let problemChecks = {}; // チェック状態を保持するオブジェクト
     let currentSortOrder = 'default'; // 現在の並び順
 
@@ -62,6 +64,7 @@
 
         modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
         loadOshiCounts(); // 推しカウントを読み込む
+        loadLikeCounts(); // いいねカウントを読み込む
         loadChecks(); // チェック状態を読み込む
         calculateReferenceCounts(data.categories);
         renderIndex(data.categories);
@@ -87,6 +90,19 @@
     // ローカルストレージに推しカウントを保存する
     function saveOshiCounts() {
       localStorage.setItem('oshiCounts', JSON.stringify(oshiCounts));
+    }
+
+    // ローカルストレージからいいねカウントを読み込む
+    function loadLikeCounts() {
+      const storedLikeCounts = localStorage.getItem('likeCounts');
+      if (storedLikeCounts) {
+        likeCounts = JSON.parse(storedLikeCounts);
+      }
+    }
+
+    // ローカルストレージにいいねカウントを保存する
+    function saveLikeCounts() {
+      localStorage.setItem('likeCounts', JSON.stringify(likeCounts));
     }
 
 
@@ -214,6 +230,12 @@
           const countB = oshiCounts[`${b.main_problem.出典}-${b.main_problem.問題番号}`] || 0;
           return countB - countA; // 降順
         });
+      } else if (currentSortOrder === 'like-desc') {
+        problems.sort((a, b) => {
+          const countA = likeCounts[`${a.main_problem.出典}-${a.main_problem.問題番号}`] || 0;
+          const countB = likeCounts[`${b.main_problem.出典}-${b.main_problem.問題番号}`] || 0;
+          return countB - countA; // 降順
+        });
       } else { // default
         problems.sort((a, b) => {
           // 問題番号が数値なので、数値として比較する
@@ -241,12 +263,15 @@
         }
         checksHtml += '</div>';
 
-        // 推しボタンのHTMLを生成
+        // リアクションボタンのHTMLを生成
         const mainOshiCount = oshiCounts[mainProblemUniqueId] || 0;
-        const oshiHtml = `
-          <div class="oshi-container">
-            <button class="oshi-button" data-problem-id="${mainProblemUniqueId}">❤️</button>
-            <span class="oshi-count">${mainOshiCount}</span>
+        const mainLikeCount = likeCounts[mainProblemUniqueId] || 0;
+        const reactionHtml = `
+          <div class="reaction-container">
+            <button class="reaction-button" data-problem-id="${mainProblemUniqueId}" data-reaction-type="oshi">❤️</button>
+            <span class="reaction-count">${mainOshiCount}</span>
+            <button class="reaction-button" data-problem-id="${mainProblemUniqueId}" data-reaction-type="like">👍</button>
+            <span class="reaction-count">${mainLikeCount}</span>
           </div>`;
 
         card.className = 'problem-card';
@@ -254,7 +279,7 @@
           <a href="${mainProblemLink}" target="_blank" class="problem-panel main-problem">
             <div class="problem-number">問題: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
-            <div class="problem-source">出典: ${main.出典} ${oshiHtml}</div>
+            <div class="problem-source">出典: ${main.出典} ${reactionHtml}</div>
             <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
             ${checksHtml}
           </a>
@@ -296,12 +321,15 @@
             }
             simChecksHtml += '</div>';
             
-            // 類似問題用の推しボタンHTMLを生成
+            // 類似問題用のリアクションボタンHTMLを生成
             const simOshiCount = oshiCounts[simProblemUniqueId] || 0;
-            const simOshiHtml = `
-              <div class="oshi-container">
-                <button class="oshi-button" data-problem-id="${simProblemUniqueId}">❤️</button>
-                <span class="oshi-count">${simOshiCount}</span>
+            const simLikeCount = likeCounts[simProblemUniqueId] || 0;
+            const simReactionHtml = `
+              <div class="reaction-container">
+                <button class="reaction-button" data-problem-id="${simProblemUniqueId}" data-reaction-type="oshi">❤️</button>
+                <span class="reaction-count">${simOshiCount}</span>
+                <button class="reaction-button" data-problem-id="${simProblemUniqueId}" data-reaction-type="like">👍</button>
+                <span class="reaction-count">${simLikeCount}</span>
               </div>`;
 
             html += `
@@ -309,7 +337,7 @@
                 <span class="similarity-badge">${(sim.similarity * 100).toFixed(1)}%</span>
                 <div class="problem-number">問題: ${s.問題番号}</div>
                 <div class="problem-title">${s.問題名}</div>
-                <div class="problem-source">出典: ${s.出典} ${simOshiHtml}</div>
+                <div class="problem-source">出典: ${s.出典} ${simReactionHtml}</div>
                 <div class="problem-meta">被参照: ${countsForThisCat[s.問題番号] || 0}回</div>
                 ${simChecksHtml}
               </a>
@@ -369,23 +397,31 @@
         });
       });
 
-      // 新しく生成した推しボタンにイベントリスナーを設定
-      document.querySelectorAll('.oshi-button').forEach(button => {
+      // 新しく生成したリアクションボタンにイベントリスナーを設定
+      document.querySelectorAll('.reaction-button').forEach(button => {
         button.addEventListener('click', e => {
           e.preventDefault(); // aタグのリンク遷移を防止
           e.stopPropagation(); // 親要素へのイベント伝播を停止
 
           const problemId = e.target.dataset.problemId;
+          const reactionType = e.target.dataset.reactionType;
 
-          // カウントをインクリメント
-          oshiCounts[problemId] = (oshiCounts[problemId] || 0) + 1;
-          saveOshiCounts(); // 変更を保存
+          let targetCounts, saveFunction;
+          if (reactionType === 'oshi') {
+            oshiCounts[problemId] = (oshiCounts[problemId] || 0) + 1;
+            saveOshiCounts();
+            targetCounts = oshiCounts;
+          } else if (reactionType === 'like') {
+            likeCounts[problemId] = (likeCounts[problemId] || 0) + 1;
+            saveLikeCounts();
+            targetCounts = likeCounts;
+          }
 
           // 画面に表示されている同じ問題IDを持つすべてのカウント表示を更新
-          document.querySelectorAll(`.oshi-button[data-problem-id="${problemId}"]`).forEach(btnToUpdate => {
+          document.querySelectorAll(`.reaction-button[data-problem-id="${problemId}"][data-reaction-type="${reactionType}"]`).forEach(btnToUpdate => {
             const countElement = btnToUpdate.nextElementSibling;
-            if (countElement && countElement.classList.contains('oshi-count')) {
-              countElement.textContent = oshiCounts[problemId];
+            if (countElement && countElement.classList.contains('reaction-count')) {
+              countElement.textContent = targetCounts[problemId];
             }
           });
         });
@@ -428,6 +464,7 @@
       if (confirm('すべてのチェック状態をリセットします。よろしいですか？')) {
         localStorage.removeItem('problemChecks');
         localStorage.removeItem('oshiCounts');
+        localStorage.removeItem('likeCounts');
         alert('チェック状態がリセットされました。ページを更新します。');
         location.reload(); // ページをリロードして変更を反映
       }

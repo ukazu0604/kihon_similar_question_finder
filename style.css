@@ -32,16 +32,20 @@
   align-items: center;
   gap: 8px;
 }
-.oshi-container {
+.reaction-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 2px;
   font-size: 12px;
+  margin-left: 5px; /* 出典テキストとの間に少し余白 */
 }
-.oshi-button {
+.reaction-button {
   background: none;
   border: none;
   cursor: pointer;
   padding: 0;
   font-size: 16px;
+}
+.reaction-button:nth-of-type(2) {
+  margin-left: 5px; /* 👍ボタンの左に少し余白 */
 }
