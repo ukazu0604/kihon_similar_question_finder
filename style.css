@@ -27,12 +27,24 @@ body {
   font-size: 14px;
   opacity: 0.9;
 }
-.model-info {
+.header-info-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background: #f8f9fa;
-  padding: 15px 20px;
+  padding: 10px 20px;
   border-bottom: 1px solid #e0e0e0;
-  font-size: 14px;
+  font-size: 13px;
   color: #666;
+  flex-wrap: wrap; /* 画面が狭い時に折り返す */
+  gap: 10px;
+}
+.model-info {
+  padding: 0;
+  border-bottom: none;
+}
+.total-reactions span {
+  margin: 0 4px;
 }
 .major-category {
   border-bottom: 1px solid #e0e0e0;
@@ -194,6 +206,10 @@ body {
   }
   .header h1 {
     font-size: 20px;
+  }
+  .header-info-container {
+    justify-content: center; /* スマホ表示では中央揃え */
+    padding: 10px 15px;
   }
   .detail-container {
     padding: 15px;

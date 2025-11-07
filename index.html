@@ -12,7 +12,10 @@
       <h1>📚 類似問題ファインダー</h1>
       <p>基本情報技術者試験</p>
     </div>
-    <div class="model-info" id="model-info">読み込み中...</div>
+    <div class="header-info-container">
+      <div class="model-info" id="model-info">読み込み中...</div>
+      <div class="total-reactions" id="total-reactions"></div>
+    </div>
     <div id="category-list"></div>
     <div style="text-align: center; padding: 20px;">
       <button id="reset-storage-button">チェック状態をリセット</button>
@@ -71,6 +74,7 @@
         loadChecks(); // チェック状態を読み込む
         calculateReferenceCounts(data.categories);
         renderIndex(data.categories);
+        renderTotalReactions(); // 全体のリアクション数を表示
       } catch (e) {
         modelInfo.textContent = 'データ読み込みエラー';
         console.error(e);
@@ -134,6 +138,19 @@
       localStorage.setItem('problemChecks', JSON.stringify(problemChecks));
     }
 
+    // 全体のリアクション数を計算して表示する
+    function renderTotalReactions() {
+      const totalOshi = Object.values(oshiCounts).reduce((sum, count) => sum + count, 0);
+      const totalLike = Object.values(likeCounts).reduce((sum, count) => sum + count, 0);
+      const totalFear = Object.values(fearCounts).reduce((sum, count) => sum + count, 0);
+
+      const totalReactionsEl = document.getElementById('total-reactions');
+      if (totalReactionsEl) {
+        totalReactionsEl.innerHTML = `
+          <span>❤️ ${totalOshi}</span> | <span>👍 ${totalLike}</span> | <span>😱 ${totalFear}</span>
+        `;
+      }
+    }
 
 
     function calculateReferenceCounts(categories) {
@@ -473,6 +490,9 @@
               countElement.textContent = targetCounts[problemId];
             }
           });
+
+          // 全体の合計数も更新
+          renderTotalReactions();
         });
       });
     }
@@ -515,6 +535,7 @@
         localStorage.removeItem('oshiCounts');
         localStorage.removeItem('likeCounts');
         localStorage.removeItem('fearCounts');
+        renderTotalReactions(); // 表示を0に更新
         alert('チェック状態がリセットされました。ページを更新します。');
         location.reload(); // ページをリロードして変更を反映
       }
