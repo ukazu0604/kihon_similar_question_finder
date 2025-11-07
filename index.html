@@ -244,9 +244,10 @@
         
         // チェックボックスのHTMLを生成
         let checksHtml = '<div class="check-container">';
+        const mainProblemUniqueId = `${main.出典}-${main.問題番号}`; // ★ 固有IDを生成
         for (let i = 0; i < 4; i++) {
-          const isChecked = problemChecks[main.問題番号] && problemChecks[main.問題番号][i];
-          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${main.問題番号}" data-check-index="${i}"></div>`;
+          const isChecked = problemChecks[mainProblemUniqueId] && problemChecks[mainProblemUniqueId][i];
+          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${mainProblemUniqueId}" data-check-index="${i}"></div>`;
         }
         checksHtml += '</div>';
 
@@ -290,9 +291,10 @@
 
             // 類似問題用のチェックボックスHTMLを生成
             let simChecksHtml = '<div class="check-container">';
+            const simProblemUniqueId = `${s.出典}-${s.問題番号}`; // ★ 固有IDを生成
             for (let i = 0; i < 4; i++) {
-              const isChecked = problemChecks[s.問題番号] && problemChecks[s.問題番号][i];
-              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${s.問題番号}" data-check-index="${i}"></div>`;
+              const isChecked = problemChecks[simProblemUniqueId] && problemChecks[simProblemUniqueId][i];
+              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${simProblemUniqueId}" data-check-index="${i}"></div>`;
             }
             simChecksHtml += '</div>';
             
@@ -349,7 +351,18 @@
           problemChecks[problemId][checkIndex] = !problemChecks[problemId][checkIndex];
           e.target.classList.toggle('checked');
           e.target.classList.toggle('c' + checkIndex);
+          const newCheckedState = !problemChecks[problemId][checkIndex];
+          problemChecks[problemId][checkIndex] = newCheckedState;
           saveChecks(); // 変更を保存
+
+          // 画面に表示されている同じ問題IDを持つすべてのチェックボックスの状態を更新する
+          document.querySelectorAll(`.check-box[data-problem-id="${problemId}"][data-check-index="${checkIndex}"]`).forEach(boxToUpdate => {
+            if (newCheckedState) {
+              boxToUpdate.classList.add('checked', 'c' + checkIndex);
+            } else {
+              boxToUpdate.classList.remove('checked', 'c' + checkIndex);
+            }
+          });
         });
       });
     }
