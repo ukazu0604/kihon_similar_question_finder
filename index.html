@@ -50,6 +50,9 @@
     </div>
     <div class="model-info" id="model-info">読み込み中...</div>
     <div id="category-list"></div>
+    <div style="text-align: center; padding: 20px;">
+      <button id="reset-storage-button">チェック状態をリセット</button>
+    </div>
   </div>
 
   <div id="detail-view">
@@ -244,10 +247,9 @@
         
         // チェックボックスのHTMLを生成
         let checksHtml = '<div class="check-container">';
-        const mainProblemUniqueId = `${main.出典}-${main.問題番号}`; // ★ 固有IDを生成
         for (let i = 0; i < 4; i++) {
-          const isChecked = problemChecks[mainProblemUniqueId] && problemChecks[mainProblemUniqueId][i];
-          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${mainProblemUniqueId}" data-check-index="${i}"></div>`;
+          const isChecked = problemChecks[main.問題番号] && problemChecks[main.問題番号][i];
+          checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${main.問題番号}" data-check-index="${i}"></div>`;
         }
         checksHtml += '</div>';
 
@@ -291,10 +293,9 @@
 
             // 類似問題用のチェックボックスHTMLを生成
             let simChecksHtml = '<div class="check-container">';
-            const simProblemUniqueId = `${s.出典}-${s.問題番号}`; // ★ 固有IDを生成
             for (let i = 0; i < 4; i++) {
-              const isChecked = problemChecks[simProblemUniqueId] && problemChecks[simProblemUniqueId][i];
-              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${simProblemUniqueId}" data-check-index="${i}"></div>`;
+              const isChecked = problemChecks[s.問題番号] && problemChecks[s.問題番号][i];
+              simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${s.問題番号}" data-check-index="${i}"></div>`;
             }
             simChecksHtml += '</div>';
             
@@ -348,9 +349,6 @@
           }
 
           // 状態をトグル
-          problemChecks[problemId][checkIndex] = !problemChecks[problemId][checkIndex];
-          e.target.classList.toggle('checked');
-          e.target.classList.toggle('c' + checkIndex);
           const newCheckedState = !problemChecks[problemId][checkIndex];
           problemChecks[problemId][checkIndex] = newCheckedState;
           saveChecks(); // 変更を保存
@@ -395,6 +393,16 @@
       currentSortOrder = e.target.value;
       const currentMiddleCat = document.getElementById('detail-title').textContent;
       showDetail(currentMiddleCat, false); // ユーザー操作なのでisPopStateはfalse
+    });
+
+    // ローカルストレージリセットボタンのイベントリスナー
+    document.getElementById('reset-storage-button').addEventListener('click', () => {
+      // 誤操作防止のために確認ダイアログを表示
+      if (confirm('すべてのチェック状態をリセットします。よろしいですか？')) {
+        localStorage.removeItem('problemChecks');
+        alert('チェック状態がリセットされました。ページを更新します。');
+        location.reload(); // ページをリロードして変更を反映
+      }
     });
 
     loadData();
