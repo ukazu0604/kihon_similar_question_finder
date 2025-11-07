@@ -187,12 +187,32 @@
 
         const middleCategoryList = document.createElement('div');
         groupedByLargeCategory[largeCat].forEach(({ middleCat, problems }) => {
+          // カテゴリごとのリアクション合計を計算
+          let totalOshi = 0;
+          let totalLike = 0;
+          let totalFear = 0;
+          problems.forEach(item => {
+            const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+            totalOshi += oshiCounts[problemId] || 0;
+            totalLike += likeCounts[problemId] || 0;
+            totalFear += fearCounts[problemId] || 0;
+          });
+
+          // 表示用のHTMLを生成
+          const reactionSummaryHtml = `
+            <div class="reaction-summary">
+              <span>❤️ ${totalOshi}</span>
+              <span>👍 ${totalLike}</span>
+              <span>😱 ${totalFear}</span>
+            </div>`;
+
           const item = document.createElement('div');
           item.className = 'middle-category-item';
           item.innerHTML = `
             <a href="#" class="middle-category-link" data-cat="${middleCat}">
               <span class="category-name">${middleCat}</span>
-              <div>
+              <div class="category-meta">
+                ${reactionSummaryHtml}
                 <span class="problem-count">${problems.length}問</span>
                 <span class="arrow">›</span>
               </div>
