@@ -282,3 +282,9 @@ body {
 .reaction-button + .reaction-count {
   margin-left: -2px; /* ボタンとカウントの間のスペースを少し詰める */
 }
+
+/* 復習が必要な問題のハイライト */
+.problem-card.needs-review {
+  border: 2px solid #ff9800; /* オレンジ色の枠線 */
+  box-shadow: 0 0 12px rgba(255, 152, 0, 0.6); /* オレンジ色のグロー効果 */
+}

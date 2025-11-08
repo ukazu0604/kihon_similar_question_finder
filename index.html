@@ -128,13 +128,26 @@
     // ローカルストレージからチェック状態を読み込む
     function loadChecks() {
       const storedChecks = localStorage.getItem('problemChecks');
-      if (storedChecks) {
-        problemChecks = JSON.parse(storedChecks);
+      if (!storedChecks) return;
+
+      const parsedChecks = JSON.parse(storedChecks);
+      // 古いデータ構造（ブール値の配列）からの移行処理
+      for (const problemId in parsedChecks) {
+        if (Array.isArray(parsedChecks[problemId]) && typeof parsedChecks[problemId][0] === 'boolean') {
+          problemChecks[problemId] = parsedChecks[problemId].map(isChecked => ({
+            checked: isChecked,
+            timestamp: isChecked ? Date.now() : null // 古いデータはとりあえず今の時刻で
+          }));
+        } else {
+          problemChecks[problemId] = parsedChecks[problemId];
+        }
       }
     }
 
     // ローカルストレージにチェック状態を保存する
     function saveChecks() {
+      // JSONにシリアライズできない大きな値や循環参照がないか確認
+      // ここでは単純に保存
       localStorage.setItem('problemChecks', JSON.stringify(problemChecks));
     }
 
@@ -252,6 +265,42 @@
       });
     }
 
+    // 問題をハイライトすべきか判定する関数
+    function shouldHighlightProblem(problemId) {
+      const checks = problemChecks[problemId];
+      if (!checks) return false;
+
+      const now = Date.now();
+      const reviewIntervals = [
+        1 * 60 * 60 * 1000,   // 1時間
+        1 * 24 * 60 * 60 * 1000,  // 1日
+        6 * 24 * 60 * 60 * 1000,  // 6日
+        Infinity // 4つ目はハイライトしない
+      ];
+
+      // 最後のチェックがどの段階かを見つける
+      let lastCheckedIndex = -1;
+      for (let i = checks.length - 1; i >= 0; i--) {
+        if (checks[i] && checks[i].checked) {
+          lastCheckedIndex = i;
+          break;
+        }
+      }
+
+      // どのチェックもされていない場合はハイライトしない
+      if (lastCheckedIndex === -1) {
+        return false;
+      }
+
+      // 最後のチェックのタイムスタンプと経過時間を取得
+      const lastCheck = checks[lastCheckedIndex];
+      const elapsedTime = now - lastCheck.timestamp;
+      const requiredInterval = reviewIntervals[lastCheckedIndex];
+
+      // 経過時間が指定の間隔を超えていればハイライト対象
+      return elapsedTime > requiredInterval;
+    }
+
     function showDetail(middleCat, isPopState = false) {
       indexView.style.display = 'none';
       detailView.style.display = 'block';
@@ -313,10 +362,15 @@
         const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
         
         const mainProblemUniqueId = `${main.出典}-${main.問題番号}`;
+
+        // ハイライト判定
+        const needsReview = shouldHighlightProblem(mainProblemUniqueId);
+
         // チェックボックスのHTMLを生成
         let checksHtml = '<div class="check-container">';
         for (let i = 0; i < 4; i++) {
-          const isChecked = problemChecks[mainProblemUniqueId] && problemChecks[mainProblemUniqueId][i];
+          const checkData = problemChecks[mainProblemUniqueId]?.[i];
+          const isChecked = checkData && checkData.checked;
           checksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${mainProblemUniqueId}" data-check-index="${i}"></div>`;
         }
         checksHtml += '</div>';
@@ -335,7 +389,7 @@
             <span class="reaction-count">${mainFearCount}</span>
           </div>`;
 
-        card.className = 'problem-card';
+        card.className = `problem-card ${needsReview ? 'needs-review' : ''}`;
         let html = `
           <a href="${mainProblemLink}" target="_blank" class="problem-panel main-problem">
             <div class="problem-number">問題: ${main.問題番号}</div>
@@ -377,7 +431,7 @@
             const simProblemUniqueId = `${s.出典}-${s.問題番号}`;
             let simChecksHtml = '<div class="check-container">';
             for (let i = 0; i < 4; i++) {
-              const isChecked = problemChecks[simProblemUniqueId] && problemChecks[simProblemUniqueId][i];
+              const isChecked = problemChecks[simProblemUniqueId]?.[i]?.checked;
               simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${simProblemUniqueId}" data-check-index="${i}"></div>`;
             }
             simChecksHtml += '</div>';
@@ -442,12 +496,17 @@
 
           // チェック状態の初期化
           if (!problemChecks[problemId]) {
-            problemChecks[problemId] = [false, false, false, false];
+            problemChecks[problemId] = Array(4).fill(null).map(() => ({ checked: false, timestamp: null }));
           }
 
           // 状態をトグル
-          const newCheckedState = !problemChecks[problemId][checkIndex];
-          problemChecks[problemId][checkIndex] = newCheckedState;
+          const currentCheck = problemChecks[problemId][checkIndex];
+          const newCheckedState = !currentCheck.checked;
+
+          problemChecks[problemId][checkIndex] = {
+            checked: newCheckedState,
+            timestamp: newCheckedState ? Date.now() : null
+          };
           saveChecks(); // 変更を保存
 
           // 画面に表示されている同じ問題IDとインデックスを持つすべてのチェックボックスの表示を更新
@@ -457,6 +516,14 @@
             } else {
               boxToUpdate.classList.remove('checked', 'c' + checkIndex);
             }
+          });
+
+          // ハイライト状態もリアルタイムで更新
+          const needsReview = shouldHighlightProblem(problemId);
+          document.querySelectorAll(`.problem-card`).forEach(card => {
+            const panel = card.querySelector(`.problem-panel[data-problem-id="${problemId}"]`);
+            if (!panel) return; // 関係ないカードはスキップ
+            card.classList.toggle('needs-review', needsReview);
           });
         });
       });
