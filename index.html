@@ -228,6 +228,16 @@
             totalFear += fearCounts[problemId] || 0;
           });
 
+          // このカテゴリにハイライトすべき問題があるかチェック
+          let hasReviewItems = false;
+          for (const item of problems) {
+            const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+            if (shouldHighlightProblem(problemId)) {
+              hasReviewItems = true;
+              break; // 1つでも見つかればチェック終了
+            }
+          }
+
           // 表示用のHTMLを生成
           const reactionSummaryHtml = `
             <div class="reaction-summary">
@@ -239,7 +249,7 @@
           const item = document.createElement('div');
           item.className = 'middle-category-item';
           item.innerHTML = `
-            <a href="#" class="middle-category-link" data-cat="${middleCat}">
+            <a href="#" class="middle-category-link ${hasReviewItems ? 'has-review-items' : ''}" data-cat="${middleCat}">
               <span class="category-name">${middleCat}</span>
               <div class="category-meta">
                 ${reactionSummaryHtml}
@@ -621,25 +631,6 @@
         localStorage.removeItem('oshiCounts');
         localStorage.removeItem('likeCounts');
         localStorage.removeItem('fearCounts');
-        renderTotalReactions(); // 表示を0に更新
-        alert('チェック状態がリセットされました。ページを更新します。');
-        location.reload(); // ページをリロードして変更を反映
-      }
-    });
-
-    // ページの初期化処理
-    async function initializePage() {
-      await loadData(); // データの読み込みを待つ
-      // 初期読み込み時にハッシュがあれば詳細ページを表示
-      const initialHash = location.hash.substring(1);
-      if (initialHash) {
-        showDetail(decodeURIComponent(initialHash), true); // リロード時はスクロール位置を復元するため isPopState=true
-      }
-    }
-    initializePage();
-  </script>
-</body>
-</html>
         renderTotalReactions(); // 表示を0に更新
         alert('チェック状態がリセットされました。ページを更新します。');
         location.reload(); // ページをリロードして変更を反映

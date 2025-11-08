@@ -288,3 +288,11 @@ body {
   border: 2px solid #ff9800; /* オレンジ色の枠線 */
   box-shadow: 0 0 12px rgba(255, 152, 0, 0.6); /* オレンジ色のグロー効果 */
 }
+
+/* トップページで復習項目があるカテゴリをハイライト */
+.middle-category-link.has-review-items .category-name::before {
+  content: '●';
+  color: #ff9800; /* オレンジ色 */
+  margin-right: 8px;
+  font-size: 12px;
+}
