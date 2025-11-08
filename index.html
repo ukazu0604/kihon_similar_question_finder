@@ -610,13 +610,16 @@
       }
     });
 
-    loadData();
-
-    // // 初期読み込み時にハッシュがあれば詳細ページを表示
-    // const initialHash = location.hash.substring(1);
-    // if (initialHash) { // 初期読み込み時のハッシュはユーザー操作と見なす
-    //   showDetail(decodeURIComponent(initialHash), false);
-    // }
+    // ページの初期化処理
+    async function initializePage() {
+      await loadData(); // データの読み込みを待つ
+      // 初期読み込み時にハッシュがあれば詳細ページを表示
+      const initialHash = location.hash.substring(1);
+      if (initialHash) {
+        showDetail(decodeURIComponent(initialHash), true); // リロード時はスクロール位置を復元するため isPopState=true
+      }
+    }
+    initializePage();
   </script>
 </body>
 </html>
