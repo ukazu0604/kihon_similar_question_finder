@@ -296,9 +296,21 @@
       const lastCheck = checks[lastCheckedIndex];
       const elapsedTime = now - lastCheck.timestamp;
       const requiredInterval = reviewIntervals[lastCheckedIndex];
+      const shouldHighlight = elapsedTime > requiredInterval;
+
+      // デバッグ用に時刻情報をコンソールに出力
+      if (lastCheck.timestamp) { // タイムスタンプがある場合のみログ出力
+        console.log(`[Highlight Check] Problem: ${problemId}`, {
+          lastCheckedIndex: lastCheckedIndex,
+          lastCheckTimestamp: new Date(lastCheck.timestamp).toLocaleString(),
+          elapsedHours: (elapsedTime / (1000 * 60 * 60)).toFixed(2),
+          requiredHours: (requiredInterval / (1000 * 60 * 60)).toFixed(2),
+          shouldHighlight: shouldHighlight
+        });
+      }
 
       // 経過時間が指定の間隔を超えていればハイライト対象
-      return elapsedTime > requiredInterval;
+      return shouldHighlight;
     }
 
     function showDetail(middleCat, isPopState = false) {
@@ -503,9 +515,14 @@
           const currentCheck = problemChecks[problemId][checkIndex];
           const newCheckedState = !currentCheck.checked;
 
+          const newTimestamp = newCheckedState ? Date.now() : null;
+          if (newTimestamp) {
+            console.log(`[Check ON] Problem: ${problemId}, Index: ${checkIndex}, Timestamp: ${new Date(newTimestamp).toLocaleString()}`);
+          }
+
           problemChecks[problemId][checkIndex] = {
             checked: newCheckedState,
-            timestamp: newCheckedState ? Date.now() : null
+            timestamp: newTimestamp
           };
           saveChecks(); // 変更を保存
 
@@ -604,6 +621,25 @@
         localStorage.removeItem('oshiCounts');
         localStorage.removeItem('likeCounts');
         localStorage.removeItem('fearCounts');
+        renderTotalReactions(); // 表示を0に更新
+        alert('チェック状態がリセットされました。ページを更新します。');
+        location.reload(); // ページをリロードして変更を反映
+      }
+    });
+
+    // ページの初期化処理
+    async function initializePage() {
+      await loadData(); // データの読み込みを待つ
+      // 初期読み込み時にハッシュがあれば詳細ページを表示
+      const initialHash = location.hash.substring(1);
+      if (initialHash) {
+        showDetail(decodeURIComponent(initialHash), true); // リロード時はスクロール位置を復元するため isPopState=true
+      }
+    }
+    initializePage();
+  </script>
+</body>
+</html>
         renderTotalReactions(); // 表示を0に更新
         alert('チェック状態がリセットされました。ページを更新します。');
         location.reload(); // ページをリロードして変更を反映
