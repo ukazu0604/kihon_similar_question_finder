@@ -332,7 +332,19 @@
     const problems = data.categories[middleCat];
 
     // 選択された並び順に応じてソート
-    if (currentSortOrder === 'ref-desc') {
+    if (currentSortOrder === 'review-first') {
+      problems.sort((a, b) => {
+        const aId = `${a.main_problem.出典}-${a.main_problem.問題番号}`;
+        const bId = `${b.main_problem.出典}-${b.main_problem.問題番号}`;
+        const aNeedsReview = shouldHighlightProblem(aId);
+        const bNeedsReview = shouldHighlightProblem(bId);
+
+        if (aNeedsReview !== bNeedsReview) {
+          return bNeedsReview - aNeedsReview; // true (1) が先に来るように降順ソート
+        }
+        return a.main_problem.問題番号 - b.main_problem.問題番号; // 復習ステータスが同じ場合は問題番号順
+      });
+    } else if (currentSortOrder === 'ref-desc') {
       problems.sort((a, b) => {
         const countA = countsForThisCat[a.main_problem.問題番号] || 0;
         const countB = countsForThisCat[b.main_problem.問題番号] || 0;
