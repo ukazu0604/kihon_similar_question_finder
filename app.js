@@ -13,7 +13,7 @@
 
   async function loadData() {
     try {
-      const res = await fetch('03_html_output/similar_results.json');
+      const res = await fetch('similar_results.json');
       data = await res.json();
 
       // **類似問題を同じ中分類のものだけにフィルタリングする**
@@ -33,6 +33,7 @@
       calculateReferenceCounts(data.categories);
       renderIndex(data.categories);
       renderTotalReactions(); // 全体のリアクション数を表示
+      renderTotalReviewCount(); // 全体の復習数を表示
     } catch (e) {
       modelInfo.textContent = 'データ読み込みエラー';
       console.error(e);
@@ -123,6 +124,29 @@
     }
   }
 
+  // 全体の復習数を計算して表示する
+  function renderTotalReviewCount() {
+    if (!data.categories) return;
+
+    let totalReviewCount = 0;
+    for (const middleCat in data.categories) {
+      for (const item of data.categories[middleCat]) {
+        const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+        if (shouldHighlightProblem(problemId)) {
+          totalReviewCount++;
+        }
+      }
+    }
+
+    const totalReviewEl = document.getElementById('total-review-summary');
+    if (totalReviewEl) {
+      if (totalReviewCount > 0) {
+        totalReviewEl.innerHTML = `<span class="review-count">🔥 ${totalReviewCount}</span>`;
+      } else {
+        totalReviewEl.innerHTML = `<span class="review-count" style="background: none; color: inherit;">😊</span>`;
+      }
+    }
+  }
 
   function calculateReferenceCounts(categories) {
     referenceCounts = {}; // カウント結果を格納するオブジェクトを初期化
@@ -187,10 +211,13 @@
         });
 
         // このカテゴリにハイライトすべき問題があるかチェック
-        let (const item of problems) {
+        let reviewItemCount = 0;
+        for (const item of problems) {
           const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
           if (shouldHighlightProblem(problemId)) {
             reviewItemCount++;
+          }
+        }
         const hasReviewItems = reviewItemCount > 0;
 
         // 復習カウントのHTMLを生成
@@ -516,6 +543,10 @@
           if (!panel) return; // 関係ないカードはスキップ
           card.classList.toggle('needs-review', needsReview);
         });
+
+        // 全体の復習数とカテゴリの復習数も更新
+        renderTotalReviewCount();
+        renderIndex(data.categories);
       });
     });
 

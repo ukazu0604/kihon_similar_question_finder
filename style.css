@@ -307,3 +307,10 @@ body {
   color: #ff6f00;
   line-height: 1.5; /* 絵文字と高さを合わせる */
 }
+
+/* トップページの総合復習カウント */
+#total-review-summary .review-count {
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
