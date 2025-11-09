@@ -87,7 +87,7 @@ def main():
     # デフォルトパスをスクリプトからの相対パスとして定義
     parser.add_argument('--csv_path', type=str, default='../output/fe_siken_all_items_vectors.csv', help='ベクトル化済みCSVファイルのパス')
     parser.add_argument('--config_path', type=str, default='../02_vectorize/config.yaml', help='config.yamlのパス')
-    parser.add_argument('--output_dir', type=str, default='.', help='JSONの出力先ディレクトリ')
+    parser.add_argument('--output_dir', type=str, default='../', help='JSONの出力先ディレクトリ')
     parser.add_argument('--model', type=str)
     args = parser.parse_args()
 

@@ -13,7 +13,7 @@
 
   async function loadData() {
     try {
-      const res = await fetch('similar_results.json');
+      const res = await fetch('03_html_output/similar_results.json');
       data = await res.json();
 
       // **類似問題を同じ中分類のものだけにフィルタリングする**
