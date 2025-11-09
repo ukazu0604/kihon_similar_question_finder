@@ -557,6 +557,7 @@
         });
 
         // 全体の復習数とカテゴリの復習数も更新
+        // 全体の復習数のみ更新（トップページに戻った時にカテゴリ一覧は再描画される）
         renderTotalReviewCount();
         renderIndex(data.categories);
       });
@@ -604,6 +605,9 @@
     detailView.style.display = 'none';
     indexView.style.display = 'block';
     if (!isPopState) { // popstateからの呼び出しでない場合のみスクロール
+      // トップページに戻る際は、必ず最新の状態でカテゴリ一覧を再描画する
+      renderIndex(data.categories);
+      renderTotalReviewCount();
       window.scrollTo(0, 0);
     }
   }
@@ -614,6 +618,9 @@
     if (hash) {
       showDetail(decodeURIComponent(hash), true); // popstateからの呼び出しなのでtrue
     } else {
+      // ブラウザの戻るボタンでトップに来た時も再描画
+      renderIndex(data.categories);
+      renderTotalReviewCount();
       showIndex(true); // popstateからの呼び出しなのでtrue
     }
   });
