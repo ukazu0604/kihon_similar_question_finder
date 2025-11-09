@@ -221,11 +221,9 @@
         const hasReviewItems = reviewItemCount > 0;
 
         // 復習カウントのHTMLを生成
-        let reviewCountHtml;
+        let reviewCountHtml = ''; // デフォルトは空文字列
         if (hasReviewItems) {
           reviewCountHtml = `<span class="review-count">🔥 ${reviewItemCount}</span>`;
-        } else {
-          reviewCountHtml = `<span class="review-count" style="background: none; color: inherit;">😊</span>`;
         }
         
         // 表示用のHTMLを生成
