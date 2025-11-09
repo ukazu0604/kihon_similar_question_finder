@@ -34,6 +34,7 @@
       renderIndex(data.categories);
       renderTotalReactions(); // 全体のリアクション数を表示
       renderTotalReviewCount(); // 全体の復習数を表示
+      renderTotalProgress(); // 全体の進捗を表示
     } catch (e) {
       modelInfo.textContent = 'データ読み込みエラー';
       console.error(e);
@@ -124,6 +125,44 @@
     }
   }
 
+  // 全体の進捗を計算して表示する
+  function renderTotalProgress() {
+    if (!data.categories) return;
+
+    let totalProblems = 0; // 総問題数
+    let totalCheckedCount = 0; // チェックされた総数
+
+    for (const middleCat in data.categories) {
+      const problems = data.categories[middleCat];
+      totalProblems += problems.length;
+      for (const item of problems) {
+        const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+        const checks = problemChecks[problemId];
+        if (checks) {
+          checks.forEach(c => {
+            if (c && c.checked) {
+              totalCheckedCount++;
+            }
+          });
+        }
+      }
+    }
+    const completedProblemsEquivalent = totalCheckedCount / 4; // 4チェックで1問完了と換算
+    const progressPercentage = totalProblems > 0 ? (completedProblemsEquivalent / totalProblems) * 100 : 0;
+
+    const container = document.getElementById('total-progress-container');
+    if (container) {
+      container.innerHTML = `
+        <div class="progress-bar-container">
+          <div class="progress-bar">
+            <div class="progress-bar-inner" style="width: ${progressPercentage.toFixed(2)}%;"></div>
+          </div>
+          <div class="progress-text">${completedProblemsEquivalent.toFixed(2)} / ${totalProblems} 問</div>
+        </div>
+      `;
+    }
+  }
+
   // 全体の復習数を計算して表示する
   function renderTotalReviewCount() {
     if (!data.categories) return;
@@ -210,6 +249,24 @@
           totalFear += fearCounts[problemId] || 0;
         });
 
+        // このカテゴリの進捗を計算
+        let checkedInCategory = 0;
+        problems.forEach(item => {
+          const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+          const checks = problemChecks[problemId];
+          if (checks) {
+            checks.forEach(c => {
+              if (c && c.checked) {
+                checkedInCategory++;
+              }
+            });
+          }
+        });
+        const completedInCategoryEquivalent = checkedInCategory / 4;
+        const categoryProgress = problems.length > 0 ? (completedInCategoryEquivalent / problems.length) * 100 : 0;
+        const progressHtml = `<span class="progress-percentage">${categoryProgress.toFixed(0)}%</span>`;
+
+
         // このカテゴリにハイライトすべき問題があるかチェック
         let reviewItemCount = 0;
         for (const item of problems) {
@@ -240,6 +297,7 @@
             <a href="#" class="middle-category-link ${hasReviewItems ? 'has-review-items' : ''}" data-cat="${middleCat}">
               <span class="category-name">${middleCat}</span>
               <div class="category-meta">
+                ${progressHtml}
                 ${reviewCountHtml}
                 ${reactionSummaryHtml}
                 <span class="problem-count">${problems.length}問</span>
@@ -556,6 +614,7 @@
 
         // 全体の復習数のみ更新（トップページに戻った時にカテゴリ一覧は再描画される）
         renderTotalReviewCount();
+        renderTotalProgress();
       });
     });
 
@@ -604,6 +663,7 @@
       // トップページに戻る際は、必ず最新の状態でカテゴリ一覧を再描画する
       renderIndex(data.categories);
       renderTotalReviewCount();
+      renderTotalProgress();
       window.scrollTo(0, 0);
     }
   }
@@ -617,6 +677,7 @@
       // ブラウザの戻るボタンでトップに来た時も再描画
       renderIndex(data.categories);
       renderTotalReviewCount();
+      renderTotalProgress();
       showIndex(true); // popstateからの呼び出しなのでtrue
     }
   });
@@ -664,6 +725,7 @@
     // 初期読み込み時にハッシュがあれば詳細ページを表示
     const initialHash = location.hash.substring(1);
     if (initialHash) {
+      renderTotalProgress(); // 詳細ページ直アクセスでもプログレスバーは表示
       showDetail(decodeURIComponent(initialHash), true); // リロード時はスクロール位置を復元するため isPopState=true
     }
   }
