@@ -554,10 +554,8 @@
           card.classList.toggle('needs-review', needsReview);
         });
 
-        // 全体の復習数とカテゴリの復習数も更新
         // 全体の復習数のみ更新（トップページに戻った時にカテゴリ一覧は再描画される）
         renderTotalReviewCount();
-        renderIndex(data.categories);
       });
     });
 
