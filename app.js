@@ -187,15 +187,20 @@
         });
 
         // このカテゴリにハイライトすべき問題があるかチェック
-        let hasReviewItems = false;
-        for (const item of problems) {
+        let (const item of problems) {
           const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
           if (shouldHighlightProblem(problemId)) {
-            hasReviewItems = true;
-            break; // 1つでも見つかればチェック終了
-          }
-        }
+            reviewItemCount++;
+        const hasReviewItems = reviewItemCount > 0;
 
+        // 復習カウントのHTMLを生成
+        let reviewCountHtml;
+        if (hasReviewItems) {
+          reviewCountHtml = `<span class="review-count">🔥 ${reviewItemCount}</span>`;
+        } else {
+          reviewCountHtml = `<span class="review-count" style="background: none; color: inherit;">😊</span>`;
+        }
+        
         // 表示用のHTMLを生成
         const reactionSummaryHtml = `
             <div class="reaction-summary">
@@ -210,6 +215,7 @@
             <a href="#" class="middle-category-link ${hasReviewItems ? 'has-review-items' : ''}" data-cat="${middleCat}">
               <span class="category-name">${middleCat}</span>
               <div class="category-meta">
+                ${reviewCountHtml}
                 ${reactionSummaryHtml}
                 <span class="problem-count">${problems.length}問</span>
                 <span class="arrow">›</span>

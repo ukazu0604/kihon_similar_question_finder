@@ -296,3 +296,14 @@ body {
   margin-right: 8px;
   font-size: 12px;
 }
+
+/* トップページの復習カウント */
+.review-count {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: bold;
+  background-color: #ffe8cc; /* 薄いオレンジ */
+  color: #ff6f00;
+  line-height: 1.5; /* 絵文字と高さを合わせる */
+}
