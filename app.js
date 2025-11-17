@@ -9,7 +9,7 @@
   let likeCounts = {}; // いいねカウントを保持するオブジェクト
   let fearCounts = {}; // 恐怖カウントを保持するオブジェクト
   let problemChecks = {}; // チェック状態を保持するオブジェクト
-  let currentSortOrder = 'default'; // 現在の並び順
+  let currentSortOrder = localStorage.getItem('currentSortOrder') || 'default'; // 現在の並び順（localStorageから読み込む）
 
   async function loadData() {
     try {
@@ -315,8 +315,13 @@
       link.addEventListener('click', e => {
         e.preventDefault();
         const cat = e.currentTarget.dataset.cat;
+        console.log(`[カテゴリクリック] カテゴリ「${cat}」がクリックされました。`);
+
         // URLにハッシュを追加して履歴に記録
+        console.log(`[履歴操作] history.pushStateを実行します。ハッシュ: #${encodeURIComponent(cat)}`);
         history.pushState({ category: cat }, `詳細: ${cat}`, `#${encodeURIComponent(cat)}`);
+        
+        console.log(`[画面遷移] showDetail('${cat}', false) を呼び出します。`);
         showDetail(cat, false); // ユーザー操作なのでisPopStateはfalse
       });
     });
@@ -385,7 +390,31 @@
     // 表示中の中分類に対応するカウント結果を取得
     const countsForThisCat = referenceCounts[middleCat] || {};
 
+    // 要件1-2: 復習項目があれば自動で「復習優先」にソート
+    const problemsForCheck = data.categories[middleCat];
+    const hasReviewItems = problemsForCheck.some(item => {
+      const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+      return shouldHighlightProblem(problemId);
+    });
+
+    if (hasReviewItems) {
+      currentSortOrder = 'review-first';
+      // 要件1-3: デバッグログ出力
+      console.log(`[自動並び順変更] カテゴリ「${middleCat}」に復習項目があるため、並び順を「復習優先」に変更しました。`);
+    } else {
+      // 復習項目がない場合は、localStorageに保存された（またはデフォルトの）並び順を適用
+      currentSortOrder = localStorage.getItem('currentSortOrder') || 'default';
+      console.log(`[並び順適用] カテゴリ「${middleCat}」に復習項目がないため、保存された設定「${currentSortOrder}」を適用します。`);
+    }
+    // ドロップダウンの表示を現在の並び順に合わせる
+    document.getElementById('sort-order').value = currentSortOrder;
+
+    renderProblemList(middleCat);
+  }
+
+  function renderProblemList(middleCat) {
     const problems = data.categories[middleCat];
+    const countsForThisCat = referenceCounts[middleCat] || {};
 
     // 選択された並び順に応じてソート
     if (currentSortOrder === 'review-first') {
@@ -431,6 +460,8 @@
       });
     }
 
+    const container = document.getElementById('detail-container');
+    container.innerHTML = '';
     problems.forEach(item => {
       const main = item.main_problem;
       let mainProblemLink = main.リンク;
@@ -440,7 +471,6 @@
       }
 
       const card = document.createElement('div');
-      const mainProblemRefCount = countsForThisCat[main.問題番号] || 0;
       
       const mainProblemUniqueId = `${main.出典}-${main.問題番号}`;
 
@@ -476,7 +506,6 @@
             <div class="problem-number">問題: ${main.問題番号}</div>
             <div class="problem-title">${main.問題名}</div>
             <div class="problem-source">出典: ${main.出典} ${reactionHtml}</div>
-            <div class="problem-meta">被参照回数: ${mainProblemRefCount}回</div>
             ${checksHtml}
           </a>
         `;
@@ -690,8 +719,11 @@
   // 並び順の変更イベント
   document.getElementById('sort-order').addEventListener('change', e => {
     currentSortOrder = e.target.value;
+    console.log(`[並び順変更] ユーザーが手動で「${currentSortOrder}」を選択しました。`);
+    // 要件1-1: 並び順をlocalStorageに保存
+    localStorage.setItem('currentSortOrder', currentSortOrder);
     const currentMiddleCat = document.getElementById('detail-title').textContent;
-    showDetail(currentMiddleCat, false); // ユーザー操作なのでisPopStateはfalse
+    renderProblemList(currentMiddleCat);
   });
 
   // ローカルストレージリセットボタンのイベントリスナー
