@@ -695,6 +695,17 @@
       renderTotalProgress();
       window.scrollTo(0, 0);
     }
+
+    // トップページに復習項目がある場合、最初の復習項目までスクロールする
+    // 描画が完了するのを待つために少し遅延させる
+    setTimeout(() => {
+      const firstReviewCategory = document.querySelector('.middle-category-link.has-review-items');
+      if (firstReviewCategory) {
+        // isPopStateがtrue（ブラウザバックなど）の場合はスクロール位置が復元されるため、
+        // ユーザーの明示的な操作がない場合のみスクロールする
+        if (!isPopState) firstReviewCategory.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 100);
   }
 
   // ブラウザの戻る/進むボタンが押されたときの処理
@@ -759,6 +770,15 @@
     if (initialHash) {
       renderTotalProgress(); // 詳細ページ直アクセスでもプログレスバーは表示
       showDetail(decodeURIComponent(initialHash), true); // リロード時はスクロール位置を復元するため isPopState=true
+    }
+    // 初期表示がトップページの場合、復習項目までスクロール
+    if (!initialHash) {
+      setTimeout(() => {
+        const firstReviewCategory = document.querySelector('.middle-category-link.has-review-items');
+        if (firstReviewCategory) {
+          firstReviewCategory.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 100);
     }
   }
   initializePage();
