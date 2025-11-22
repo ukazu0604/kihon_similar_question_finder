@@ -662,7 +662,7 @@
         renderTotalReviewCount();
         renderTotalProgress();
         // 「未着手のみ表示」がONの場合、リストを再描画して着手済みの項目を消す
-        if (showUntouchedOnly) renderProblemList(document.getElementById('detail-title').textContent);
+        // if (showUntouchedOnly) renderProblemList(document.getElementById('detail-title').textContent);
       });
     });
 
