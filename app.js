@@ -10,6 +10,7 @@
   let fearCounts = {}; // 恐怖カウントを保持するオブジェクト
   let problemChecks = {}; // チェック状態を保持するオブジェクト
   let currentSortOrder = localStorage.getItem('currentSortOrder') || 'default'; // 現在の並び順（localStorageから読み込む）
+  let showUntouchedOnly = false; // 「未着手のみ表示」フィルターの状態
 
   async function loadData() {
     try {
@@ -282,7 +283,7 @@
         if (hasReviewItems) {
           reviewCountHtml = `<span class="review-count">🔥 ${reviewItemCount}</span>`;
         }
-        
+
         // 表示用のHTMLを生成
         const reactionSummaryHtml = `
             <div class="reaction-summary">
@@ -320,7 +321,7 @@
         // URLにハッシュを追加して履歴に記録
         console.log(`[履歴操作] history.pushStateを実行します。ハッシュ: #${encodeURIComponent(cat)}`);
         history.pushState({ category: cat }, `詳細: ${cat}`, `#${encodeURIComponent(cat)}`);
-        
+
         console.log(`[画面遷移] showDetail('${cat}', false) を呼び出します。`);
         showDetail(cat, false); // ユーザー操作なのでisPopStateはfalse
       });
@@ -410,12 +411,28 @@
     document.getElementById('sort-order').value = currentSortOrder;
 
     renderProblemList(middleCat);
+
+    // 「未着手のみ表示」チェックボックスのイベントリスナーを（再）設定
+    const untouchedCheckbox = document.getElementById('show-untouched-only');
+    // 既存のリスナーを削除して重複を防ぐ
+    untouchedCheckbox.replaceWith(untouchedCheckbox.cloneNode(true));
+    document.getElementById('show-untouched-only').addEventListener('change', e => {
+      showUntouchedOnly = e.target.checked;
+      console.log(`[フィルター変更] 未着手のみ表示: ${showUntouchedOnly}`);
+      renderProblemList(middleCat);
+    });
+    // 状態を復元
+    document.getElementById('show-untouched-only').checked = showUntouchedOnly;
   }
 
   function renderProblemList(middleCat) {
-    const problems = data.categories[middleCat];
+    let problems = [...data.categories[middleCat]]; // ソートやフィルタリングのためにコピーを作成
     const countsForThisCat = referenceCounts[middleCat] || {};
 
+    // 「未着手のみ表示」フィルターを適用
+    if (showUntouchedOnly) {
+      problems = problems.filter(item => isProblemUntouched(item));
+    }
     // 選択された並び順に応じてソート
     if (currentSortOrder === 'review-first') {
       problems.sort((a, b) => {
@@ -471,7 +488,7 @@
       }
 
       const card = document.createElement('div');
-      
+
       const mainProblemUniqueId = `${main.出典}-${main.問題番号}`;
 
       // ハイライト判定
@@ -545,7 +562,7 @@
             simChecksHtml += `<div class="check-box ${isChecked ? 'checked c' + i : ''}" data-problem-id="${simProblemUniqueId}" data-check-index="${i}"></div>`;
           }
           simChecksHtml += '</div>';
-          
+
           // 類似問題用のリアクションボタンHTMLを生成
           const simOshiCount = oshiCounts[simProblemUniqueId] || 0;
           const simLikeCount = likeCounts[simProblemUniqueId] || 0;
@@ -644,6 +661,8 @@
         // 全体の復習数のみ更新（トップページに戻った時にカテゴリ一覧は再描画される）
         renderTotalReviewCount();
         renderTotalProgress();
+        // 「未着手のみ表示」がONの場合、リストを再描画して着手済みの項目を消す
+        if (showUntouchedOnly) renderProblemList(document.getElementById('detail-title').textContent);
       });
     });
 
@@ -706,6 +725,21 @@
         if (!isPopState) firstReviewCategory.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     }, 100);
+  }
+
+  // 問題が未着手かどうかを判定するヘルパー関数
+  function isProblemUntouched(item) {
+    const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+    const checks = problemChecks[problemId];
+
+    // チェック情報が存在しない場合は未着手
+    if (!checks) return true;
+
+    // checks配列のいずれかのcheckedプロパティがtrueであれば着手済み
+    const isTouched = checks.some(c => c && c.checked);
+
+    // isTouchedがtrueなら着手済みなので、その逆（false）を返す
+    return !isTouched;
   }
 
   // ブラウザの戻る/進むボタンが押されたときの処理

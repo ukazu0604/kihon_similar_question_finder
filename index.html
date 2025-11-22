@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>基本情報技術者試験 類似問題ファインダー</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div class="container" id="index-view">
     <div class="header">
@@ -39,10 +41,14 @@
         <option value="oshi-desc">推しカウント順</option>
         <option value="like-desc">いいねカウント順</option>
       </select>
+      <label for="show-untouched-only" class="filter-option">
+        <input type="checkbox" id="show-untouched-only"> 未着手のみ表示
+      </label>
     </div>
     <div class="detail-container" id="detail-container"></div>
   </div>
 
   <script src="app.js" defer></script>
 </body>
+
 </html>
