@@ -10,7 +10,7 @@
   let fearCounts = {}; // 恐怖カウントを保持するオブジェクト
   let problemChecks = {}; // チェック状態を保持するオブジェクト
   let currentSortOrder = localStorage.getItem('currentSortOrder') || 'default'; // 現在の並び順（localStorageから読み込む）
-  let showUntouchedOnly = false; // 「未着手のみ表示」フィルターの状態
+  let showUntouchedOnly = localStorage.getItem('showUntouchedOnly') === 'true'; // 「未着手のみ表示」フィルターの状態
 
   async function loadData() {
     try {
@@ -418,6 +418,7 @@
     untouchedCheckbox.replaceWith(untouchedCheckbox.cloneNode(true));
     document.getElementById('show-untouched-only').addEventListener('change', e => {
       showUntouchedOnly = e.target.checked;
+      localStorage.setItem('showUntouchedOnly', showUntouchedOnly); // 状態を保存
       console.log(`[フィルター変更] 未着手のみ表示: ${showUntouchedOnly}`);
       renderProblemList(middleCat);
     });
