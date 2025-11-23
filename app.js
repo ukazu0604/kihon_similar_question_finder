@@ -1,3 +1,5 @@
+import { storage } from './js/storage.js';
+
 (() => {
   let data = {};
   let referenceCounts = {}; // 各問題の被参照回数を格納する
@@ -9,7 +11,7 @@
   let likeCounts = {}; // いいねカウントを保持するオブジェクト
   let fearCounts = {}; // 恐怖カウントを保持するオブジェクト
   let problemChecks = {}; // チェック状態を保持するオブジェクト
-  let currentSortOrder = localStorage.getItem('currentSortOrder') || 'default'; // 現在の並び順（localStorageから読み込む）
+  let currentSortOrder = storage.loadSortOrder('default'); // 現在の並び順（storageから読み込む）
   let showUntouchedOnly = false; // 「未着手のみ表示」フィルターの状態。デフォルトはfalse。
 
   async function loadData() {
@@ -27,10 +29,19 @@
       }
 
       modelInfo.textContent = `使用モデル: ${data.model || 'N/A'}`;
-      loadOshiCounts(); // 推しカウントを読み込む
-      loadLikeCounts(); // いいねカウントを読み込む
-      loadFearCounts(); // 恐怖カウントを読み込む
-      loadChecks(); // チェック状態を読み込む
+      
+      // storageから状態を読み込む
+      oshiCounts = storage.loadOshiCounts();
+      likeCounts = storage.loadLikeCounts();
+      fearCounts = storage.loadFearCounts();
+      
+      const loadedChecks = storage.loadChecks();
+      const { migratedChecks, needsSave } = migrateChecks(loadedChecks);
+      problemChecks = migratedChecks;
+      if (needsSave) {
+        storage.saveChecks(problemChecks); // 移行が発生した場合のみ保存
+      }
+
       calculateReferenceCounts(data.categories);
       renderIndex(data.categories);
       renderTotalReactions(); // 全体のリアクション数を表示
@@ -47,69 +58,19 @@
     return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 
-  // ローカルストレージから推しカウントを読み込む
-  function loadOshiCounts() {
-    const storedOshiCounts = localStorage.getItem('oshiCounts');
-    if (storedOshiCounts) {
-      oshiCounts = JSON.parse(storedOshiCounts);
-    }
-  }
-
-  // ローカルストレージに推しカウントを保存する
-  function saveOshiCounts() {
-    localStorage.setItem('oshiCounts', JSON.stringify(oshiCounts));
-  }
-
-  // ローカルストレージからいいねカウントを読み込む
-  function loadLikeCounts() {
-    const storedLikeCounts = localStorage.getItem('likeCounts');
-    if (storedLikeCounts) {
-      likeCounts = JSON.parse(storedLikeCounts);
-    }
-  }
-
-  // ローカルストレージにいいねカウントを保存する
-  function saveLikeCounts() {
-    localStorage.setItem('likeCounts', JSON.stringify(likeCounts));
-  }
-
-  // ローカルストレージから恐怖カウントを読み込む
-  function loadFearCounts() {
-    const storedFearCounts = localStorage.getItem('fearCounts');
-    if (storedFearCounts) {
-      fearCounts = JSON.parse(storedFearCounts);
-    }
-  }
-
-  // ローカルストレージに恐怖カウントを保存する
-  function saveFearCounts() {
-    localStorage.setItem('fearCounts', JSON.stringify(fearCounts));
-  }
-
-  // ローカルストレージからチェック状態を読み込む
-  function loadChecks() {
-    const storedChecks = localStorage.getItem('problemChecks');
-    if (!storedChecks) return;
-
-    const parsedChecks = JSON.parse(storedChecks);
-    // 古いデータ構造（ブール値の配列）からの移行処理
-    for (const problemId in parsedChecks) {
-      if (Array.isArray(parsedChecks[problemId]) && typeof parsedChecks[problemId][0] === 'boolean') {
-        problemChecks[problemId] = parsedChecks[problemId].map(isChecked => ({
+  // 古いデータ構造（ブール値の配列）からの移行処理
+  function migrateChecks(checks) {
+    let needsSave = false;
+    for (const problemId in checks) {
+      if (Array.isArray(checks[problemId]) && typeof checks[problemId][0] === 'boolean') {
+        needsSave = true;
+        checks[problemId] = checks[problemId].map(isChecked => ({
           checked: isChecked,
           timestamp: isChecked ? Date.now() : null // 古いデータはとりあえず今の時刻で
         }));
-      } else {
-        problemChecks[problemId] = parsedChecks[problemId];
       }
     }
-  }
-
-  // ローカルストレージにチェック状態を保存する
-  function saveChecks() {
-    // JSONにシリアライズできない大きな値や循環参照がないか確認
-    // ここでは単純に保存
-    localStorage.setItem('problemChecks', JSON.stringify(problemChecks));
+    return { migratedChecks: checks, needsSave };
   }
 
   // 全体のリアクション数を計算して表示する
@@ -369,10 +330,8 @@
       const largeCat = titleEl.dataset.largeCat;
       const titleTextEl = titleEl.querySelector('.large-category-title-text');
       const listEl = titleEl.nextElementSibling; // middle-category-listを指す
-      const storageKey = `majorCatCollapsed-${largeCat}`;
-
-      // localStorageから開閉状態を復元。指定がなければ閉じた状態がデフォルト
-      let isCollapsed = localStorage.getItem(storageKey) !== 'false';
+      // storageから開閉状態を復元。指定がなければ閉じた状態がデフォルト
+      let isCollapsed = storage.isMajorCatCollapsed(largeCat);
       if (isCollapsed) {
         listEl.style.display = 'none';
         titleTextEl.innerHTML = `▶ ${largeCat}`; // 閉じた状態の矢印
@@ -386,11 +345,11 @@
         if (currentlyCollapsed) {
           listEl.style.display = ''; // 表示
           titleTextEl.innerHTML = `▼ ${largeCat}`;
-          localStorage.setItem(storageKey, 'false');
+          storage.setMajorCatCollapsed(largeCat, false);
         } else {
           listEl.style.display = 'none'; // 非表示
           titleTextEl.innerHTML = `▶ ${largeCat}`;
-          localStorage.setItem(storageKey, 'true');
+          storage.setMajorCatCollapsed(largeCat, true);
         }
       });
     });
@@ -487,18 +446,18 @@
       // 要件1-3: デバッグログ出力
       console.log(`[自動並び順変更] カテゴリ「${middleCat}」に復習項目があるため、並び順を「復習優先」に変更しました。`);
     } else {
-      // 復習項目がない場合は、localStorageに保存された（またはデフォルトの）並び順を適用
-      currentSortOrder = localStorage.getItem('currentSortOrder') || 'default';
+      // 復習項目がない場合は、storageに保存された（またはデフォルトの）並び順を適用
+      currentSortOrder = storage.loadSortOrder('default');
       console.log(`[並び順適用] カテゴリ「${middleCat}」に復習項目がないため、保存された設定「${currentSortOrder}」を適用します。`);
     }
     // ドロップダウンの表示を現在の並び順に合わせる
     document.getElementById('sort-order').value = currentSortOrder;
 
-    // isPopState（リロードやブラウザバック）の場合のみlocalStorageから状態を復元
+    // isPopState（リロードやブラウザバック）の場合のみstorageから状態を復元
     // 通常の画面遷移ではリセットする
     if (isPopState) {
-      showUntouchedOnly = localStorage.getItem('showUntouchedOnly') === 'true';
-      console.log(`[状態復元] リロードのため、「未着手のみ表示」の状態(${showUntouchedOnly})をlocalStorageから復元しました。`);
+      showUntouchedOnly = storage.loadShowUntouchedOnly();
+      console.log(`[状態復元] リロードのため、「未着手のみ表示」の状態(${showUntouchedOnly})をstorageから復元しました。`);
     } else {
       showUntouchedOnly = false;
       console.log(`[状態リセット] 画面遷移のため、「未着手のみ表示」の状態をリセットしました。`);
@@ -512,7 +471,7 @@
     untouchedCheckbox.replaceWith(untouchedCheckbox.cloneNode(true));
     document.getElementById('show-untouched-only').addEventListener('change', e => {
       showUntouchedOnly = e.target.checked;
-      localStorage.setItem('showUntouchedOnly', showUntouchedOnly); // 状態を保存
+      storage.saveShowUntouchedOnly(showUntouchedOnly); // 状態を保存
       console.log(`[フィルター変更] 未着手のみ表示: ${showUntouchedOnly}`);
       renderProblemList(middleCat);
     });
@@ -734,7 +693,7 @@
           checked: newCheckedState,
           timestamp: newTimestamp
         };
-        saveChecks(); // 変更を保存
+        storage.saveChecks(problemChecks); // 変更を保存
 
         // 画面に表示されている同じ問題IDとインデックスを持つすべてのチェックボックスの表示を更新
         document.querySelectorAll(`.check-box[data-problem-id="${problemId}"][data-check-index="${checkIndex}"]`).forEach(boxToUpdate => {
@@ -770,26 +729,22 @@
         const problemId = e.target.dataset.problemId;
         const reactionType = e.target.dataset.reactionType;
 
-        let targetCounts, saveFunction;
         if (reactionType === 'oshi') {
           oshiCounts[problemId] = (oshiCounts[problemId] || 0) + 1;
-          saveOshiCounts();
-          targetCounts = oshiCounts;
+          storage.saveOshiCounts(oshiCounts);
         } else if (reactionType === 'like') {
           likeCounts[problemId] = (likeCounts[problemId] || 0) + 1;
-          saveLikeCounts();
-          targetCounts = likeCounts;
+          storage.saveLikeCounts(likeCounts);
         } else if (reactionType === 'fear') {
           fearCounts[problemId] = (fearCounts[problemId] || 0) + 1;
-          saveFearCounts();
-          targetCounts = fearCounts;
+          storage.saveFearCounts(fearCounts);
         }
 
         // 画面に表示されている同じ問題IDを持つすべてのカウント表示を更新
         document.querySelectorAll(`.reaction-button[data-problem-id="${problemId}"][data-reaction-type="${reactionType}"]`).forEach(btnToUpdate => {
           const countElement = btnToUpdate.nextElementSibling;
           if (countElement && countElement.classList.contains('reaction-count')) {
-            countElement.textContent = targetCounts[problemId];
+            countElement.textContent = (reactionType === 'oshi' ? oshiCounts[problemId] : reactionType === 'like' ? likeCounts[problemId] : fearCounts[problemId]);
           }
         });
 
@@ -860,8 +815,8 @@
   document.getElementById('sort-order').addEventListener('change', e => {
     currentSortOrder = e.target.value;
     console.log(`[並び順変更] ユーザーが手動で「${currentSortOrder}」を選択しました。`);
-    // 要件1-1: 並び順をlocalStorageに保存
-    localStorage.setItem('currentSortOrder', currentSortOrder);
+    // 要件1-1: 並び順をstorageに保存
+    storage.saveSortOrder(currentSortOrder);
     const currentMiddleCat = document.getElementById('detail-title').textContent;
     renderProblemList(currentMiddleCat);
   });
@@ -869,17 +824,17 @@
   // ローカルストレージリセットボタンのイベントリスナー
   document.getElementById('reset-storage-button').addEventListener('click', () => {
     // 誤操作防止のために確認ダイアログを表示
-    if (confirm('すべてのチェック状態をリセットします。よろしいですか？')) {
-      localStorage.removeItem('problemChecks');
-      localStorage.removeItem('oshiCounts');
-      localStorage.removeItem('likeCounts');
-      localStorage.removeItem('fearCounts');
+    if (confirm('すべてのチェック状態とリアクションをリセットします。よろしいですか？')) {
+      storage.resetAll();
+      
       // グローバル変数をリセット
       problemChecks = {};
       oshiCounts = {};
       likeCounts = {};
       fearCounts = {};
+
       renderTotalReactions(); // 表示を0に更新
+      
       // 現在表示されているのが詳細ページならインデックスを再描画
       if (detailView.style.display === 'block') {
         const currentMiddleCat = document.getElementById('detail-title').textContent;
