@@ -235,9 +235,14 @@
     }).forEach(largeCat => {
       const largeCategorySection = document.createElement('div');
       largeCategorySection.className = 'major-category';
-      largeCategorySection.innerHTML = `<div class="major-title">${largeCat}</div>`;
+
+      const majorTitle = document.createElement('div');
+      majorTitle.className = 'major-title';
+      majorTitle.dataset.largeCat = largeCat; // データ属性に大項目名を保存
+      largeCategorySection.appendChild(majorTitle); // majorTitleをセクションに追加
 
       const middleCategoryList = document.createElement('div');
+      middleCategoryList.className = 'middle-category-list'; // クラスを追加
       groupedByLargeCategory[largeCat].forEach(({ middleCat, problems }) => {
         // カテゴリごとのリアクション合計を計算
         let totalOshi = 0;
@@ -309,6 +314,36 @@
       });
       largeCategorySection.appendChild(middleCategoryList);
       categoryList.appendChild(largeCategorySection);
+    });
+
+    // 大項目の開閉機能を追加
+    document.querySelectorAll('.major-title').forEach(titleEl => {
+      const largeCat = titleEl.dataset.largeCat;
+      const listEl = titleEl.nextElementSibling; // middle-category-listを指す
+      const storageKey = `majorCatCollapsed-${largeCat}`;
+
+      // localStorageから開閉状態を復元
+      let isCollapsed = localStorage.getItem(storageKey) === 'true';
+      if (isCollapsed) {
+        listEl.style.display = 'none';
+        titleEl.innerHTML = `▶ ${largeCat}`; // 閉じた状態の矢印
+      } else {
+        listEl.style.display = ''; // デフォルト表示
+        titleEl.innerHTML = `▼ ${largeCat}`; // 開いた状態の矢印
+      }
+
+      titleEl.addEventListener('click', () => {
+        const currentlyCollapsed = listEl.style.display === 'none';
+        if (currentlyCollapsed) {
+          listEl.style.display = ''; // 表示
+          titleEl.innerHTML = `▼ ${largeCat}`;
+          localStorage.setItem(storageKey, 'false');
+        } else {
+          listEl.style.display = 'none'; // 非表示
+          titleEl.innerHTML = `▶ ${largeCat}`;
+          localStorage.setItem(storageKey, 'true');
+        }
+      });
     });
 
     // イベント設定
