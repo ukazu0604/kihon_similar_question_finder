@@ -10,7 +10,7 @@
   let fearCounts = {}; // 恐怖カウントを保持するオブジェクト
   let problemChecks = {}; // チェック状態を保持するオブジェクト
   let currentSortOrder = localStorage.getItem('currentSortOrder') || 'default'; // 現在の並び順（localStorageから読み込む）
-  let showUntouchedOnly = localStorage.getItem('showUntouchedOnly') === 'true'; // 「未着手のみ表示」フィルターの状態
+  let showUntouchedOnly = false; // 「未着手のみ表示」フィルターの状態。デフォルトはfalse。
 
   async function loadData() {
     try {
@@ -409,6 +409,16 @@
     }
     // ドロップダウンの表示を現在の並び順に合わせる
     document.getElementById('sort-order').value = currentSortOrder;
+
+    // isPopState（リロードやブラウザバック）の場合のみlocalStorageから状態を復元
+    // 通常の画面遷移ではリセットする
+    if (isPopState) {
+      showUntouchedOnly = localStorage.getItem('showUntouchedOnly') === 'true';
+      console.log(`[状態復元] リロードのため、「未着手のみ表示」の状態(${showUntouchedOnly})をlocalStorageから復元しました。`);
+    } else {
+      showUntouchedOnly = false;
+      console.log(`[状態リセット] 画面遷移のため、「未着手のみ表示」の状態をリセットしました。`);
+    }
 
     renderProblemList(middleCat);
 
