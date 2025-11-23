@@ -60,7 +60,7 @@ def main():
         # pytest.main() は終了コードを返す (0は成功、それ以外は失敗)
         # 引数を指定しないことで、pytestがカレントディレクトリからテストを自動検出する
         print("pytestを実行します...")
-        exit_code = pytest.main(["-v", "test_main_page.py", "test_browser_console.py", "test_ui_interactions.py"])
+        exit_code = pytest.main(["-v", "test_main_page.py", "test_browser_console.py", "test_ui_interactions.py", "test_mobile_view.py"])
 
         # 4. スクリプト全体の終了コードをpytestの結果に合わせる
         if exit_code != 0:
