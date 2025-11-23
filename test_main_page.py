@@ -53,6 +53,14 @@ def test_untouched_filter_does_not_hide_on_check(driver):
     driver.execute_script("localStorage.clear();")
     driver.refresh()
     wait_for_page_load(driver)
+
+    # アコーディオンを開く
+    major_title = driver.find_element(By.CLASS_NAME, "major-title")
+    list_el = major_title.find_element(By.XPATH, "following-sibling::div[contains(@class, 'middle-category-list')]")
+    if not list_el.is_displayed():
+        major_title.click()
+        WebDriverWait(driver, 2).until(EC.visibility_of(list_el))
+
     driver.find_element(By.CSS_SELECTOR, ".middle-category-link").click()
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "detail-container")))
 
