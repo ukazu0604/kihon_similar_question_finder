@@ -236,21 +236,21 @@ body {
   gap: 4px;
 }
 .check-box {
-  width: 16px;
-  height: 16px;
+  width: 24px; /* 大きく */
+  height: 24px; /* 大きく */
   border: 1px solid #ccc;
   border-radius: 3px;
   cursor: pointer;
   background-color: #f0f0f0;
   position: relative; /* チェックマークの位置基準にする */
-  line-height: 16px; /* チェックマークを上下中央に配置しやすくする */
+  line-height: 24px; /* チェックマークを上下中央に配置しやすくする */
   text-align: center; /* チェックマークを左右中央に配置しやすくする */
 }
 .check-box.checked::after {
   content: '✔'; /* 表示するチェックマーク */
   color: rgba(0, 0, 0, 0.6); /* チェックマークの色を少し濃く */
   font-weight: bold;
-  font-size: 12px;
+  font-size: 18px; /* 大きく */
 }
 
 .check-box.checked.c0 { background-color: #ffadad; } /* Red */
