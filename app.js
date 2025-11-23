@@ -233,13 +233,60 @@
       const numB = parseInt(b.split('.')[0], 10);
       return numA - numB;
     }).forEach(largeCat => {
+      // --- START: New logic for large category summary ---
+      let largeCatTotalProblems = 0;
+      let largeCatTotalChecked = 0;
+      let largeCatTotalReviewItems = 0;
+
+      groupedByLargeCategory[largeCat].forEach(({ problems }) => {
+        largeCatTotalProblems += problems.length;
+        problems.forEach(item => {
+          const problemId = `${item.main_problem.出典}-${item.main_problem.問題番号}`;
+          // Calculate checked count for progress
+          const checks = problemChecks[problemId];
+          if (checks) {
+            checks.forEach(c => {
+              if (c && c.checked) largeCatTotalChecked++;
+            });
+          }
+          // Calculate review items
+          if (shouldHighlightProblem(problemId)) {
+            largeCatTotalReviewItems++;
+          }
+        });
+      });
+
+      const largeCatCompletedEquivalent = largeCatTotalChecked / 4;
+      const largeCatProgress = largeCatTotalProblems > 0 ? (largeCatCompletedEquivalent / largeCatTotalProblems) * 100 : 0;
+      // --- END: New logic ---
+
       const largeCategorySection = document.createElement('div');
       largeCategorySection.className = 'major-category';
 
+      // -- Reworked majorTitle --
       const majorTitle = document.createElement('div');
       majorTitle.className = 'major-title';
-      majorTitle.dataset.largeCat = largeCat; // データ属性に大項目名を保存
-      largeCategorySection.appendChild(majorTitle); // majorTitleをセクションに追加
+      majorTitle.dataset.largeCat = largeCat;
+      majorTitle.style.display = 'flex';
+      majorTitle.style.justifyContent = 'space-between';
+      majorTitle.style.alignItems = 'center';
+
+      const titleTextEl = document.createElement('span');
+      titleTextEl.className = 'large-category-title-text';
+      // title innerHTML will be set by expand/collapse logic later
+
+      const summaryEl = document.createElement('div');
+      summaryEl.className = 'large-category-summary';
+      summaryEl.innerHTML = `
+        <span class="progress-percentage">${largeCatProgress.toFixed(0)}%</span>
+        ${largeCatTotalReviewItems > 0 ? `<span class="review-count">🔥 ${largeCatTotalReviewItems}</span>` : ''}
+        <span class="problem-count">${largeCatTotalProblems}問</span>
+      `;
+
+      majorTitle.appendChild(titleTextEl);
+      majorTitle.appendChild(summaryEl);
+      largeCategorySection.appendChild(majorTitle);
+      // -- End rework --
 
       const middleCategoryList = document.createElement('div');
       middleCategoryList.className = 'middle-category-list'; // クラスを追加
@@ -316,31 +363,33 @@
       categoryList.appendChild(largeCategorySection);
     });
 
+    // --- Reworked event listeners ---
     // 大項目の開閉機能を追加
     document.querySelectorAll('.major-title').forEach(titleEl => {
       const largeCat = titleEl.dataset.largeCat;
+      const titleTextEl = titleEl.querySelector('.large-category-title-text');
       const listEl = titleEl.nextElementSibling; // middle-category-listを指す
       const storageKey = `majorCatCollapsed-${largeCat}`;
 
-      // localStorageから開閉状態を復元
-      let isCollapsed = localStorage.getItem(storageKey) === 'true';
+      // localStorageから開閉状態を復元。指定がなければ閉じた状態がデフォルト
+      let isCollapsed = localStorage.getItem(storageKey) !== 'false';
       if (isCollapsed) {
         listEl.style.display = 'none';
-        titleEl.innerHTML = `▶ ${largeCat}`; // 閉じた状態の矢印
+        titleTextEl.innerHTML = `▶ ${largeCat}`; // 閉じた状態の矢印
       } else {
         listEl.style.display = ''; // デフォルト表示
-        titleEl.innerHTML = `▼ ${largeCat}`; // 開いた状態の矢印
+        titleTextEl.innerHTML = `▼ ${largeCat}`; // 開いた状態の矢印
       }
 
       titleEl.addEventListener('click', () => {
         const currentlyCollapsed = listEl.style.display === 'none';
         if (currentlyCollapsed) {
           listEl.style.display = ''; // 表示
-          titleEl.innerHTML = `▼ ${largeCat}`;
+          titleTextEl.innerHTML = `▼ ${largeCat}`;
           localStorage.setItem(storageKey, 'false');
         } else {
           listEl.style.display = 'none'; // 非表示
-          titleEl.innerHTML = `▶ ${largeCat}`;
+          titleTextEl.innerHTML = `▶ ${largeCat}`;
           localStorage.setItem(storageKey, 'true');
         }
       });
